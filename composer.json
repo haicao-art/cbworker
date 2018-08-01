@@ -1,13 +1,12 @@
 {
     "name": "crababy/cbworker",
-    "description": "crababy framework",
+    "description": "cbworker framework",
     "require": {
         "workerman/workerman": "^3.5"
     },
     "autoload": {
         "psr-4": {
-          "Cbworker\\": "src",
-          "Application\\": "Application"
+          "Cbworker\\": "src"
         }
     },
     "authors": [
