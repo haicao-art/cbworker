@@ -1,0 +1,19 @@
+{
+    "name": "crababy/cbworker",
+    "description": "crababy framework",
+    "require": {
+        "workerman/workerman": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+          "Cbworker\\": "src",
+          "Application\\": "Application"
+        }
+    },
+    "authors": [
+        {
+            "name": "xierui",
+            "email": "727145108@qq.com"
+        }
+    ]
+}
