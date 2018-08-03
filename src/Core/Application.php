@@ -77,7 +77,7 @@ class Application extends Container  {
     } catch (\Exception $ex) {
       $rsp['code'] = $ex->getCode();
       $rsp['desc'] = $ex->getMessage();
-      Helper::logger("Redis:", $ex->getMessage(), Helper::ERROR);
+      Helper::logger("Run:", $ex->getMessage(), Helper::ERROR);
     }
     $this->formatMessage($rsp);
   }
@@ -92,7 +92,7 @@ class Application extends Container  {
       $this->getLanguage();
       $task_data = json_decode($req, true);
       list($class, $method) = explode('/', $task_data['uri']);
-      $task_controller = "\Application\Iot\Task\\".ucfirst($class);
+      $task_controller = $this['config']['namespace'].ucfirst($class);
       if(!class_exists($task_controller) || !method_exists($task_controller, $method)) {
         throw new \Exception("Task Controller {$task_controller} or Method {$method} is Not Exists", 1002);
       }
@@ -116,7 +116,7 @@ class Application extends Container  {
     $class = isset($_info[0]) && !empty($_info[0]) ? $_info[0] : 'index';
     $method = isset($_info[1]) && !empty($_info[0]) ? $_info[1] : 'index';
 
-    $controller = "\Application\Iot\Controller\\".ucfirst($class);
+    $controller = $this['config']['namespace'].ucfirst($class);
 
     if(!class_exists($controller) || !method_exists($controller, $method)) {
       throw new \Exception("Controller {$class} or Method {$method} is Not Exists", 1002);
