@@ -49,7 +49,8 @@ class Application extends Container  {
     });
 
     $this->setShared('lang', function() {
-      return $this['config']['language'];
+      require_once ROOT_PATH . '/Config/Lang.php';
+      return $lang;
     });
     //监听事件
     Event::listen('init', function() {});
