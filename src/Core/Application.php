@@ -114,8 +114,8 @@ class Application extends Container  {
   private function methodDispatch($req, &$rsp) {
     $url_info = parse_url($_SERVER['REQUEST_URI']);
     $_info = explode('/', $url_info['path']);;
-    $class = isset($_info[0]) && !empty($_info[0]) ? $_info[0] : 'index';
-    $method = isset($_info[1]) && !empty($_info[0]) ? $_info[1] : 'index';
+    $class = isset($_info[1]) && !empty($_info[1]) ? $_info[1] : 'index';
+    $method = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
 
     $controller = $this['config']['namespace'].ucfirst($class);
 
