@@ -53,7 +53,7 @@ class Controller {
   }
 
   public function __get($name) {
-    $model = $this['config']['namespace'] . "Models\\" . ucfirst($name);
+    $model = $this->config['namespace'] . "Models\\" . ucfirst($name);
     return new $model($this->application);
   }
 
