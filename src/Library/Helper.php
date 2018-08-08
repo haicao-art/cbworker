@@ -287,7 +287,7 @@ class Helper
 		} else {
 			for ($t = floor(log10($num) / log10($to)); $t >= 0; $t--) {
 				$a = floor($num / pow($to, $t));
-				$ret .= substr($index, $a, 1);
+				$ret .= substr($dict, $a, 1);
 				$num -= $a * pow($to, $t);
 			}
 		}
@@ -312,7 +312,7 @@ class Helper
 		} else {
 			$len = strlen($s) - 1;
 			for ($t = 0; $t <= $len; $t++) {
-				$dec += strpos($index, substr($s, $t, 1)) * pow($base, $len - $t);
+				$dec += strpos($dict, substr($s, $t, 1)) * pow($base, $len - $t);
 			}
 		}
 		return $dec;
