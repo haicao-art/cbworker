@@ -396,7 +396,7 @@ class Helper
 		libxml_disable_entity_loader(true);
 		return json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
 	}
-	
+
 }
 
 

@@ -66,8 +66,10 @@ class Application extends Container  {
     //触发事件
     Event::tigger('init');
     $content_type = isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : '';
-    if (!preg_match("/application\/x-www-form-urlencoded/i", $content_type)) {
+    if (preg_match("/application\/json/i", $content_type)) {
       $req = json_decode($GLOBALS['HTTP_RAW_POST_DATA'], TRUE);
+    } else if (preg_match("/text\/xml/i", $content_type)) {
+      $req = $GLOBALS['HTTP_RAW_POST_DATA'];
     } else {
       $req = array_merge($_GET, $_POST);
     }
