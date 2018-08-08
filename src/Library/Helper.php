@@ -279,10 +279,18 @@ class Helper
 	private static function to62($num, $to = 62) {
 		$dict = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$ret = '';
-		do {
-			$ret = $dict[bcmod($num, $to)] . $ret;
-			$num = bcdiv($num, $to);
-		} while ($num > 0);
+		if(function_exists('bcmod')) {
+			do {
+				$ret = $dict[bcmod($num, $to)] . $ret;
+				$num = bcdiv($num, $to);
+			} while ($num > 0);
+		} else {
+			for ($t = floor(log10($num) / log10($to)); $t >= 0; $t--) {
+				$a = floor($num / pow($to, $t));
+				$ret .= substr($index, $a, 1);
+				$num -= $a * pow($to, $t);
+			}
+		}
 		return $ret;
 	}
 
@@ -293,12 +301,19 @@ class Helper
 	 */
 	private static function from62($str, $from = 62) {
 		$dict = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$str = strval($str);
-		$len = strlen($str);
 		$dec = 0;
-		for ($i = 0; $i < $len; $i++) {
-			$pos = strpos($dict, $str[$i]);
-			$dec = bcadd(bcmul(bcpow($from, $len - $i - 1), $pos), $dec);
+		if(function_exists('bcadd')) {
+			$str = strval($str);
+			$len = strlen($str);
+			for ($i = 0; $i < $len; $i++) {
+				$pos = strpos($dict, $str[$i]);
+				$dec = bcadd(bcmul(bcpow($from, $len - $i - 1), $pos), $dec);
+			}
+		} else {
+			$len = strlen($s) - 1;
+			for ($t = 0; $t <= $len; $t++) {
+				$dec += strpos($index, substr($s, $t, 1)) * pow($base, $len - $t);
+			}
 		}
 		return $dec;
 	}
