@@ -310,9 +310,9 @@ class Helper
 				$dec = bcadd(bcmul(bcpow($from, $len - $i - 1), $pos), $dec);
 			}
 		} else {
-			$len = strlen($s) - 1;
+			$len = strlen($str) - 1;
 			for ($t = 0; $t <= $len; $t++) {
-				$dec += strpos($dict, substr($s, $t, 1)) * pow($base, $len - $t);
+				$dec += strpos($dict, substr($str, $t, 1)) * pow($base, $len - $t);
 			}
 		}
 		return $dec;
