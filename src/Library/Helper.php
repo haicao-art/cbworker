@@ -312,7 +312,7 @@ class Helper
 		} else {
 			$len = strlen($str) - 1;
 			for ($t = 0; $t <= $len; $t++) {
-				$dec += strpos($dict, substr($str, $t, 1)) * pow($base, $len - $t);
+				$dec += strpos($dict, substr($str, $t, 1)) * pow($from, $len - $t);
 			}
 		}
 		return $dec;
