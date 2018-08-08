@@ -362,6 +362,41 @@ class Helper
 		}
 		return true;
 	}
+
+	/**
+	 * [xml_encode description]
+	 * @param  [type] $arr [description]
+	 * @return [type]      [description]
+	 */
+	public static function xml_encode($arr) {
+		if (!is_array($arr)) {
+			return false;
+		}
+		$xml = "<xml>";
+		foreach ($arr as $key => $val) {
+			if (is_numeric($val)) {
+				$xml .= "<{$key}>{$val}</{$key}>";
+			} else {
+				$xml .= "<{$key}><![CDATA[{$val}]]></{$key}>";
+			}
+		}
+		$xml .= "</xml>";
+		return $xml;
+	}
+
+	/**
+	 * [xml_decode description]
+	 * @param  [type] $xml [description]
+	 * @return [type]      [description]
+	 */
+	public static function xml_decode($xml) {
+		if (empty($xml)) {
+			return false;
+		}
+		libxml_disable_entity_loader(true);
+		return json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+	}
+	
 }
 
 
