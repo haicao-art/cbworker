@@ -73,7 +73,7 @@ class Helper
 	/**
 	 * 生成随机字符串
 	 */
-	function generateRandomStr($length = 6) {
+	public static function generateRandomStr($length = 6) {
     $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';//62个字符
     $strlen = 62;
     while ($length > $strlen) {
