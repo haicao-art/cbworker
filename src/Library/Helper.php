@@ -57,7 +57,7 @@ class Helper
 	 * @param  [type] $message [description]
 	 * @return [type]          [description]
 	 */
-	public function dlogger($message) {
+	public static function dlogger($message) {
 		$startLine = self::getClientIp() . " pid[" . getmypid() . "][" . date("m-d H:i:s ") . strtok(microtime(), " ") . "]";;
 		$logLine = $startLine . "\t" . json_encode($message, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK) . PHP_EOL;
 		echo $logLine;
@@ -185,7 +185,7 @@ class Helper
   /**
    * 内存使用
    */
-  public function memory_usage() {
+  public static function memory_usage() {
   	$memory = (!function_exists('memory_get_usage')) ? 0 : (memory_get_usage()/1024/1024) . 'MB';
   	return $memory;
   }
