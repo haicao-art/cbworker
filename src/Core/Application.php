@@ -86,7 +86,10 @@ class Application extends Container  {
       $rsp['desc'] = $ex->getMessage();
       Helper::logger("Run:", $ex->getMessage(), Helper::ERROR);
     }
-    $connection->send(json_encode($rsp, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
+    if(is_array($rsp)) {
+      $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
+    }
+    $connection->send($rsp);
     $this->conn = null;
   }
 
