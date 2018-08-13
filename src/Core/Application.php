@@ -16,6 +16,7 @@ use Cbworker\Library\Helper;
 use Cbworker\Library\Mysql;
 use Cbworker\Library\RedisDb;
 use Cbworker\Library\Queue;
+use Cbworker\Library\StatisticClient;
 
 class Application extends Container  {
 
@@ -23,16 +24,19 @@ class Application extends Container  {
 
   private static $_instance = null;
 
+  public $worker;
+
   public $conn;
 
-  public static function getInstance() {
+  public static function getInstance($worker) {
     if(empty(self::$_instance)) {
-      self::$_instance = new self();
+      self::$_instance = new self($worker);
     }
     return self::$_instance;
   }
 
-  private function __construct() {
+  private function __construct($worker) {
+    $this->worker = $worker;
     $this->setShared('config', function() {
       require_once ROOT_PATH . '/Config/Config.php';
       return $config;
@@ -86,7 +90,7 @@ class Application extends Container  {
       $rsp['desc'] = $ex->getMessage();
       Helper::logger("Run:", $ex->getMessage(), Helper::ERROR);
     }
-    $this->formatMessage($rsp);
+    $this->formatMessage();
     if(is_array($rsp)) {
       $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE);
     }
@@ -101,10 +105,10 @@ class Application extends Container  {
   private function methodDispatch($req, &$rsp) {
     $url_info = parse_url($_SERVER['REQUEST_URI']);
     $_info = explode('/', $url_info['path']);;
-    $class = isset($_info[1]) && !empty($_info[1]) ? $_info[1] : 'index';
+    $class = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $method = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
 
-    $controller = $this['config']['namespace'] . 'Controller\\'.ucfirst($class);
+    $controller = $this['config']['namespace'] . 'Controller\\'.$class;
 
     if(!class_exists($controller) || !method_exists($controller, $method)) {
       throw new \Exception("Controller {$class} or Method {$method} is Not Exists", 1002);
@@ -113,11 +117,18 @@ class Application extends Container  {
     Helper::logger("Request:", $url_info['path']);
     Helper::logger("Params:", $req);
 
+    if ($this['config']['statistic']['report'] && $this['config']['statistic']['address']){
+      StatisticClient::tick($this->worker->name . DIRECTORY_SEPARATOR .$class, $method);
+    }
+
     //请求频率校验
     $this->checkRequestLimit($class, $method);
 
     $handler_instance = new $controller($this);
     $rsp['code'] = $handler_instance->$method($req, $rsp);
+    $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
+    //UDP上报数据信息
+    $this->reportStatistic($this->worker->name . DIRECTORY_SEPARATOR . $class, $method, $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
     Helper::logger("Result:", $rsp);
     Helper::logger('End:', '----------------------------------');
   }
@@ -126,17 +137,12 @@ class Application extends Container  {
    * 返回JSON数据
    * @param array $data [description]
    */
-  private function formatMessage(&$response) {
+  private function formatMessage() {
     Http::header("Access-Control-Allow-Origin:*");
     Http::header("Access-Control-Max-Age: 86400");
     Http::header("Access-Control-Allow-Method: POST, GET");
     Http::header("Access-Control-Allow-Headers: Origin, X-CSRF-Token, X-Requested-With, Content-Type, Accept");
     Http::header("Content-type: application/json;charset=utf-8");
-    $response['code'] = isset($response['code']) ? $response['code'] : 0;
-    $response['desc'] = isset($this['lang'][$this->language][$response['code']]) ? $this['lang'][$this->language][$response['code']] : "系统异常[{$response['code']}]";
-    //Helper::logger('Response Result:', $response);
-    //Http::end(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
-    //return json_encode($response, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
   }
 
 
@@ -175,6 +181,22 @@ class Application extends Container  {
     }
     */
   }
+
+
+    /**
+     * 接口请求状态上报
+     * @param  string  $class   [description]
+     * @param  string  $method  [description]
+     * @param  integer $success [description]
+     * @param  integer $code    [description]
+     * @param  string  $message [description]
+     * @return [type]           [description]
+     */
+    private function reportStatistic($class = 'Index', $method = 'index', $success = 0, $code = 0, $message = 'error') {
+      if ($this['config']['statistic']['report'] && $this['config']['statistic']['address']) {
+        StatisticClient::report($class, $method, $success, $code, $message, $this['config']['statistic']['address']);
+      }
+    }
 
   /**
    * 设置语言类型
