@@ -95,30 +95,6 @@ class Application extends Container  {
   }
 
   /**
-   * 任务启动器
-   * @param  array  $task_data [description]
-   * @return [type]            [description]
-   */
-  public function taskRun($req, &$rsp) {
-    try {
-      $this->getLanguage();
-      $task_data = json_decode($req, true);
-      list($class, $method) = explode('/', $task_data['uri']);
-      $task_controller = $this['config']['namespace'] . 'Controller\\' . ucfirst($class);
-      if(!class_exists($task_controller) || !method_exists($task_controller, $method)) {
-        throw new \Exception("Task Controller {$task_controller} or Method {$method} is Not Exists", 1002);
-      }
-      $handler_instance = new $task_controller($this);
-      $rsp['code'] = $handler_instance->$method($task_data['params'], $rsp);
-      $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
-    } catch (\Exception $ex) {
-      $rsp['code'] = $ex->getCode();
-      $rsp['desc'] = $ex->getMessage();
-      Helper::logger("Task:", $ex->getMessage(), Helper::ERROR);
-    }
-  }
-
-  /**
    * 请求分发
    * @return [type] [description]
    */
