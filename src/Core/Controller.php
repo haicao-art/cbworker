@@ -56,6 +56,5 @@ class Controller {
     $model = $this->config['namespace'] . "Models\\" . ucfirst($name);
     return new $model($this->application);
   }
-
-
+  
 }

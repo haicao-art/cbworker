@@ -23,6 +23,8 @@ class Application extends Container  {
 
   private static $_instance = null;
 
+  public $conn;
+
   public static function getInstance() {
     if(empty(self::$_instance)) {
       self::$_instance = new self();
@@ -62,7 +64,9 @@ class Application extends Container  {
    * 启动
    * @return [type] [description]
    */
-  public function run(&$rsp) {
+  public function run($connection) {
+    $this->conn = $connection;
+    $rsp = ['code' => -1];
     //触发事件
     Event::tigger('init');
     $content_type = isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : '';
@@ -82,7 +86,8 @@ class Application extends Container  {
       $rsp['desc'] = $ex->getMessage();
       Helper::logger("Run:", $ex->getMessage(), Helper::ERROR);
     }
-    $this->formatMessage($rsp);
+    $connection->send(json_encode($rsp, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK));
+    $this->conn = null;
   }
 
   /**

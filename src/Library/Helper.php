@@ -34,7 +34,7 @@ class Helper
 	 * @return [type]          [description]
 	 */
 	public static function logger($tag = 'TAG:', $message = '', $level = Helper::INFO) {
-		if(false === self::$options['record'] && !in_array($level, array(self::ERROR, self::FAIL))) {
+		if(false === self::$options['record'] || !in_array($level, array(self::ERROR, self::FAIL))) {
 			return;
 		}
 		if(is_array($message) || is_object($message)) {
