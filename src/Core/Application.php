@@ -88,7 +88,7 @@ class Application extends Container  {
     }
     $this->formatMessage($rsp);
     if(is_array($rsp)) {
-      $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
+      $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE);
     }
     $connection->send($rsp);
     $this->conn = null;
