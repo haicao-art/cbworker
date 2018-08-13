@@ -118,7 +118,7 @@ class Application extends Container  {
     Helper::logger("Params:", $req);
 
     if ($this['config']['statistic']['report'] && $this['config']['statistic']['address']){
-      StatisticClient::tick($this->worker->name . DIRECTORY_SEPARATOR .$class, $method);
+      StatisticClient::tick($this->worker->name, $class . '_' . $method);
     }
 
     //请求频率校验
@@ -128,7 +128,7 @@ class Application extends Container  {
     $rsp['code'] = $handler_instance->$method($req, $rsp);
     $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
     //UDP上报数据信息
-    $this->reportStatistic($this->worker->name . DIRECTORY_SEPARATOR . $class, $method, $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
+    $this->reportStatistic($this->worker->name, $class . '_' .$method, $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
     Helper::logger("Result:", $rsp);
     Helper::logger('End:', '----------------------------------');
   }
