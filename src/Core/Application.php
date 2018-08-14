@@ -114,6 +114,7 @@ class Application extends Container  {
       throw new \Exception("Controller {$class} or Method {$method} is Not Exists", 1002);
     }
     Helper::logger('Start:', '----------------------------------');
+    Helper::logger('User_Agent:', $_SERVER['HTTP_USER_AGENT']);
     Helper::logger("Request:", $url_info['path']);
     Helper::logger("Params:", $req);
 
