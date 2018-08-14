@@ -117,18 +117,12 @@ class Application extends Container  {
     Helper::logger("Request:", $url_info['path']);
     Helper::logger("Params:", $req);
 
-    if ($this['config']['statistic']['report'] && $this['config']['statistic']['address']){
-      StatisticClient::tick($this->worker->name, $class . '_' . $method);
-    }
-
     //请求频率校验
     $this->checkRequestLimit($class, $method);
 
     $handler_instance = new $controller($this);
     $rsp['code'] = $handler_instance->$method($req, $rsp);
     $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
-    //UDP上报数据信息
-    $this->reportStatistic($this->worker->name, $class . '_' .$method, $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
     Helper::logger("Result:", $rsp);
     Helper::logger('End:', '----------------------------------');
   }
@@ -181,22 +175,6 @@ class Application extends Container  {
     }
     */
   }
-
-
-    /**
-     * 接口请求状态上报
-     * @param  string  $class   [description]
-     * @param  string  $method  [description]
-     * @param  integer $success [description]
-     * @param  integer $code    [description]
-     * @param  string  $message [description]
-     * @return [type]           [description]
-     */
-    private function reportStatistic($class = 'Index', $method = 'index', $success = 0, $code = 0, $message = 'error') {
-      if ($this['config']['statistic']['report'] && $this['config']['statistic']['address']) {
-        StatisticClient::report($class, $method, $success, $code, $message, $this['config']['statistic']['address']);
-      }
-    }
 
   /**
    * 设置语言类型
