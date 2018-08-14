@@ -87,13 +87,19 @@ class Application extends Container  {
       $this->methodDispatch($req, $rsp);
     } catch (\Exception $ex) {
       $rsp['code'] = $ex->getCode();
-      $rsp['desc'] = $ex->getMessage();
-      Helper::logger("Run:", $ex->getMessage(), Helper::ERROR);
+      if(empty($ex->getMessage())) {
+        $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
+      } else {
+        $rsp['desc'] = $ex->getMessage();
+      }
+      Helper::logger("Run:", $rsp['desc'], Helper::ERROR);
     }
     $this->formatMessage();
     if(is_array($rsp)) {
       $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE);
     }
+    Helper::logger("Result:", $rsp);
+    Helper::logger('End:', '----------------------------------');
     $connection->send($rsp);
     $this->conn = null;
   }
@@ -124,8 +130,6 @@ class Application extends Container  {
     $handler_instance = new $controller($this);
     $rsp['code'] = $handler_instance->$method($req, $rsp);
     $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
-    Helper::logger("Result:", $rsp);
-    Helper::logger('End:', '----------------------------------');
   }
 
   /**

@@ -100,7 +100,7 @@ class Helper
 				if (isset($request[$key]) && !is_array($request[$key])) {
 					$response['requestError'][$key] = $rule;
 					$response['request'][$key] = $request[$key];
-					throw new Exception('', 1004);
+					throw new Exception('请求参数错误', 1004);
 				}
 				/*若是对索引数组的匹配*/
 				if (1 == count($rule) && 0 === @array_keys($rule)[0]) {
@@ -113,7 +113,7 @@ class Helper
 							if (!preg_match($rule[0], $value)) {
 								$response['requestError'][$key] = $rule;
 			          $response['request'][$key] = $request[$key];
-								throw new Exception('', 1004);
+								throw new Exception('请求参数错误', 1004);
 							}
 						}
 					}
@@ -130,7 +130,7 @@ class Helper
 				if(substr($rule, 0, 4) != '/^$|') {
           $response['requestError'][$key] = $rule;
           $response['request'][$key] = null;
-					throw new Exception('', 1004);
+					throw new Exception('请求参数错误', 1004);
 				} else {
 					continue;
 				}
@@ -141,7 +141,7 @@ class Helper
         if(!preg_match($rule, $request[$key])) {
           $response['requestError'][$key] = $rule;
           $response['request'][$key] = $request[$key];
-					throw new Exception('', 1004);
+					throw new Exception('请求参数错误', 1004);
         }
       }
 			/*不允许有空值参数, 空数组可以*/
