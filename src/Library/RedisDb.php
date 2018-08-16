@@ -35,7 +35,7 @@ class RedisDb {
     public function __construct($config = null)
     {
       $this->settings = [
-        'host'     	=> isset($config['server']) ? $config['server'] : '127.0.0.1',
+        'host'     	=> isset($config['host']) ? $config['host'] : '127.0.0.1',
         'port'     	=> isset($config['port']) ? $config['port'] : 6379,
         'auth' 		=> isset($config['auth']) ? $config['auth'] : false,
         'db'	   	=> isset($config['db']) ? $config['db'] : 0,
