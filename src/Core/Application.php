@@ -92,7 +92,7 @@ class Application extends Container  {
     $req['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $req['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
 
-    if (isset($this['config']['statistic']) && $this['config']['statistic']['report'] && $this['config']['statistic']['address']){
+    if (isset($this['config']['statistic']) && $this['config']['statistic']['report']){
       StatisticClient::tick($this->project, $req['class'], $req['method']);
     }
 
@@ -188,8 +188,8 @@ class Application extends Container  {
    * @return [type]           [description]
    */
   private function reportStatistic($class = 'Index', $method = 'index', $success = 0, $code = 0, $message = 'error') {
-    if (isset($this['config']['statistic']) && $this['config']['statistic']['report'] && $this['config']['statistic']['address']) {
-      StatisticClient::report($this->project, $class, $method, $success, $code, $message, $this['config']['statistic']['address']);
+    if (isset($this['config']['statistic']) && $this['config']['statistic']['report']) {
+      StatisticClient::report($this->project, $class, $method, $success, $code, $message, isset($this['config']['statistic']['address']) ? $this['config']['statistic']['address'] : '');
     }
   }
 
