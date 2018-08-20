@@ -20,6 +20,8 @@ use Cbworker\Library\StatisticClient;
 
 class Application extends Container  {
 
+  private $project = '';
+
   private $language = 'zh';
 
   private static $_instance = null;
@@ -37,6 +39,7 @@ class Application extends Container  {
 
   private function __construct($worker) {
     $this->worker = $worker;
+    $this->project = $worker->name;
     $this->setShared('config', function() {
       require_once ROOT_PATH . '/Config/Config.php';
       return $config;
@@ -81,9 +84,19 @@ class Application extends Container  {
     } else {
       $req = array_merge($_GET, $_POST);
     }
+    $this->getLanguage();
+    $this->check();
+
+    $url_info = parse_url($_SERVER['REQUEST_URI']);
+    $_info = explode('/', $url_info['path']);;
+    $req['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
+    $req['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
+
+    if (isset($this['config']['statistic']) && $this['config']['statistic']['report'] && $this['config']['statistic']['address']){
+      StatisticClient::tick($this->project, $req['class'], $req['method']);
+    }
+
     try {
-      $this->getLanguage();
-      $this->check();
       $this->methodDispatch($req, $rsp);
     } catch (\Exception $ex) {
       $rsp['code'] = $ex->getCode();
@@ -94,6 +107,7 @@ class Application extends Container  {
       }
       Helper::logger("Run:", $rsp['desc'], Helper::ERROR);
     }
+    $this->reportStatistic($req['class'], $req['method'], $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
     $this->formatMessage();
     if(is_array($rsp)) {
       $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE);
@@ -109,26 +123,20 @@ class Application extends Container  {
    * @return [type] [description]
    */
   private function methodDispatch($req, &$rsp) {
-    $url_info = parse_url($_SERVER['REQUEST_URI']);
-    $_info = explode('/', $url_info['path']);;
-    $class = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
-    $method = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
+    $controller = $this['config']['namespace'] . 'Controller\\'.$req['class'];
 
-    $controller = $this['config']['namespace'] . 'Controller\\'.$class;
-
-    if(!class_exists($controller) || !method_exists($controller, $method)) {
-      throw new \Exception("Controller {$class} or Method {$method} is Not Exists", 1002);
+    if(!class_exists($controller) || !method_exists($controller, $req['method'])) {
+      throw new \Exception("Controller {$req['class']} or Method {$req['method']} is Not Exists", 1002);
     }
     Helper::logger('Start:', '----------------------------------');
     Helper::logger('User_Agent:', $_SERVER['HTTP_USER_AGENT']);
-    Helper::logger("Request:", $url_info['path']);
     Helper::logger("Params:", $req);
 
     //请求频率校验
-    $this->checkRequestLimit($class, $method);
+    $this->checkRequestLimit($req['class'], $req['method']);
 
     $handler_instance = new $controller($this);
-    $rsp['code'] = $handler_instance->$method($req, $rsp);
+    $rsp['code'] = $handler_instance->{$req['method']}($req, $rsp);
     $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
   }
 
@@ -167,6 +175,22 @@ class Application extends Container  {
       }
     }
     return true;
+  }
+
+
+  /**
+   * 接口请求状态上报
+   * @param  string  $class   [description]
+   * @param  string  $method  [description]
+   * @param  integer $success [description]
+   * @param  integer $code    [description]
+   * @param  string  $message [description]
+   * @return [type]           [description]
+   */
+  private function reportStatistic($class = 'Index', $method = 'index', $success = 0, $code = 0, $message = 'error') {
+    if (isset($this['config']['statistic']) && $this['config']['statistic']['report'] && $this['config']['statistic']['address']) {
+      StatisticClient::report($this->project, $class, $method, $success, $code, $message, $this['config']['statistic']['address']);
+    }
   }
 
   /**

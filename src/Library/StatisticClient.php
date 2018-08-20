@@ -32,9 +32,9 @@ class StatisticClient
      * @param string $interface
      * @return void
      */
-    public static function tick($module = '', $interface = '')
+    public static function tick($project = '', $module = '', $interface = '')
     {
-        return self::$timeMap[$module][$interface] = microtime(true);
+        return self::$timeMap[$project][$module][$interface] = microtime(true);
     }
 
     /**
@@ -47,18 +47,16 @@ class StatisticClient
      * @param string $report_address
      * @return boolean
      */
-    public static function report($module, $interface, $success, $code, $msg, $report_address = '')
+    public static function report($project, $module, $interface, $success, $code, $msg, $report_address = '')
     {
-        $report_address = $report_address ? $report_address : 'udp://127.0.0.1:55656';
-        if(isset(self::$timeMap[$module][$interface]) && self::$timeMap[$module][$interface] > 0)
-        {
-            $time_start = self::$timeMap[$module][$interface];
-            self::$timeMap[$module][$interface] = 0;
+        if(empty($project) || empty($module) || empty($interface)) {
+          return false;
         }
-        else if(isset(self::$timeMap['']['']) && self::$timeMap[''][''] > 0)
+        $report_address = $report_address ? $report_address : 'udp://127.0.0.1:55656';
+        if(isset(self::$timeMap[$project][$module][$interface]) && self::$timeMap[$project][$module][$interface] > 0)
         {
-            $time_start = self::$timeMap[''][''];
-            self::$timeMap[''][''] = 0;
+            $time_start = self::$timeMap[$project][$module][$interface];
+            self::$timeMap[$project][$module][$interface] = 0;
         }
         else
         {
@@ -67,7 +65,7 @@ class StatisticClient
 
         $cost_time = microtime(true) - $time_start;
 
-        $bin_data = StatisticProtocol::encode($module, $interface, $cost_time, $success, $code, $msg);
+        $bin_data = StatisticProtocol::encode($project, $module, $interface, $cost_time, $success, $code, $msg);
 
         return self::sendData($report_address, $bin_data);
     }
@@ -113,7 +111,7 @@ class StatisticProtocol
      * 包头长度
      * @var integer
      */
-    const PACKAGE_FIXED_LENGTH = 17;
+    const PACKAGE_FIXED_LENGTH = 18;
     /**
      * udp 包最大长度
      * @var integer
@@ -139,8 +137,12 @@ class StatisticProtocol
      * @param string $msg
      * @return string
      */
-    public static function encode($module, $interface , $cost_time, $success,  $code = 0,$msg = '')
+    public static function encode($project, $module, $interface , $cost_time, $success,  $code = 0,$msg = '')
     {
+        if(strlen($project) > self::MAX_CHAR_VALUE)
+        {
+            $project = substr($project, 0, self::MAX_CHAR_VALUE);
+        }
         // 防止模块名过长
         if(strlen($module) > self::MAX_CHAR_VALUE)
         {
@@ -152,15 +154,16 @@ class StatisticProtocol
             $interface = substr($interface, 0, self::MAX_CHAR_VALUE);
         }
         // 防止msg过长
+        $project_name_length = strlen($project);
         $module_name_length = strlen($module);
         $interface_name_length = strlen($interface);
-        $avalible_size = self::MAX_UDP_PACKGE_SIZE - self::PACKAGE_FIXED_LENGTH - $module_name_length - $interface_name_length;
+        $avalible_size = self::MAX_UDP_PACKGE_SIZE - self::PACKAGE_FIXED_LENGTH - $project_name_length - $module_name_length - $interface_name_length;
         if(strlen($msg) > $avalible_size)
         {
             $msg = substr($msg, 0, $avalible_size);
         }
         // 打包
-        return pack('CCfCNnN', $module_name_length, $interface_name_length, $cost_time, $success ? 1 : 0, $code, strlen($msg), time()).$module.$interface.$msg;
+        return pack('CCCfCNnN', $project_name_length, $module_name_length, $interface_name_length, $cost_time, $success ? 1 : 0, $code, strlen($msg), time()). $project . $module . $interface . $msg;
     }
 
     /**
@@ -171,11 +174,13 @@ class StatisticProtocol
     public static function decode($bin_data)
     {
         // 解包
-        $data = unpack("Cmodule_name_len/Cinterface_name_len/fcost_time/Csuccess/Ncode/nmsg_len/Ntime", $bin_data);
-        $module = substr($bin_data, self::PACKAGE_FIXED_LENGTH, $data['module_name_len']);
-        $interface = substr($bin_data, self::PACKAGE_FIXED_LENGTH + $data['module_name_len'], $data['interface_name_len']);
-        $msg = substr($bin_data, self::PACKAGE_FIXED_LENGTH + $data['module_name_len'] + $data['interface_name_len']);
+        $data = unpack("Cproject_name_len/Cmodule_name_len/Cinterface_name_len/fcost_time/Csuccess/Ncode/nmsg_len/Ntime", $bin_data);
+        $project = substr($bin_data, self::PACKAGE_FIXED_LENGTH, $data['project_name_len']);
+        $module = substr($bin_data, self::PACKAGE_FIXED_LENGTH + $data['project_name_len'], $data['module_name_len']);
+        $interface = substr($bin_data, self::PACKAGE_FIXED_LENGTH + $data['project_name_len'] + $data['module_name_len'], $data['interface_name_len']);
+        $msg = substr($bin_data, self::PACKAGE_FIXED_LENGTH  + $data['project_name_len'] + $data['module_name_len'] + $data['interface_name_len']);
         return array(
+                'project'   => $project,
                 'module'    => $module,
                 'interface' => $interface,
                 'cost_time' => $data['cost_time'],
