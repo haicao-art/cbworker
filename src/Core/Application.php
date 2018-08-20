@@ -45,17 +45,20 @@ class Application extends Container  {
       return $config;
     });
 
-    $this->setShared('mysql', function() {
-      return new Mysql($this['config']['mysql']);
-    });
+    if(isset($this['config']['mysql'])) {
+      $this->setShared('mysql', function() {
+        return new Mysql($this['config']['mysql']);
+      });
+    }
 
-    $this->setShared('redis', function() {
-      return new RedisDb($this['config']['redis']);
-    });
-
-    $this->setShared('queue', function() {
-      return new Queue($this['redis']);
-    });
+    if(isset($this['config']['redis'])) {
+      $this->setShared('redis', function() {
+        return new RedisDb($this['config']['redis']);
+      });
+      $this->setShared('queue', function() {
+        return new Queue($this['redis']);
+      });
+    }
 
     $this->setShared('lang', function() {
       require_once ROOT_PATH . '/Config/Lang.php';
