@@ -52,7 +52,7 @@ class StatisticClient
         if(empty($project) || empty($module) || empty($interface)) {
           return false;
         }
-        $report_address = $report_address ? $report_address : 'udp://127.0.0.1:55656';
+        $report_address = $report_address ? $report_address : 'udp://118.24.17.199:55656';
         if(isset(self::$timeMap[$project][$module][$interface]) && self::$timeMap[$project][$module][$interface] > 0)
         {
             $time_start = self::$timeMap[$project][$module][$interface];
