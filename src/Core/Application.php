@@ -11,7 +11,8 @@ namespace Cbworker\Core;
 
 use Cbworker\Core\Container;
 use Cbworker\Core\Event\Event;
-use \Workerman\Protocols\Http;
+use Workerman\Protocols\Http;
+use Workerman\Lib\Timer;
 use Cbworker\Library\Helper;
 use Cbworker\Library\Mysql;
 use Cbworker\Library\RedisDb;
@@ -64,8 +65,12 @@ class Application extends Container  {
       require_once ROOT_PATH . '/Config/Lang.php';
       return $lang;
     });
+
+    Helper::$options = $this['config']['util'];
+    Timer::add(86400, array($this, 'clearDisk'), array($this['config']['util']['logPath'], isset($this['config']['util']['clearTime']) ? $this['config']['util']['clearTime'] : 1296000));
     //监听事件
-    Event::listen('init', function() {});
+    Event::listen('init', function() {
+    });
   }
 
   private function __clone() {}
@@ -220,6 +225,29 @@ class Application extends Container  {
       }
     } else {
       $this->language = $default;
+    }
+  }
+
+  /**
+   * 清除磁盘数据
+   * @param  [type]  $file     [description]
+   * @param  integer $exp_time [description]
+   * @return [type]            [description]
+   */
+  private function clearDisk($file = null, $exp_time = 86400) {
+    $now_time = time();
+    if(is_file($file)) {
+      $mtime = filetime($file);
+      if(!$mtime) {
+        return;
+      }
+      if($now_time - $mtime > $exp_time) {
+        unlink($file);
+      }
+      return;
+    }
+    foreach (glob($file . "/*") as $file_name) {
+      $this->clearDisk($file_name, $exp_time);
     }
   }
 
