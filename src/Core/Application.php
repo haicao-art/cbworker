@@ -67,7 +67,10 @@ class Application extends Container  {
     });
 
     Helper::$options = $this['config']['util'];
-    Timer::add(86400, array($this, 'clearDisk'), array($this['config']['util']['logPath'], isset($this['config']['util']['clearTime']) ? $this['config']['util']['clearTime'] : 1296000));
+
+    if($worker->id === 0) {
+      Timer::add(86400, array($this, 'clearDisk'), array($this['config']['util']['logPath'], isset($this['config']['util']['clearTime']) ? $this['config']['util']['clearTime'] : 1296000));
+    }
     //监听事件
     Event::listen('init', function() {
     });
