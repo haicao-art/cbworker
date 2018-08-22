@@ -113,7 +113,7 @@ class Application extends Container  {
       } else {
         $rsp['desc'] = $ex->getMessage();
       }
-      Helper::logger("Run:", $rsp['desc'], Helper::ERROR);
+      Helper::logger("Exception:", $rsp, Helper::ERROR);
     }
     $this->reportStatistic($req['class'], $req['method'], $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
     $this->formatMessage();
