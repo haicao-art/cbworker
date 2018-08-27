@@ -139,7 +139,7 @@ class Application extends Container  {
     if(!class_exists($controller) || !method_exists($controller, $req['method'])) {
       throw new \Exception("Controller {$req['class']} or Method {$req['method']} is Not Exists", 1002);
     }
-    Helper::logger('Start:', '----------------------------------');
+    Helper::logger('Start:', "-----------------{$req['class']}/{$req['method']}-----------------");
     Helper::logger('User_Agent:', $_SERVER['HTTP_USER_AGENT']);
     Helper::logger("Params:", $req);
 
