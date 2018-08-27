@@ -237,10 +237,10 @@ class Application extends Container  {
    * @param  integer $exp_time [description]
    * @return [type]            [description]
    */
-  private function clearDisk($file = null, $exp_time = 86400) {
+  public function clearDisk($file = null, $exp_time = 86400) {
     $now_time = time();
     if(is_file($file)) {
-      $mtime = filetime($file);
+      $mtime = filemtime($file);
       if(!$mtime) {
         return;
       }
