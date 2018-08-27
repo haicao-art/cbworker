@@ -77,7 +77,8 @@ class Mysql {
       $this->pdo->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, false);
       $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		} catch (PDOException $e) {
-			throw new Exception($e->getMessage(), (int)$e->getCode());
+      Helper::logger('Mysql Connect Error:', $ex->getMessage());
+			throw new Exception('数据库连接异常', (int)$e->getCode(), Helper::ERROR);
 		}
   }
 
@@ -118,13 +119,13 @@ class Mysql {
 					$this->sQuery->execute();
         } catch (PDOException $ex) {
           $this->rollBackTrans();
-          Helper::logger('Mysql Execute Error:', $ex->getMessage());
-					throw new Exception($ex->getMessage(), (int)$ex->getCode());
+          Helper::logger('Mysql Execute Error:', $ex->getMessage(), Helper::ERROR);
+					throw new Exception('SQL Execute Error', (int)$ex->getCode());
         }
 			} else {
         $this->rollBackTrans();
-        Helper::logger('Mysql Execute Error:', $e->getMessage());
-        throw new Exception($e->getMessage(), (int)$e->getCode());
+        Helper::logger('Mysql Execute Error:', $e->getMessage(), Helper::ERROR);
+        throw new Exception('SQL Execute Error', (int)$e->getCode());
       }
     }
   }
@@ -192,7 +193,7 @@ class Mysql {
    */
   public function beginTrans()
   {
-    Helper::logger("Mysql BeginTrans");
+    Helper::logger("Mysql BeginTrans:", 'BeginTrans:Start');
     try {
       return $this->pdo->beginTransaction();
     } catch (PDOException $e) {
@@ -202,7 +203,8 @@ class Mysql {
         $this->connect();
         return $this->pdo->beginTransaction();
       } else {
-		    throw new Exception($e->getMessage(), (int)$e->getCode());
+        Helper::logger("Mysql BeginTrans Error:", $e->getMessage(), Helper::ERROR);
+		    throw new Exception('Database Error', (int)$e->getCode());
       }
     }
   }
@@ -211,7 +213,7 @@ class Mysql {
    */
   public function commitTrans()
   {
-    Helper::logger("Mysql CommitTrans");
+    Helper::logger("Mysql CommitTrans", 'CommitTrans Commit');
     return $this->pdo->commit();
   }
   /**
@@ -220,7 +222,7 @@ class Mysql {
   public function rollBackTrans()
   {
     if ($this->pdo->inTransaction()) {
-      Helper::logger("Mysql RollBackTrans");
+      Helper::logger("Mysql RollBackTrans", 'RollBackTrans End');
       return $this->pdo->rollBack();
     }
     return true;
