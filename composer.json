@@ -6,12 +6,13 @@
     },
     "autoload": {
         "psr-4": {
-          "Cbworker\\": "src"
+          "Cbworker\\": "src",
+          "Application\\": "Application"
         }
     },
     "authors": [
         {
-            "name": "xierui",
+            "name": "crababy",
             "email": "727145108@qq.com"
         }
     ]
