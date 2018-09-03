@@ -103,10 +103,6 @@ class Application extends Container  {
     $req['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $req['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
 
-    if (isset($this['config']['statistic']) && $this['config']['statistic']['report']){
-      StatisticClient::tick($this->project, $req['class'], $req['method']);
-    }
-
     try {
       $this->methodDispatch($req, $rsp);
     } catch (\Exception $ex) {
@@ -118,7 +114,6 @@ class Application extends Container  {
       }
       Helper::logger("Exception:", $rsp, Helper::ERROR);
     }
-    $this->reportStatistic($req['class'], $req['method'], $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
     $this->formatMessage();
     if(is_array($rsp)) {
       $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE);
@@ -139,6 +134,11 @@ class Application extends Container  {
     if(!class_exists($controller) || !method_exists($controller, $req['method'])) {
       throw new \Exception("Controller {$req['class']} or Method {$req['method']} is Not Exists", 1002);
     }
+
+    if (isset($this['config']['statistic']) && $this['config']['statistic']['report']){
+      StatisticClient::tick($this->project, $req['class'], $req['method']);
+    }
+
     Helper::logger('Start:', "-----------------{$req['class']}/{$req['method']}-----------------");
     Helper::logger('User_Agent:', $_SERVER['HTTP_USER_AGENT']);
     Helper::logger("Params:", $req);
@@ -149,6 +149,8 @@ class Application extends Container  {
     $handler_instance = new $controller($this);
     $rsp['code'] = $handler_instance->{$req['method']}($req, $rsp);
     $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
+
+    $this->reportStatistic($req['class'], $req['method'], $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
   }
 
   /**
