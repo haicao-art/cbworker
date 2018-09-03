@@ -71,9 +71,6 @@ class Application extends Container  {
     if($worker->id === 0) {
       Timer::add(86400, array($this, 'clearDisk'), array($this['config']['util']['logPath'], isset($this['config']['util']['clearTime']) ? $this['config']['util']['clearTime'] : 1296000));
     }
-    //监听事件
-    Event::listen('init', function() {
-    });
   }
 
   private function __clone() {}
@@ -85,8 +82,6 @@ class Application extends Container  {
   public function run($connection) {
     $this->conn = $connection;
     $rsp = ['code' => -1];
-    //触发事件
-    Event::tigger('init');
     $content_type = isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : '';
     if (preg_match("/application\/json/i", $content_type)) {
       $req = json_decode($GLOBALS['HTTP_RAW_POST_DATA'], TRUE);
