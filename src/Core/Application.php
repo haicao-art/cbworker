@@ -98,6 +98,10 @@ class Application extends Container  {
     $req['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $req['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
 
+    Helper::logger('Start:', "-----------------{$req['class']}/{$req['method']}-----------------");
+    Helper::logger('User_Agent:', $_SERVER['HTTP_USER_AGENT']);
+    Helper::logger("Params:", $req);
+
     try {
       $this->methodDispatch($req, $rsp);
     } catch (\Exception $ex) {
@@ -133,10 +137,6 @@ class Application extends Container  {
     if (isset($this['config']['statistic']) && $this['config']['statistic']['report']){
       StatisticClient::tick($this->project, $req['class'], $req['method']);
     }
-
-    Helper::logger('Start:', "-----------------{$req['class']}/{$req['method']}-----------------");
-    Helper::logger('User_Agent:', $_SERVER['HTTP_USER_AGENT']);
-    Helper::logger("Params:", $req);
 
     //请求频率校验
     $this->checkRequestLimit($req['class'], $req['method']);
