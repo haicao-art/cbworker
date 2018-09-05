@@ -86,7 +86,7 @@ class Application extends Container  {
     if (preg_match("/application\/json/i", $content_type)) {
       $req = json_decode($GLOBALS['HTTP_RAW_POST_DATA'], TRUE);
     } else if (preg_match("/text\/xml/i", $content_type)) {
-      $req = $GLOBALS['HTTP_RAW_POST_DATA'];
+      $req['xml'] = $GLOBALS['HTTP_RAW_POST_DATA'];
     } else {
       $req = array_merge($_GET, $_POST);
     }
@@ -94,7 +94,7 @@ class Application extends Container  {
     $this->check();
 
     $url_info = parse_url($_SERVER['REQUEST_URI']);
-    $_info = explode('/', $url_info['path']);;
+    $_info = explode('/', $url_info['path']);
     $req['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $req['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
 
