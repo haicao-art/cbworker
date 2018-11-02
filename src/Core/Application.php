@@ -27,8 +27,6 @@ class Application extends Container  {
 
   private static $_instance = null;
 
-  public $_request = null;
-
   public $conn;
 
   public static function getInstance($worker) {
@@ -103,7 +101,6 @@ class Application extends Container  {
     Helper::logger("Params:", $req);
 
     try {
-      $this->_request = $req;
       $this->methodDispatch($req, $rsp);
     } catch (\Exception $ex) {
       $rsp['code'] = $ex->getCode();
