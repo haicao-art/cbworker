@@ -121,7 +121,7 @@ class Application extends Container  {
     Helper::logger("Result:", $rsp);
     Helper::logger('End:', '----------------------------------');
     $connection->send($rsp);
-    $this->_request = null;
+    $this->_request = null;         //释放资源
     $this->conn = null;
   }
 
