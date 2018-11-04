@@ -10,23 +10,26 @@ namespace Cbworker\Library;
 use Redis;
 use Exception;
 use Cbworker\Library\Helper;
+use Cbworker\Core\AbstractInterface\Singleton;
 
 class RedisDb {
+  
+  use Singleton;
 
-    /**
-     * redis 实例
-     *
-     * @var redis
-     */
-    protected $redis = null;
+  /**
+   * redis 实例
+   *
+   * @var redis
+   */
+  protected $redis = null;
 
 
-    /**
-     * 数据库用户名密码等配置
-     *
-     * @var array
-     */
-    protected $settings = array();
+  /**
+   * 数据库用户名密码等配置
+   *
+   * @var array
+   */
+  protected $settings = array();
 
 	/**
 	 * 构造函数

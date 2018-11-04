@@ -27,32 +27,6 @@ class Helper
 	public static $options = array();
 
 	/**
-	 * 日志记录
-	 * @param  [type] $message [description]
-	 * @param  [type] $level   [description]
-	 * @param  string $path    [description]
-	 * @return [type]          [description]
-	 */
-	public static function logger($tag = 'TAG:', $message = '', $level = Helper::INFO) {
-		if(false === self::$options['record'] && !in_array($level, array(self::ERROR, self::FAIL))) {
-			return;
-		}
-		if(is_array($message) || is_object($message)) {
-			$message = json_encode($message, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
-		}
-		if(isset(self::$options['recordType']) && self::$options['recordType'] == 'tcp') {
-			LoggerClient::record(self::$options['address'], 'CrababyFramework', '', $level, self::getClientIp(), $tag . $message);
-		} else {
-			$logPath = isset(self::$options['logPath']) ? self::$options['logPath'] : ROOT_PATH . '/Runtime/Logs/';
-			$message = false === $message ? "false" : $message;
-			$startLine = self::getClientIp() .  "|" . $level . "|" . getmypid() . "|" . date("m-d H:i:s ") . strtok(microtime(), " ") . "|";;
-			$logLine = $startLine . $tag . $message . PHP_EOL;
-			error_log($logLine, 3,  $logPath . date('Y-m-d') . '.log');
-		}
-		return true;
-	}
-
-	/**
 	 * 命令行 输出日志
 	 * @param  [type] $message [description]
 	 * @return [type]          [description]

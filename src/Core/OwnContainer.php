@@ -10,7 +10,7 @@
 namespace Cbworker\Core;
 
 
-class Container implements \ArrayAccess {
+class OwnContainer implements \ArrayAccess {
 
   /**
    * 服务列表

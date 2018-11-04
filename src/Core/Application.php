@@ -9,241 +9,131 @@
 
 namespace Cbworker\Core;
 
-use Cbworker\Core\Container;
-use Cbworker\Core\Event\Event;
-use Workerman\Protocols\Http;
-use Workerman\Lib\Timer;
+use Cbworker\Core\AbstractInterface\Singleton;
+use Cbworker\Core\Config\Config;
+use Cbworker\Core\Http\HttpRequest;
+use Cbworker\Core\Http\HttpResponse;
 use Cbworker\Library\Helper;
-use Cbworker\Library\Mysql;
+use Cbworker\Library\Logger;
+use Workerman\Lib\Timer;
 use Cbworker\Library\RedisDb;
-use Cbworker\Library\Queue;
 use Cbworker\Library\StatisticClient;
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
 
-class Application extends Container  {
-
-  private $project = '';
-
+class Application extends Container
+{
+  
+  use Singleton;
+  
   private $language = 'zh';
-
-  private static $_instance = null;
-
-  public $_request = null;
-
-  public $conn;
-
-  public static function getInstance($worker) {
-    if(empty(self::$_instance)) {
-      self::$_instance = new self($worker);
-    }
-    return self::$_instance;
+  
+  protected $_request = null;
+  
+  protected $_response = null;
+  
+  protected $_connection = null;
+  
+  private function __construct()
+  {
+    $this->errorHandle();
   }
-
-  private function __construct($worker) {
-    $this->worker = $worker;
-    $this->project = $worker->name;
-    $this->setShared('config', function() {
-      require_once ROOT_PATH . '/Config/Config.php';
-      return $config;
+  
+  private function __clone()
+  {
+  }
+  
+  public function initialize(): Application
+  {
+    Config::getInstance();
+    
+    $capsule = new Capsule;
+    
+    $capsule->addConnection(Config::getConf('db.mysql'));
+    
+    $capsule->setEventDispatcher(new Dispatcher(new Container));
+    
+    // 设置全局静态可访问DB
+    $capsule->setAsGlobal();
+    
+    // 启动Eloquent （如果只使用查询构造器，这个可以注释）
+    $capsule->bootEloquent();
+    
+    Capsule::listen(function ($query) {
+      $sql = vsprintf(str_replace("?", "'%s'", $query->sql), $query->bindings) . " \t[" . $query->time . ' ms] ';
+      // 把SQL写入到日志文件中
+      Logger::getInstance()->info($sql, 'Sql');
     });
-
-    if(isset($this['config']['mysql'])) {
-      $this->setShared('mysql', function() {
-        return new Mysql($this['config']['mysql']);
-      });
-    }
-
-    if(isset($this['config']['redis'])) {
-      $this->setShared('redis', function() {
-        return new RedisDb($this['config']['redis']);
-      });
-      $this->setShared('queue', function() {
-        return new Queue($this['redis']);
-      });
-    }
-
-    $this->setShared('lang', function() {
-      require_once ROOT_PATH . '/Config/Lang.php';
-      return $lang;
+    $this->bind('redis', function () {
+      //return new RedisDb(Config::getConf('db.redis'));
     });
-
-    Helper::$options = $this['config']['util'];
-
-    if($worker->id === 0) {
-      Timer::add(86400, array($this, 'clearDisk'), array($this['config']['util']['logPath'], isset($this['config']['util']['clearTime']) ? $this['config']['util']['clearTime'] : 1296000));
-    }
+    $this->bind('logger', function () {
+      return Logger::getInstance();
+    });
+    $this->logger()->debug('initialize Success');
+    return $this;
   }
-
-  private function __clone() {}
-
+  
+  public function redis()
+  {
+    return $this['redis'];
+  }
+  
+  public function logger()
+  {
+    return $this['logger'];
+  }
+  
+  public function getConnection()
+  {
+    return $this->_connection;
+  }
+  
+  public function connection()
+  {
+    return $this->_connection;
+  }
+  
+  public function request()
+  {
+    return $this->_request;
+  }
+  
+  public function response() {
+    return $this->_response;
+  }
+  
+  public function init($connection, $data)
+  {
+    $this->_connection = $connection;
+    $this->_request = new HttpRequest($data);
+    $this->_response = new HttpResponse();
+  }
+  
   /**
-   * 启动
-   * @return [type] [description]
+   * 定时任务
    */
-  public function run($connection) {
-    $this->conn = $connection;
-    $rsp = ['code' => -1];
-    $content_type = isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : '';
-    if (preg_match("/application\/json/i", $content_type)) {
-      $req = json_decode($GLOBALS['HTTP_RAW_POST_DATA'], TRUE);
-    } else if (preg_match("/text\/xml/i", $content_type)) {
-      $req['xml'] = $GLOBALS['HTTP_RAW_POST_DATA'];
-    } else {
-      $req = array_merge($_GET, $_POST);
-    }
-    $this->getLanguage();
-    $this->check();
-
-    $url_info = parse_url($_SERVER['REQUEST_URI']);
-    $_info = explode('/', $url_info['path']);
-    $req['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
-    $req['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
-
-    Helper::logger('Start:', "-----------------{$req['class']}/{$req['method']}-----------------");
-    Helper::logger('User_Agent:', $_SERVER['HTTP_USER_AGENT']);
-    Helper::logger("Params:", $req);
-
-    try {
-      $this->_request = $req;
-      $this->methodDispatch($req, $rsp);
-    } catch (\Exception $ex) {
-      $rsp['code'] = $ex->getCode();
-      if(empty($ex->getMessage())) {
-        $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
-      } else {
-        $rsp['desc'] = $ex->getMessage();
-      }
-      Helper::logger("Exception:", $rsp, Helper::ERROR);
-    }
-    $this->formatMessage();
-    if(is_array($rsp)) {
-      $rsp = json_encode($rsp, JSON_UNESCAPED_UNICODE);
-    }
-    Helper::logger("Result:", $rsp);
-    Helper::logger('End:', '----------------------------------');
-    $connection->send($rsp);
-    $this->_request = null;         //释放资源
-    $this->conn = null;
+  public function clearTask()
+  {
+    Timer::add(86400, array($this, 'clearDisk'), array(Config::getConf('App.Log.LOG_DIR'), Config::getConf('App.Log.ClearTime', '1296000')));
   }
-
-  /**
-   * 请求分发
-   * @return [type] [description]
-   */
-  private function methodDispatch($req, &$rsp) {
-    $controller = $this['config']['namespace'] . 'Controller\\'.$req['class'];
-
-    if(!class_exists($controller) || !method_exists($controller, $req['method'])) {
-      throw new \Exception("Controller {$req['class']} or Method {$req['method']} is Not Exists", 1002);
-    }
-
-    if (isset($this['config']['statistic']) && $this['config']['statistic']['report']){
-      StatisticClient::tick($this->project, $req['class'], $req['method']);
-    }
-
-    //请求频率校验
-    $this->checkRequestLimit($req['class'], $req['method']);
-
-    $handler_instance = new $controller($this);
-    $rsp['code'] = $handler_instance->{$req['method']}($req, $rsp);
-    $rsp['desc'] = isset($this['lang'][$this->language][$rsp['code']]) ? $this['lang'][$this->language][$rsp['code']] : "系统异常[{$rsp['code']}]";
-
-    $this->reportStatistic($req['class'], $req['method'], $rsp['code'] == 0 ? 1 : 0, $rsp['code'] == 0 ? 200 : $rsp['code'], $rsp['desc']);
-  }
-
-  /**
-   * 返回JSON数据
-   * @param array $data [description]
-   */
-  private function formatMessage() {
-    Http::header("Access-Control-Allow-Origin:*");
-    Http::header("Access-Control-Max-Age: 86400");
-    Http::header("Access-Control-Allow-Method: POST, GET");
-    Http::header("Access-Control-Allow-Headers: Origin, X-CSRF-Token, X-Requested-With, Content-Type, Accept");
-    Http::header("Content-type: application/json;charset=utf-8");
-  }
-
-
-  /**
-   * 访问频率限制
-   * @return [type] [description]
-   */
-  private function checkRequestLimit($class, $method) {
-    $clientIp = Helper::getClientIp();
-    $apiLimitKey = "ApiLimit:{$class}:{$method}:{$clientIp}";
-    $limitSecond = isset($this['config']['apiLimit'][$class][$method]['limitSecond']) ? $this['config']['apiLimit'][$class][$method]['limitSecond'] : 10;
-    $limitCount = isset($this['config']['apiLimit'][$class][$method]['limitCount']) ? $this['config']['apiLimit'][$class][$method]['limitCount'] : 100000;
-    $ret = $this['redis']->RedisCommands('get', $apiLimitKey);
-    if (false === $ret) {
-      $this['redis']->RedisCommands('setex', $apiLimitKey, $limitSecond, 1);
-    } else {
-      if($ret >= $limitCount) {
-        $this['redis']->RedisCommands('expire', $apiLimitKey, 10);
-        Helper::logger('checkRequestLimit:', "{$ret} Request Fast");
-        throw new \Exception("Request faster", 1005);
-      } else {
-        $this['redis']->RedisCommands('incr', $apiLimitKey);
-      }
-    }
-    return true;
-  }
-
-
-  /**
-   * 接口请求状态上报
-   * @param  string  $class   [description]
-   * @param  string  $method  [description]
-   * @param  integer $success [description]
-   * @param  integer $code    [description]
-   * @param  string  $message [description]
-   * @return [type]           [description]
-   */
-  private function reportStatistic($class = 'Index', $method = 'index', $success = 0, $code = 0, $message = 'error') {
-    if (isset($this['config']['statistic']) && $this['config']['statistic']['report']) {
-      StatisticClient::report($this->project, $class, $method, $success, $code, $message, isset($this['config']['statistic']['address']) ? $this['config']['statistic']['address'] : '');
-    }
-  }
-
-  /**
-   * 校验请求方式
-   * @return [type] [description]
-   */
-  private function check() {
-    /*
-    if(!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
-      throw new \Exception("Error Request Method", -1);
-    }
-    */
-  }
-
-  /**
-   * 设置语言类型
-   * @return [type] [description]
-   */
-  private function getLanguage($default = 'zh') {
-    if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-      $language = strtolower($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-      if(in_array($language, array('zh', 'en'))) {
-        $this->language = $language;
-      }
-    } else {
-      $this->language = $default;
-    }
-  }
-
+  
   /**
    * 清除磁盘数据
    * @param  [type]  $file     [description]
    * @param  integer $exp_time [description]
    * @return [type]            [description]
    */
-  public function clearDisk($file = null, $exp_time = 86400) {
+  private function clearDisk($file = null, $exp_time = 86400)
+  {
     $now_time = time();
-    if(is_file($file)) {
+    if (is_file($file)) {
       $mtime = filemtime($file);
-      if(!$mtime) {
+      if (!$mtime) {
         return;
       }
-      if($now_time - $mtime > $exp_time) {
+      if ($now_time - $mtime > $exp_time) {
         unlink($file);
       }
       return;
@@ -252,6 +142,98 @@ class Application extends Container  {
       $this->clearDisk($file_name, $exp_time);
     }
   }
-
-
+  
+  /**
+   * 请求分发
+   * @return [type] [description]
+   */
+  public function methodDispatch($request)
+  {
+    $this->logger()->info("-----------------{$request['class']}/{$request['method']}-----------------");
+    $this->logger()->info($this->request()->userAgent(), 'User_Agent');
+    $this->logger()->info($this->request()->post(), 'Params');
+    $controller = Config::getConf('App.NAMESPACE') . 'Controller\\' . $request['class'];
+    
+    if (!class_exists($controller) || !method_exists($controller, $request['method'])) {
+      throw new \Exception("Controller {$request['class']} or Method {$request['method']} is Not Exists", 1002);
+    }
+    
+    if (Config::getConf('App.report')) {
+      StatisticClient::tick(Config::getConf('App.NAME'), $request['class'], $request['method']);
+    }
+    $handler_instance = new $controller($this);
+    $handler_instance->{$request['method']}();
+    
+    if (Config::getConf('App.REPORT')) {
+      StatisticClient::report(Config::getConf('App.NAME'), $request['class'], $request['method'], 0, 200, '', Config::getConf('App.statistic.address'));
+    }
+  }
+  
+  public function Run()
+  {
+    $_server = $this->request()->server();
+    if ($this->request()->uri() === '/favicon.ico') {
+      $this->connection()->end(null);
+    }
+    $request = array();
+    /*
+    $content_type = $this->request()->contentType();
+    if (preg_match("/application\/json/i", $content_type)) {
+      $request = json_decode($this->request()->rawData(), TRUE);
+    } else if (preg_match("/text\/xml/i", $content_type)) {
+      $request = $this->request()->rawData();
+    } else {
+      $request = $this->request->post();
+    }*/
+    $_info = explode('/', $this->request()->uri());
+    $request['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
+    $request['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
+    
+    try {
+      //$this->checkRequestLimit($request['class'], $request['method']);
+      $this->methodDispatch($request);
+    } catch (\Exception $ex) {
+      $this->response()->setData(array('code' => $ex->getCode(), 'message' => $ex->getMessage()));
+      $this->logger()->error($ex->getMessage(), 'methodDispatch Exception');
+    }
+    $result = $this->response()->build();
+    $this->connection()->send($result);
+    $this->logger()->info($result, 'Result');
+    $this->logger()->info("-----------------END-----------------");
+  }
+  
+  /**
+   * 访问频率限制
+   * @return [type] [description]
+   */
+  private function checkRequestLimit($class, $method)
+  {
+    $clientIp = Helper::getClientIp();
+    $apiLimitKey = "ApiLimit:{$class}:{$method}:{$clientIp}";
+    $limitSecond = 10;
+    $limitCount = 100000;
+    $ret = $this->redis()->RedisCommands('get', $apiLimitKey);
+    if (false === $ret) {
+      $this->redis()->RedisCommands('setex', $apiLimitKey, $limitSecond, 1);
+    } else {
+      if ($ret >= $limitCount) {
+        $this->redis()->RedisCommands('expire', $apiLimitKey, 10);
+        $this->logger()->info("checkRequestLimit: Request Fast", 'checkRequestLimit');
+        throw new \Exception("Request faster", 1005);
+      } else {
+        $this->redis()->RedisCommands('incr', $apiLimitKey);
+      }
+    }
+    return true;
+  }
+  
+  private function errorHandle()
+  {
+    $func = function () {
+      echo 'register shutdown function ' . PHP_EOL;
+    };
+    register_shutdown_function($func);
+  }
+  
+  
 }
