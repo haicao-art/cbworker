@@ -2,7 +2,9 @@
     "name": "crababy/cbworker",
     "description": "cbworker framework",
     "require": {
-        "workerman/workerman": "^3.5"
+        "illuminate/database": "5.5.x-dev",
+        "illuminate/events": "5.5.x-dev",
+        "workerman/workerman": "dev-master"
     },
     "autoload": {
         "psr-4": {
