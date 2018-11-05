@@ -11,6 +11,7 @@ namespace Cbworker\Core;
 
 use Cbworker\Core\AbstractInterface\Singleton;
 use Cbworker\Core\Config\Config;
+use Cbworker\Core\Config\Lang;
 use Cbworker\Core\Http\HttpRequest;
 use Cbworker\Core\Http\HttpResponse;
 use Cbworker\Library\Helper;
@@ -24,49 +25,51 @@ use Illuminate\Container\Container;
 
 class Application extends Container
 {
-  
+
   use Singleton;
-  
+
   private $language = 'zh';
-  
+
   protected $_request = null;
-  
+
   protected $_response = null;
-  
+
   protected $_connection = null;
-  
+
   private function __construct()
   {
     $this->errorHandle();
   }
-  
+
   private function __clone()
   {
   }
-  
+
   public function initialize(): Application
   {
     Config::getInstance();
-    
+
+    Lang::getInstance();
+
     $capsule = new Capsule;
-    
+
     $capsule->addConnection(Config::getConf('db.mysql'));
-    
+
     $capsule->setEventDispatcher(new Dispatcher(new Container));
-    
+
     // 设置全局静态可访问DB
     $capsule->setAsGlobal();
-    
+
     // 启动Eloquent （如果只使用查询构造器，这个可以注释）
     $capsule->bootEloquent();
-    
+
     Capsule::listen(function ($query) {
       $sql = vsprintf(str_replace("?", "'%s'", $query->sql), $query->bindings) . " \t[" . $query->time . ' ms] ';
       // 把SQL写入到日志文件中
       Logger::getInstance()->info($sql, 'Sql');
     });
     $this->bind('redis', function () {
-      //return new RedisDb(Config::getConf('db.redis'));
+      return new RedisDb(Config::getConf('db.redis'));
     });
     $this->bind('logger', function () {
       return Logger::getInstance();
@@ -74,43 +77,43 @@ class Application extends Container
     $this->logger()->debug('initialize Success');
     return $this;
   }
-  
+
   public function redis()
   {
     return $this['redis'];
   }
-  
+
   public function logger()
   {
     return $this['logger'];
   }
-  
+
   public function getConnection()
   {
     return $this->_connection;
   }
-  
+
   public function connection()
   {
     return $this->_connection;
   }
-  
+
   public function request()
   {
     return $this->_request;
   }
-  
+
   public function response() {
     return $this->_response;
   }
-  
+
   public function init($connection, $data)
   {
     $this->_connection = $connection;
     $this->_request = new HttpRequest($data);
     $this->_response = new HttpResponse();
   }
-  
+
   /**
    * 定时任务
    */
@@ -118,7 +121,7 @@ class Application extends Container
   {
     Timer::add(86400, array($this, 'clearDisk'), array(Config::getConf('App.Log.LOG_DIR'), Config::getConf('App.Log.ClearTime', '1296000')));
   }
-  
+
   /**
    * 清除磁盘数据
    * @param  [type]  $file     [description]
@@ -142,38 +145,43 @@ class Application extends Container
       $this->clearDisk($file_name, $exp_time);
     }
   }
-  
+
   /**
    * 请求分发
    * @return [type] [description]
    */
   public function methodDispatch($request)
   {
-    $this->logger()->info("-----------------{$request['class']}/{$request['method']}-----------------");
-    $this->logger()->info($this->request()->userAgent(), 'User_Agent');
-    $this->logger()->info($this->request()->post(), 'Params');
     $controller = Config::getConf('App.NAMESPACE') . 'Controller\\' . $request['class'];
-    
+
     if (!class_exists($controller) || !method_exists($controller, $request['method'])) {
       throw new \Exception("Controller {$request['class']} or Method {$request['method']} is Not Exists", 1002);
     }
-    
+
     if (Config::getConf('App.report')) {
       StatisticClient::tick(Config::getConf('App.NAME'), $request['class'], $request['method']);
     }
-    $handler_instance = new $controller($this);
-    $handler_instance->{$request['method']}();
-    
-    if (Config::getConf('App.REPORT')) {
-      StatisticClient::report(Config::getConf('App.NAME'), $request['class'], $request['method'], 0, 200, '', Config::getConf('App.statistic.address'));
+
+    try {
+      $handler_instance = new $controller($this);
+      $handler_instance->{$request['method']}();
+    } catch (\Exception $ex) {
+      $this->response()->setCode($ex->getCode());
+      $this->response()->setMessage($ex->getMessage());
+      $this->logger()->error($ex->getMessage(), 'methodDispatch Exception');
+    }
+
+    if (Config::getConf('App.report')) {
+      StatisticClient::report(Config::getConf('App.NAME'), $request['class'], $request['method'], 0, $this->response()->getCode(), $this->response()->getMessage(), Config::getConf('App.statistic.address'));
     }
   }
-  
+
   public function Run()
   {
     $_server = $this->request()->server();
     if ($this->request()->uri() === '/favicon.ico') {
-      $this->connection()->end(null);
+      $this->connection()->close('');
+      return;
     }
     $request = array();
     /*
@@ -188,20 +196,40 @@ class Application extends Container
     $_info = explode('/', $this->request()->uri());
     $request['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $request['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
-    
+
+    $this->logger()->info("-----------------{$request['class']}/{$request['method']}-----------------");
+    $this->logger()->info($this->request()->userAgent(), 'User_Agent');
+    $this->logger()->info($this->request()->post(), 'Params');
     try {
-      //$this->checkRequestLimit($request['class'], $request['method']);
+      $this->checkRequestLimit($request['class'], $request['method']);
       $this->methodDispatch($request);
     } catch (\Exception $ex) {
-      $this->response()->setData(array('code' => $ex->getCode(), 'message' => $ex->getMessage()));
+      $this->response()->setCode($ex->getCode());
+      $this->response()->setMessage($ex->getMessage());
       $this->logger()->error($ex->getMessage(), 'methodDispatch Exception');
     }
-    $result = $this->response()->build();
-    $this->connection()->send($result);
-    $this->logger()->info($result, 'Result');
+    $_raw = $this->response()->getRaw();
+    $_headers = $this->response()->header();
+    foreach ($_headers as $header) {
+      $this->connection()->send($header, $_raw);
+    }
+    $_responses = $this->response()->build();
+    if(empty($_responses)) {
+      $this->connection()->send(json_encode(array('code' => $this->response()->getCode(), 'message' => $this->response()->getMessage())), $_raw);
+    } else {
+      $this->connection()->send($_responses, $_raw);
+    }
+    if(!$_raw) {
+      $this->logger()->info($_responses, 'Response');
+    }
+    unset($_headers);
+    unset($_responses);
+    unset($this->_request);
+    unset($this->_response);
+    unset($this->_connection);
     $this->logger()->info("-----------------END-----------------");
   }
-  
+
   /**
    * 访问频率限制
    * @return [type] [description]
@@ -226,7 +254,7 @@ class Application extends Container
     }
     return true;
   }
-  
+
   private function errorHandle()
   {
     $func = function () {
@@ -234,6 +262,6 @@ class Application extends Container
     };
     register_shutdown_function($func);
   }
-  
-  
+
+
 }

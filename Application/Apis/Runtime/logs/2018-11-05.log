@@ -1,0 +1,543 @@
+ERROR|74068|11-05 09:40:39 0.81729600|methodDispatch Exception:Controller Index or Method index is Not Exists
+ERROR|74066|11-05 09:41:09 0.88804000|methodDispatch Exception:Controller Index or Method index is Not Exists
+ERROR|74102|11-05 09:41:24 0.03030600|methodDispatch Exception:Controller Index or Method index is Not Exists
+ERROR|74101|11-05 09:42:04 0.62175700|this is Admin Login Error
+ERROR|74155|11-05 09:42:42 0.19112700|this is Admin Login Error
+ERROR|74192|11-05 09:43:37 0.17647300|this is Admin Login Error
+ERROR|74209|11-05 09:43:47 0.29248100|this is Admin Login Error
+ERROR|74263|11-05 09:44:58 0.23919300|this is Admin Login Error
+ERROR|74347|11-05 09:47:49 0.00097200|this is Admin Login Error
+ERROR|74431|11-05 09:49:56 0.49663700|this is Admin Login Error
+ERROR|74471|11-05 09:50:46 0.65691100|this is Admin Login Error
+ERROR|74504|11-05 09:51:28 0.38701800|this is Admin Login Error
+ERROR|74603|11-05 09:54:56 0.32345400|this is Admin Login Error
+ERROR|74653|11-05 09:56:24 0.27961300|this is Admin Login Error
+ERROR|74760|11-05 10:00:05 0.32997400|this is Admin Login Error
+ERROR|74803|11-05 10:01:16 0.56576200|this is Admin Login Error
+ERROR|76146|11-05 13:34:23 0.64017600|this is Admin Login Error
+ERROR|76146|11-05 13:34:34 0.54384500|this is Admin Login Error
+ERROR|76217|11-05 13:35:52 0.03119900|this is Admin Login Error
+ERROR|76257|11-05 13:36:48 0.12383800|this is Admin Login Error
+ERROR|76466|11-05 13:39:21 0.84456700|this is Admin Login Error
+ERROR|76466|11-05 13:41:39 0.88234500|this is Admin Login Error
+ERROR|76580|11-05 13:43:24 0.10388600|this is Admin Login Error
+ERROR|76577|11-05 13:43:24 0.27149100|this is Admin Login Error
+ERROR|76580|11-05 13:43:29 0.29764300|this is Admin Login Error
+ERROR|76604|11-05 13:43:43 0.40732700|this is Admin Login Error
+ERROR|76621|11-05 13:43:53 0.13075500|this is Admin Login Error
+DEBUG|76721|11-05 13:47:19 0.01655400|initialize Success
+DEBUG|76720|11-05 13:47:19 0.01730100|initialize Success
+DEBUG|76719|11-05 13:47:19 0.01771300|initialize Success
+DEBUG|76718|11-05 13:47:19 0.01925000|initialize Success
+INFO|76718|11-05 13:47:21 0.06957600|-----------------Admin/Login-----------------
+INFO|76718|11-05 13:47:21 0.06993500|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|76718|11-05 13:47:21 0.07022300|Params:[]
+ERROR|76718|11-05 13:47:21 0.07223600|this is Admin Login Error
+DEBUG|76718|11-05 13:47:21 0.07252600|this is Admin Login Debug
+INFO|76718|11-05 13:47:21 0.07270800|this is Admin Login Info
+INFO|76718|11-05 13:47:21 0.07301200|Response:[{"content":"{\"coed\":3,\"message\":\"this is Admin Return Message two\"}","raw":false}]
+INFO|76718|11-05 13:47:21 0.07328400|-----------------END-----------------
+DEBUG|76957|11-05 13:54:31 0.74931600|initialize Success
+DEBUG|76956|11-05 13:54:31 0.74931600|initialize Success
+DEBUG|76955|11-05 13:54:31 0.75039700|initialize Success
+DEBUG|76958|11-05 13:54:31 0.75040300|initialize Success
+INFO|76955|11-05 13:54:33 0.51610700|-----------------Admin/Login-----------------
+INFO|76955|11-05 13:54:33 0.51709500|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|76955|11-05 13:54:33 0.51843300|Params:[]
+ERROR|76955|11-05 13:54:33 0.52085100|this is Admin Login Error
+DEBUG|76955|11-05 13:54:33 0.52116300|this is Admin Login Debug
+INFO|76955|11-05 13:54:33 0.52135500|this is Admin Login Info
+INFO|76955|11-05 13:54:33 0.52169700|Response:[{"content":"{\"coed\":3,\"message\":\"this is Admin Return Message two\"}"}]
+INFO|76955|11-05 13:54:33 0.52195500|-----------------END-----------------
+DEBUG|77187|11-05 13:59:54 0.69179100|initialize Success
+DEBUG|77185|11-05 13:59:54 0.69229400|initialize Success
+DEBUG|77186|11-05 13:59:54 0.69230600|initialize Success
+DEBUG|77188|11-05 13:59:54 0.69311500|initialize Success
+INFO|77188|11-05 14:00:00 0.57332400|-----------------Admin/DownLoad-----------------
+INFO|77188|11-05 14:00:00 0.57360800|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|77188|11-05 14:00:00 0.57391800|Params:[]
+INFO|77188|11-05 14:00:00 0.58135400|-----------------END-----------------
+DEBUG|77236|11-05 14:01:00 0.62606800|initialize Success
+DEBUG|77235|11-05 14:01:00 0.62606900|initialize Success
+DEBUG|77234|11-05 14:01:00 0.62682100|initialize Success
+DEBUG|77233|11-05 14:01:00 0.62703300|initialize Success
+DEBUG|77239|11-05 14:01:04 0.25151300|initialize Success
+DEBUG|77241|11-05 14:01:04 0.28114600|initialize Success
+DEBUG|77240|11-05 14:01:04 0.32070400|initialize Success
+DEBUG|77244|11-05 14:01:04 0.44894600|initialize Success
+DEBUG|77245|11-05 14:01:04 0.45423000|initialize Success
+DEBUG|77246|11-05 14:01:04 0.46546800|initialize Success
+DEBUG|77253|11-05 14:01:09 0.53721900|initialize Success
+DEBUG|77255|11-05 14:01:09 0.57478400|initialize Success
+DEBUG|77254|11-05 14:01:09 0.58415200|initialize Success
+DEBUG|77276|11-05 14:01:39 0.65946900|initialize Success
+DEBUG|77275|11-05 14:01:39 0.65946900|initialize Success
+DEBUG|77274|11-05 14:01:39 0.66004800|initialize Success
+DEBUG|77308|11-05 14:02:39 0.71757500|initialize Success
+DEBUG|77307|11-05 14:02:39 0.71907700|initialize Success
+DEBUG|77309|11-05 14:02:39 0.74835200|initialize Success
+DEBUG|77402|11-05 14:04:31 0.98823300|initialize Success
+DEBUG|77405|11-05 14:04:31 0.98874300|initialize Success
+DEBUG|77403|11-05 14:04:31 0.98876400|initialize Success
+DEBUG|77404|11-05 14:04:31 0.98707900|initialize Success
+INFO|77405|11-05 14:04:34 0.25172900|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|77405|11-05 14:04:34 0.25491300|RedisCommands Result:false
+INFO|77405|11-05 14:04:34 0.25647700|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|77405|11-05 14:04:34 0.25792300|RedisCommands Result:1
+INFO|77405|11-05 14:04:34 0.25835800|-----------------Admin/Login-----------------
+INFO|77405|11-05 14:04:34 0.25873600|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|77405|11-05 14:04:34 0.25894100|Params:[]
+ERROR|77405|11-05 14:04:34 0.26453600|this is Admin Login Error
+DEBUG|77405|11-05 14:04:34 0.26696900|this is Admin Login Debug
+INFO|77405|11-05 14:04:34 0.26746200|this is Admin Login Info
+INFO|77405|11-05 14:04:34 0.26780900|Response:[{"content":"{\"coed\":3,\"message\":\"this is Admin Return Message two\"}"}]
+INFO|77405|11-05 14:04:34 0.26803200|-----------------END-----------------
+DEBUG|79646|11-05 15:17:39 0.07960000|initialize Success
+DEBUG|79648|11-05 15:17:39 0.07960000|initialize Success
+DEBUG|79645|11-05 15:17:39 0.08045100|initialize Success
+DEBUG|79647|11-05 15:17:39 0.08077900|initialize Success
+INFO|79645|11-05 15:17:47 0.03052600|-----------------Admin/Login-----------------
+INFO|79645|11-05 15:17:47 0.03085600|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79645|11-05 15:17:47 0.03104300|Params:[]
+INFO|79645|11-05 15:17:47 0.03346600|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|79645|11-05 15:17:47 0.03394400|RedisCommands Result:false
+INFO|79645|11-05 15:17:47 0.03460300|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|79645|11-05 15:17:47 0.03501100|RedisCommands Result:1
+ERROR|79645|11-05 15:17:47 0.03657400|this is Admin Login Error
+DEBUG|79645|11-05 15:17:47 0.03675100|this is Admin Login Debug
+INFO|79645|11-05 15:17:47 0.03692800|this is Admin Login Info
+INFO|79645|11-05 15:17:47 0.03896300|Response:null
+INFO|79645|11-05 15:17:47 0.03919100|-----------------END-----------------
+DEBUG|79675|11-05 15:18:11 0.53179600|initialize Success
+DEBUG|79673|11-05 15:18:11 0.53205400|initialize Success
+DEBUG|79674|11-05 15:18:11 0.53239300|initialize Success
+DEBUG|79676|11-05 15:18:11 0.53347200|initialize Success
+INFO|79676|11-05 15:18:13 0.70086900|-----------------Admin/Login-----------------
+INFO|79676|11-05 15:18:13 0.70112800|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79676|11-05 15:18:13 0.70264600|Params:[]
+INFO|79676|11-05 15:18:13 0.70571400|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|79676|11-05 15:18:13 0.70643500|RedisCommands Result:false
+INFO|79676|11-05 15:18:13 0.70704300|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|79676|11-05 15:18:13 0.70741500|RedisCommands Result:1
+ERROR|79676|11-05 15:18:13 0.70861900|this is Admin Login Error
+DEBUG|79676|11-05 15:18:13 0.70885600|this is Admin Login Debug
+INFO|79676|11-05 15:18:13 0.70906200|this is Admin Login Info
+INFO|79676|11-05 15:18:13 0.71062400|Response:{"code":200,"message":"\u6210\u529f","0":{"items":[]}}
+INFO|79676|11-05 15:18:13 0.71087800|-----------------END-----------------
+DEBUG|79695|11-05 15:18:31 0.94229400|initialize Success
+DEBUG|79697|11-05 15:18:31 0.94677900|initialize Success
+DEBUG|79696|11-05 15:18:31 0.95002600|initialize Success
+DEBUG|79698|11-05 15:18:31 0.95008200|initialize Success
+INFO|79698|11-05 15:18:33 0.50552800|-----------------Admin/Login-----------------
+INFO|79698|11-05 15:18:33 0.50598400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79698|11-05 15:18:33 0.50620000|Params:[]
+INFO|79698|11-05 15:18:33 0.50871800|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|79698|11-05 15:18:33 0.50953400|RedisCommands Result:false
+INFO|79698|11-05 15:18:33 0.51025400|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|79698|11-05 15:18:33 0.51060100|RedisCommands Result:1
+ERROR|79698|11-05 15:18:33 0.51153000|this is Admin Login Error
+DEBUG|79698|11-05 15:18:33 0.51172000|this is Admin Login Debug
+INFO|79698|11-05 15:18:33 0.51195000|this is Admin Login Info
+INFO|79698|11-05 15:18:33 0.51318700|Response:{"code":200,"message":"\u6210\u529f","0":{"items":[]}}
+INFO|79698|11-05 15:18:33 0.51346300|-----------------END-----------------
+DEBUG|79757|11-05 15:19:40 0.71154400|initialize Success
+DEBUG|79755|11-05 15:19:40 0.71579300|initialize Success
+DEBUG|79756|11-05 15:19:40 0.72308200|initialize Success
+DEBUG|79758|11-05 15:19:40 0.73071200|initialize Success
+INFO|79756|11-05 15:19:42 0.39156300|-----------------Admin/Login-----------------
+INFO|79756|11-05 15:19:42 0.39179000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79756|11-05 15:19:42 0.39323500|Params:[]
+INFO|79756|11-05 15:19:42 0.39623700|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|79756|11-05 15:19:42 0.39670000|RedisCommands Result:false
+INFO|79756|11-05 15:19:42 0.39721100|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|79756|11-05 15:19:42 0.39759900|RedisCommands Result:1
+ERROR|79756|11-05 15:19:42 0.39867000|this is Admin Login Error
+DEBUG|79756|11-05 15:19:42 0.39884000|this is Admin Login Debug
+INFO|79756|11-05 15:19:42 0.39903900|this is Admin Login Info
+INFO|79756|11-05 15:19:42 0.39984500|Response:{"code":200,"message":"\u6210\u529f","0":{"items":[]}}
+INFO|79756|11-05 15:19:42 0.40052900|-----------------END-----------------
+DEBUG|79786|11-05 15:20:18 0.46521300|initialize Success
+DEBUG|79783|11-05 15:20:18 0.46622400|initialize Success
+DEBUG|79784|11-05 15:20:18 0.46625900|initialize Success
+DEBUG|79785|11-05 15:20:18 0.46587000|initialize Success
+INFO|79784|11-05 15:20:21 0.93345800|-----------------Admin/Login-----------------
+INFO|79784|11-05 15:20:21 0.93368400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79784|11-05 15:20:21 0.93516000|Params:[]
+INFO|79784|11-05 15:20:21 0.93796900|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|79784|11-05 15:20:21 0.93838300|RedisCommands Result:false
+INFO|79784|11-05 15:20:21 0.93884800|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|79784|11-05 15:20:21 0.93915900|RedisCommands Result:1
+ERROR|79784|11-05 15:20:21 0.94045000|this is Admin Login Error
+DEBUG|79784|11-05 15:20:21 0.94067800|this is Admin Login Debug
+INFO|79784|11-05 15:20:21 0.94093800|this is Admin Login Info
+INFO|79784|11-05 15:20:21 0.94188700|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|79784|11-05 15:20:21 0.94222400|-----------------END-----------------
+INFO|79784|11-05 15:20:49 0.57598600|-----------------Admin/Login-----------------
+INFO|79784|11-05 15:20:49 0.57658400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79784|11-05 15:20:49 0.57682000|Params:[]
+INFO|79784|11-05 15:20:49 0.57745200|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|79784|11-05 15:20:49 0.57786600|RedisCommands Result:false
+INFO|79784|11-05 15:20:49 0.57851700|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|79784|11-05 15:20:49 0.57897500|RedisCommands Result:1
+ERROR|79784|11-05 15:20:49 0.57941700|this is Admin Login Error
+DEBUG|79784|11-05 15:20:49 0.57975800|this is Admin Login Debug
+INFO|79784|11-05 15:20:49 0.57995000|this is Admin Login Info
+INFO|79784|11-05 15:20:49 0.58078300|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|79784|11-05 15:20:49 0.58123400|-----------------END-----------------
+DEBUG|79841|11-05 15:21:40 0.49451800|initialize Success
+DEBUG|79840|11-05 15:21:40 0.49489500|initialize Success
+DEBUG|79842|11-05 15:21:40 0.49524500|initialize Success
+DEBUG|79843|11-05 15:21:40 0.49513900|initialize Success
+INFO|79842|11-05 15:21:42 0.73176200|-----------------Admin/Login-----------------
+INFO|79842|11-05 15:21:42 0.73214500|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79842|11-05 15:21:42 0.73342400|Params:[]
+INFO|79842|11-05 15:21:42 0.73982400|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|79842|11-05 15:21:42 0.74397100|RedisCommands Result:false
+INFO|79842|11-05 15:21:42 0.74753100|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|79842|11-05 15:21:42 0.74929700|RedisCommands Result:1
+ERROR|79842|11-05 15:21:42 0.75089500|this is Admin Login Error
+DEBUG|79842|11-05 15:21:42 0.75123500|this is Admin Login Debug
+INFO|79842|11-05 15:21:42 0.75149600|this is Admin Login Info
+INFO|79842|11-05 15:21:42 0.75871500|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|79842|11-05 15:21:42 0.75921500|-----------------END-----------------
+INFO|79843|11-05 15:21:50 0.59272100|-----------------Admin/Download-----------------
+INFO|79843|11-05 15:21:50 0.59293600|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|79843|11-05 15:21:50 0.59316300|Params:[]
+INFO|79843|11-05 15:21:50 0.59644400|RedisCommands Args:["get","ApiLimit:Admin:Download:127.0.0.1"]
+INFO|79843|11-05 15:21:50 0.60025000|RedisCommands Result:false
+INFO|79843|11-05 15:21:50 0.60142200|RedisCommands Args:["setex","ApiLimit:Admin:Download:127.0.0.1",10,1]
+INFO|79843|11-05 15:21:50 0.60191400|RedisCommands Result:1
+INFO|79843|11-05 15:21:50 0.60460300|-----------------END-----------------
+DEBUG|80069|11-05 15:28:39 0.89009600|initialize Success
+DEBUG|80071|11-05 15:28:39 0.89019800|initialize Success
+DEBUG|80068|11-05 15:28:39 0.89020300|initialize Success
+DEBUG|80070|11-05 15:28:39 0.89120400|initialize Success
+DEBUG|80074|11-05 15:28:40 0.93810600|initialize Success
+DEBUG|80091|11-05 15:29:06 0.30381000|initialize Success
+DEBUG|80092|11-05 15:29:06 0.30439800|initialize Success
+DEBUG|80093|11-05 15:29:06 0.30651000|initialize Success
+DEBUG|80094|11-05 15:29:06 0.31715700|initialize Success
+INFO|80091|11-05 15:29:08 0.72469900|-----------------Admin/Login-----------------
+INFO|80091|11-05 15:29:08 0.72620000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80091|11-05 15:29:08 0.72652100|Params:[]
+INFO|80091|11-05 15:29:08 0.73220300|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80091|11-05 15:29:08 0.73270600|RedisCommands Result:false
+INFO|80091|11-05 15:29:08 0.73334400|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|80091|11-05 15:29:08 0.73406900|RedisCommands Result:1
+ERROR|80091|11-05 15:29:08 0.73632600|this is Admin Login Error
+DEBUG|80091|11-05 15:29:08 0.73665700|this is Admin Login Debug
+INFO|80091|11-05 15:29:08 0.73691800|this is Admin Login Info
+INFO|80091|11-05 15:29:08 0.74244400|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80091|11-05 15:29:08 0.74278300|-----------------END-----------------
+INFO|80094|11-05 15:29:09 0.76813900|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:09 0.76843700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:09 0.76976800|Params:[]
+INFO|80094|11-05 15:29:09 0.77586100|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:09 0.77639400|RedisCommands Result:1
+INFO|80094|11-05 15:29:09 0.77720000|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:09 0.78554200|RedisCommands Result:2
+ERROR|80094|11-05 15:29:09 0.78757300|this is Admin Login Error
+DEBUG|80094|11-05 15:29:09 0.78786700|this is Admin Login Debug
+INFO|80094|11-05 15:29:09 0.78807600|this is Admin Login Info
+INFO|80094|11-05 15:29:09 0.78939100|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:09 0.78998100|-----------------END-----------------
+INFO|80094|11-05 15:29:10 0.59803200|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:10 0.59987200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:10 0.60050100|Params:[]
+INFO|80094|11-05 15:29:10 0.60168400|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:10 0.60329600|RedisCommands Result:2
+INFO|80094|11-05 15:29:10 0.60476300|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:10 0.60567600|RedisCommands Result:3
+ERROR|80094|11-05 15:29:10 0.60610500|this is Admin Login Error
+DEBUG|80094|11-05 15:29:10 0.60643700|this is Admin Login Debug
+INFO|80094|11-05 15:29:10 0.60660500|this is Admin Login Info
+INFO|80094|11-05 15:29:10 0.60859400|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:10 0.60888200|-----------------END-----------------
+INFO|80094|11-05 15:29:16 0.75604000|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:16 0.75629100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:16 0.75650500|Params:[]
+INFO|80094|11-05 15:29:16 0.75699100|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:16 0.75739700|RedisCommands Result:3
+INFO|80094|11-05 15:29:16 0.75787900|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:16 0.75823100|RedisCommands Result:4
+ERROR|80094|11-05 15:29:16 0.75856500|this is Admin Login Error
+DEBUG|80094|11-05 15:29:16 0.75875300|this is Admin Login Debug
+INFO|80094|11-05 15:29:16 0.75894200|this is Admin Login Info
+INFO|80094|11-05 15:29:16 0.75974100|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:16 0.76059300|-----------------END-----------------
+INFO|80094|11-05 15:29:17 0.91155300|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:17 0.91183900|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:17 0.91206600|Params:[]
+INFO|80094|11-05 15:29:17 0.91262900|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:17 0.91296000|RedisCommands Result:4
+INFO|80094|11-05 15:29:17 0.91345400|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:17 0.91383600|RedisCommands Result:5
+ERROR|80094|11-05 15:29:17 0.91408000|this is Admin Login Error
+DEBUG|80094|11-05 15:29:17 0.91425600|this is Admin Login Debug
+INFO|80094|11-05 15:29:17 0.91454500|this is Admin Login Info
+INFO|80094|11-05 15:29:17 0.91503400|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:17 0.91575400|-----------------END-----------------
+INFO|80094|11-05 15:29:18 0.52297000|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:18 0.52321300|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:18 0.52342700|Params:[]
+INFO|80094|11-05 15:29:18 0.52383000|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:18 0.52408900|RedisCommands Result:5
+INFO|80094|11-05 15:29:18 0.52449900|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:18 0.52481100|RedisCommands Result:6
+ERROR|80094|11-05 15:29:18 0.52503200|this is Admin Login Error
+DEBUG|80094|11-05 15:29:18 0.52522300|this is Admin Login Debug
+INFO|80094|11-05 15:29:18 0.52552000|this is Admin Login Info
+INFO|80094|11-05 15:29:18 0.52601300|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:18 0.52649200|-----------------END-----------------
+INFO|80094|11-05 15:29:19 0.05526600|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:19 0.05559400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:19 0.05600000|Params:[]
+INFO|80094|11-05 15:29:19 0.05807200|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:19 0.05884400|RedisCommands Result:false
+INFO|80094|11-05 15:29:19 0.05991700|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|80094|11-05 15:29:19 0.06048700|RedisCommands Result:1
+ERROR|80094|11-05 15:29:19 0.06078900|this is Admin Login Error
+DEBUG|80094|11-05 15:29:19 0.06105000|this is Admin Login Debug
+INFO|80094|11-05 15:29:19 0.06126000|this is Admin Login Info
+INFO|80094|11-05 15:29:19 0.06185500|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:19 0.06207300|-----------------END-----------------
+INFO|80094|11-05 15:29:19 0.39909500|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:19 0.39939400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:19 0.40092000|Params:[]
+INFO|80094|11-05 15:29:19 0.40162400|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:19 0.40198300|RedisCommands Result:1
+INFO|80094|11-05 15:29:19 0.40249100|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:19 0.40281500|RedisCommands Result:2
+ERROR|80094|11-05 15:29:19 0.40310200|this is Admin Login Error
+DEBUG|80094|11-05 15:29:19 0.40330400|this is Admin Login Debug
+INFO|80094|11-05 15:29:19 0.40353900|this is Admin Login Info
+INFO|80094|11-05 15:29:19 0.40428700|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:19 0.40457500|-----------------END-----------------
+INFO|80094|11-05 15:29:19 0.67204000|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:19 0.67231700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:19 0.67249000|Params:[]
+INFO|80094|11-05 15:29:19 0.67291600|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:19 0.67324200|RedisCommands Result:2
+INFO|80094|11-05 15:29:19 0.67376000|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:19 0.67408900|RedisCommands Result:3
+ERROR|80094|11-05 15:29:19 0.67448900|this is Admin Login Error
+DEBUG|80094|11-05 15:29:19 0.67482400|this is Admin Login Debug
+INFO|80094|11-05 15:29:19 0.67497200|this is Admin Login Info
+INFO|80094|11-05 15:29:19 0.67540300|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:19 0.67558200|-----------------END-----------------
+INFO|80094|11-05 15:29:19 0.90682500|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:19 0.90707100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:19 0.90728300|Params:[]
+INFO|80094|11-05 15:29:19 0.90771200|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:19 0.90798800|RedisCommands Result:3
+INFO|80094|11-05 15:29:19 0.90838000|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:19 0.90873700|RedisCommands Result:4
+ERROR|80094|11-05 15:29:19 0.90896600|this is Admin Login Error
+DEBUG|80094|11-05 15:29:19 0.90916000|this is Admin Login Debug
+INFO|80094|11-05 15:29:19 0.90932700|this is Admin Login Info
+INFO|80094|11-05 15:29:19 0.90980700|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:19 0.90999600|-----------------END-----------------
+INFO|80094|11-05 15:29:20 0.11495000|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:20 0.11662700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:20 0.11688700|Params:[]
+INFO|80094|11-05 15:29:20 0.11733100|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.11795100|RedisCommands Result:4
+INFO|80094|11-05 15:29:20 0.11850600|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.11881100|RedisCommands Result:5
+ERROR|80094|11-05 15:29:20 0.11903400|this is Admin Login Error
+DEBUG|80094|11-05 15:29:20 0.11924100|this is Admin Login Debug
+INFO|80094|11-05 15:29:20 0.11945100|this is Admin Login Info
+INFO|80094|11-05 15:29:20 0.11997100|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:20 0.12017500|-----------------END-----------------
+INFO|80094|11-05 15:29:20 0.30704900|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:20 0.30840100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:20 0.30871200|Params:[]
+INFO|80094|11-05 15:29:20 0.30928900|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.30961400|RedisCommands Result:5
+INFO|80094|11-05 15:29:20 0.31008500|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.31043200|RedisCommands Result:6
+ERROR|80094|11-05 15:29:20 0.31071500|this is Admin Login Error
+DEBUG|80094|11-05 15:29:20 0.31091000|this is Admin Login Debug
+INFO|80094|11-05 15:29:20 0.31107100|this is Admin Login Info
+INFO|80094|11-05 15:29:20 0.31160100|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:20 0.31180100|-----------------END-----------------
+INFO|80094|11-05 15:29:20 0.48804500|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:20 0.48830600|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:20 0.48853200|Params:[]
+INFO|80094|11-05 15:29:20 0.48903700|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.48935300|RedisCommands Result:6
+INFO|80094|11-05 15:29:20 0.48985000|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.49019300|RedisCommands Result:7
+ERROR|80094|11-05 15:29:20 0.49043000|this is Admin Login Error
+DEBUG|80094|11-05 15:29:20 0.49063700|this is Admin Login Debug
+INFO|80094|11-05 15:29:20 0.49084700|this is Admin Login Info
+INFO|80094|11-05 15:29:20 0.49131200|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:20 0.49161500|-----------------END-----------------
+INFO|80094|11-05 15:29:20 0.68493800|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:20 0.68519700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:20 0.68537600|Params:[]
+INFO|80094|11-05 15:29:20 0.68580800|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.68604500|RedisCommands Result:7
+INFO|80094|11-05 15:29:20 0.68651700|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.68681800|RedisCommands Result:8
+ERROR|80094|11-05 15:29:20 0.68704100|this is Admin Login Error
+DEBUG|80094|11-05 15:29:20 0.68720100|this is Admin Login Debug
+INFO|80094|11-05 15:29:20 0.68745700|this is Admin Login Info
+INFO|80094|11-05 15:29:20 0.68789700|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:20 0.68811100|-----------------END-----------------
+INFO|80094|11-05 15:29:20 0.86119500|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:20 0.86149900|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:20 0.86168200|Params:[]
+INFO|80094|11-05 15:29:20 0.86221900|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.86252500|RedisCommands Result:8
+INFO|80094|11-05 15:29:20 0.86298500|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:20 0.86329900|RedisCommands Result:9
+ERROR|80094|11-05 15:29:20 0.86349900|this is Admin Login Error
+DEBUG|80094|11-05 15:29:20 0.86367100|this is Admin Login Debug
+INFO|80094|11-05 15:29:20 0.86381100|this is Admin Login Info
+INFO|80094|11-05 15:29:20 0.86428900|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:20 0.86445800|-----------------END-----------------
+INFO|80094|11-05 15:29:21 0.03629100|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:21 0.03658000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:21 0.03676600|Params:[]
+INFO|80094|11-05 15:29:21 0.03722200|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.03765200|RedisCommands Result:9
+INFO|80094|11-05 15:29:21 0.03809000|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.03835900|RedisCommands Result:10
+ERROR|80094|11-05 15:29:21 0.03857100|this is Admin Login Error
+DEBUG|80094|11-05 15:29:21 0.03872700|this is Admin Login Debug
+INFO|80094|11-05 15:29:21 0.03885600|this is Admin Login Info
+INFO|80094|11-05 15:29:21 0.03935800|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:21 0.03964700|-----------------END-----------------
+INFO|80094|11-05 15:29:21 0.22993500|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:21 0.23023000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:21 0.23045700|Params:[]
+INFO|80094|11-05 15:29:21 0.23094300|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.23123500|RedisCommands Result:10
+INFO|80094|11-05 15:29:21 0.23177700|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.23205400|RedisCommands Result:11
+ERROR|80094|11-05 15:29:21 0.23225300|this is Admin Login Error
+DEBUG|80094|11-05 15:29:21 0.23243400|this is Admin Login Debug
+INFO|80094|11-05 15:29:21 0.23259900|this is Admin Login Info
+INFO|80094|11-05 15:29:21 0.23312200|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:21 0.23333100|-----------------END-----------------
+INFO|80094|11-05 15:29:21 0.37566200|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:21 0.37608200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:21 0.37742900|Params:[]
+INFO|80094|11-05 15:29:21 0.37786400|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.37818400|RedisCommands Result:11
+INFO|80094|11-05 15:29:21 0.37856300|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.37892300|RedisCommands Result:12
+ERROR|80094|11-05 15:29:21 0.37909500|this is Admin Login Error
+DEBUG|80094|11-05 15:29:21 0.37926000|this is Admin Login Debug
+INFO|80094|11-05 15:29:21 0.37940700|this is Admin Login Info
+INFO|80094|11-05 15:29:21 0.37993200|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:21 0.38018900|-----------------END-----------------
+INFO|80094|11-05 15:29:21 0.55148600|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:21 0.55175700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:21 0.55316400|Params:[]
+INFO|80094|11-05 15:29:21 0.55367600|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.55406000|RedisCommands Result:12
+INFO|80094|11-05 15:29:21 0.55450800|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.55493700|RedisCommands Result:13
+ERROR|80094|11-05 15:29:21 0.55518400|this is Admin Login Error
+DEBUG|80094|11-05 15:29:21 0.55536000|this is Admin Login Debug
+INFO|80094|11-05 15:29:21 0.55551200|this is Admin Login Info
+INFO|80094|11-05 15:29:21 0.55602600|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:21 0.55620600|-----------------END-----------------
+INFO|80094|11-05 15:29:21 0.72140400|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:21 0.72170400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:21 0.72188000|Params:[]
+INFO|80094|11-05 15:29:21 0.72233700|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.72263300|RedisCommands Result:13
+INFO|80094|11-05 15:29:21 0.72306200|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.72344100|RedisCommands Result:14
+ERROR|80094|11-05 15:29:21 0.72382200|this is Admin Login Error
+DEBUG|80094|11-05 15:29:21 0.72399800|this is Admin Login Debug
+INFO|80094|11-05 15:29:21 0.72420500|this is Admin Login Info
+INFO|80094|11-05 15:29:21 0.72464200|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:21 0.72487700|-----------------END-----------------
+INFO|80094|11-05 15:29:21 0.89916800|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:21 0.89942400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:21 0.90110300|Params:[]
+INFO|80094|11-05 15:29:21 0.90171800|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.90212200|RedisCommands Result:14
+INFO|80094|11-05 15:29:21 0.90258300|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:21 0.90287700|RedisCommands Result:15
+ERROR|80094|11-05 15:29:21 0.90309700|this is Admin Login Error
+DEBUG|80094|11-05 15:29:21 0.90323600|this is Admin Login Debug
+INFO|80094|11-05 15:29:21 0.90341400|this is Admin Login Info
+INFO|80094|11-05 15:29:21 0.90385900|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:21 0.90404800|-----------------END-----------------
+INFO|80094|11-05 15:29:22 0.06973000|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:22 0.07000000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:22 0.07146100|Params:[]
+INFO|80094|11-05 15:29:22 0.07226200|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.07256700|RedisCommands Result:15
+INFO|80094|11-05 15:29:22 0.07304400|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.07335900|RedisCommands Result:16
+ERROR|80094|11-05 15:29:22 0.07356400|this is Admin Login Error
+DEBUG|80094|11-05 15:29:22 0.07373300|this is Admin Login Debug
+INFO|80094|11-05 15:29:22 0.07391600|this is Admin Login Info
+INFO|80094|11-05 15:29:22 0.07450200|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:22 0.07471200|-----------------END-----------------
+INFO|80094|11-05 15:29:22 0.23804900|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:22 0.23835400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:22 0.23976700|Params:[]
+INFO|80094|11-05 15:29:22 0.24023000|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.24128900|RedisCommands Result:16
+INFO|80094|11-05 15:29:22 0.24218300|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.24254200|RedisCommands Result:17
+ERROR|80094|11-05 15:29:22 0.24277800|this is Admin Login Error
+DEBUG|80094|11-05 15:29:22 0.24295500|this is Admin Login Debug
+INFO|80094|11-05 15:29:22 0.24309400|this is Admin Login Info
+INFO|80094|11-05 15:29:22 0.24355100|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:22 0.24378100|-----------------END-----------------
+INFO|80094|11-05 15:29:22 0.42311500|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:22 0.42336400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:22 0.42478700|Params:[]
+INFO|80094|11-05 15:29:22 0.42526700|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.42559600|RedisCommands Result:17
+INFO|80094|11-05 15:29:22 0.42600600|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.42629400|RedisCommands Result:18
+ERROR|80094|11-05 15:29:22 0.42665200|this is Admin Login Error
+DEBUG|80094|11-05 15:29:22 0.42681800|this is Admin Login Debug
+INFO|80094|11-05 15:29:22 0.42702400|this is Admin Login Info
+INFO|80094|11-05 15:29:22 0.42757400|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:22 0.42778300|-----------------END-----------------
+INFO|80094|11-05 15:29:22 0.61068400|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:22 0.61097300|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:22 0.61242700|Params:[]
+INFO|80094|11-05 15:29:22 0.61292700|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.61330700|RedisCommands Result:18
+INFO|80094|11-05 15:29:22 0.61378200|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.61409100|RedisCommands Result:19
+ERROR|80094|11-05 15:29:22 0.61432400|this is Admin Login Error
+DEBUG|80094|11-05 15:29:22 0.61450400|this is Admin Login Debug
+INFO|80094|11-05 15:29:22 0.61478100|this is Admin Login Info
+INFO|80094|11-05 15:29:22 0.61523100|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:22 0.61544200|-----------------END-----------------
+INFO|80094|11-05 15:29:22 0.78678200|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:22 0.78704800|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:22 0.78848100|Params:[]
+INFO|80094|11-05 15:29:22 0.78891500|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.78932300|RedisCommands Result:19
+INFO|80094|11-05 15:29:22 0.78985800|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.79017900|RedisCommands Result:20
+ERROR|80094|11-05 15:29:22 0.79042900|this is Admin Login Error
+DEBUG|80094|11-05 15:29:22 0.79060700|this is Admin Login Debug
+INFO|80094|11-05 15:29:22 0.79077200|this is Admin Login Info
+INFO|80094|11-05 15:29:22 0.79138000|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:22 0.79158100|-----------------END-----------------
+INFO|80094|11-05 15:29:22 0.97782200|-----------------Admin/Login-----------------
+INFO|80094|11-05 15:29:22 0.97811700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80094|11-05 15:29:22 0.97950700|Params:[]
+INFO|80094|11-05 15:29:22 0.98001700|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.98029300|RedisCommands Result:20
+INFO|80094|11-05 15:29:22 0.98088100|RedisCommands Args:["incr","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80094|11-05 15:29:22 0.98116700|RedisCommands Result:21
+ERROR|80094|11-05 15:29:22 0.98136100|this is Admin Login Error
+DEBUG|80094|11-05 15:29:22 0.98151500|this is Admin Login Debug
+INFO|80094|11-05 15:29:22 0.98170500|this is Admin Login Info
+INFO|80094|11-05 15:29:22 0.98214900|Response:{"code":200,"message":"\u6210\u529f","items":[]}
+INFO|80094|11-05 15:29:22 0.98233000|-----------------END-----------------

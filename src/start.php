@@ -14,7 +14,6 @@
 use \Workerman\Worker;
 
 use Cbworker\Core\Application;
-use Workerman\Lib\Timer;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 

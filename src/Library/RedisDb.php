@@ -9,11 +9,11 @@ namespace Cbworker\Library;
 
 use Redis;
 use Exception;
-use Cbworker\Library\Helper;
+use Cbworker\Library\Logger;
 use Cbworker\Core\AbstractInterface\Singleton;
 
 class RedisDb {
-  
+
   use Singleton;
 
   /**
@@ -62,7 +62,7 @@ class RedisDb {
      */
     public function RedisCommands() {
       $args = func_get_args();
-      Helper::logger("RedisCommands Args:", $args);
+      Logger::info($args, 'RedisCommands Args');
     	$ret = false;
       if (!isset($args[0])) {
     		return $ret;
@@ -75,10 +75,10 @@ class RedisDb {
         }
         eval('$ret = $this->redis->$cmd(' . implode(',', $params) . ');');
       } catch(Exception $e) {
-        Helper::logger('RedisError:' ,['message' => $e->getMessage(), 'code' => $e->getCode()]);
+        Logger::info(['message' => $e->getMessage(), 'code' => $e->getCode()], 'RedisError');
         return false;
       }
-    	Helper::logger('RedisCommands Result:', $ret);
+      Logger::info($ret, 'RedisCommands Result');
       return $ret;
     }
 

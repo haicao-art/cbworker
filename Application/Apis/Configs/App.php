@@ -7,5 +7,18 @@
  */
 
 return [
-  'LogDir'    => 'Runtime\log',
+  'NAME'          => 'Apis',
+  'SERVER_TYPE'   => 'HTTP',
+  'NAMESPACE'     => 'Application\\Apis\\',
+
+  'Log'           => [
+    'LOG_DIR'       => 'Runtime/logs',
+    'ClearTime'     => '1296000',
+    'LogLevel'      => 'ERROR,INFO,DEBUG',
+  ],
+
+  'report'        => true,
+  'statistic'     => [
+    'address'     => ''
+  ]
 ];
