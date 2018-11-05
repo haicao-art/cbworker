@@ -2,9 +2,9 @@
     "name": "crababy/cbworker",
     "description": "cbworker framework",
     "require": {
-        "illuminate/database": "5.5.x-dev",
-        "illuminate/events": "5.5.x-dev",
-        "workerman/workerman": "dev-master"
+        "illuminate/events": "^5.7",
+        "illuminate/database": "^5.7",
+        "workerman/workerman": "^3.5"
     },
     "autoload": {
         "psr-4": {
@@ -12,7 +12,6 @@
           "Application\\": "Application"
         }
     },
-    "minimum-stability": "stable",
     "authors": [
         {
             "name": "crababy",
