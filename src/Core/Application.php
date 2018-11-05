@@ -164,7 +164,8 @@ class Application extends Container
 
     try {
       $handler_instance = new $controller($this);
-      $handler_instance->{$request['method']}();
+      $_code = $handler_instance->{$request['method']}();
+      $this->response()->setCode($_code);
     } catch (\Exception $ex) {
       $this->response()->setCode($ex->getCode());
       $this->response()->setMessage($ex->getMessage());

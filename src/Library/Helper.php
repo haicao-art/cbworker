@@ -63,18 +63,15 @@ class Helper
    * 请求参数正则校验
    * @param [type] $rules    [description]
    * @param [type] $request  [description]
-   * @param [type] $response [description]
    */
-  public static function ValidateParams($rules, &$request, &$response) {
+  public static function ValidateParams($rules, &$request) {
     /*清洗掉rules中未定义的参数*/
   	//$request = array_intersect_key($request, $rules);
     foreach ($rules as $key => $rule) {
 			/*深层递归匹配*/
 			if (is_array($rule)) {
 				if (isset($request[$key]) && !is_array($request[$key])) {
-					$response['requestError'][$key] = $rule;
-					$response['request'][$key] = $request[$key];
-					throw new Exception('请求参数错误', 1004);
+					throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
 				}
 				/*若是对索引数组的匹配*/
 				if (1 == count($rule) && 0 === @array_keys($rule)[0]) {
@@ -85,26 +82,22 @@ class Helper
 							$request[$key] = (bool)$request[$key];
 						}else{
 							if (!preg_match($rule[0], $value)) {
-								$response['requestError'][$key] = $rule;
-			          $response['request'][$key] = $request[$key];
-								throw new Exception('请求参数错误', 1004);
+								throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
 							}
 						}
 					}
 					continue;
 				}
-				/*若是关联数组*/
+				/*若是关联数组
 				if (true === self::ValidateParams($rule, $request[$key], $response['requestError'][$key])) {
 					unset($response['requestError'][$key]);
-				}
+				}*/
 				continue;
 			}
 			/*若未找到参数检查是否为可选项*/
 			if (!isset($request[$key])){
 				if(substr($rule, 0, 4) != '/^$|') {
-          $response['requestError'][$key] = $rule;
-          $response['request'][$key] = null;
-					throw new Exception('请求参数错误', 1004);
+						throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
 				} else {
 					continue;
 				}
@@ -113,9 +106,7 @@ class Helper
         $request[$key] = (bool) $request[$key];
       } else {
         if(!preg_match($rule, $request[$key])) {
-          $response['requestError'][$key] = $rule;
-          $response['request'][$key] = $request[$key];
-					throw new Exception('请求参数错误', 1004);
+					throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
         }
       }
 			/*不允许有空值参数, 空数组可以*/
@@ -292,29 +283,6 @@ class Helper
 			}
 		}
 		return $dec;
-	}
-
-	/**
-	 * 投递任务
-	 * @param  [type] $data [description]
-	 * @return [type]       [description]
-	 */
-	public static function task($data, $callback) {
-		$task_connection = new AsyncTcpConnection('Text://127.0.0.1:55757');
-		$task_connection->send(json_encode($data));
-		// 异步获得结果
-		$task_connection->onMessage = function($task_connection, $task_result) use ($callback) {
-			$callback($task_result);
-			// 获得结果后记得关闭链接
-			$task_connection->close();
-		};
-
-		// 执行异步链接
-		$task_connection->connect();
-		//
-		$task_connection->onError = function($connection, $err_code, $err_msg) {
-			echo "$err_code, $err_msg\n\n";
-		};
 	}
 
 
