@@ -541,3 +541,19 @@ DEBUG|80094|11-05 15:29:22 0.98151500|this is Admin Login Debug
 INFO|80094|11-05 15:29:22 0.98170500|this is Admin Login Info
 INFO|80094|11-05 15:29:22 0.98214900|Response:{"code":200,"message":"\u6210\u529f","items":[]}
 INFO|80094|11-05 15:29:22 0.98233000|-----------------END-----------------
+DEBUG|80219|11-05 15:31:26 0.02364500|initialize Success
+DEBUG|80218|11-05 15:31:26 0.02367800|initialize Success
+DEBUG|80217|11-05 15:31:26 0.02384900|initialize Success
+DEBUG|80220|11-05 15:31:26 0.02429600|initialize Success
+INFO|80219|11-05 15:31:28 0.89869000|-----------------Admin/Login-----------------
+INFO|80219|11-05 15:31:28 0.89890700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|80219|11-05 15:31:28 0.90039800|Params:[]
+INFO|80219|11-05 15:31:28 0.90353200|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|80219|11-05 15:31:28 0.90392600|RedisCommands Result:false
+INFO|80219|11-05 15:31:28 0.90437600|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|80219|11-05 15:31:28 0.90467500|RedisCommands Result:1
+ERROR|80219|11-05 15:31:28 0.90575400|this is Admin Login Error
+DEBUG|80219|11-05 15:31:28 0.90599100|this is Admin Login Debug
+INFO|80219|11-05 15:31:28 0.90618300|this is Admin Login Info
+INFO|80219|11-05 15:31:28 0.90708300|Response:{"code":200,"message":"Success","items":[]}
+INFO|80219|11-05 15:31:28 0.90747200|-----------------END-----------------

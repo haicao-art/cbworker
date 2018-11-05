@@ -11,6 +11,8 @@ return [
   'SERVER_TYPE'   => 'HTTP',
   'NAMESPACE'     => 'Application\\Apis\\',
 
+  'Language'      => 'en',
+
   'Log'           => [
     'LOG_DIR'       => 'Runtime/logs',
     'ClearTime'     => '1296000',
