@@ -12,7 +12,7 @@
           "Application\\": "Application"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "crababy",
