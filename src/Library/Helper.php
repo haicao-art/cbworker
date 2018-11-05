@@ -71,7 +71,7 @@ class Helper
 			/*深层递归匹配*/
 			if (is_array($rule)) {
 				if (isset($request[$key]) && !is_array($request[$key])) {
-					throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
+					throw new Exception("请求参数错误,{$key}:{$rule}", -4);
 				}
 				/*若是对索引数组的匹配*/
 				if (1 == count($rule) && 0 === @array_keys($rule)[0]) {
@@ -82,7 +82,7 @@ class Helper
 							$request[$key] = (bool)$request[$key];
 						}else{
 							if (!preg_match($rule[0], $value)) {
-								throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
+								throw new Exception("请求参数错误,{$key}:{$rule}", -4);
 							}
 						}
 					}
@@ -97,7 +97,7 @@ class Helper
 			/*若未找到参数检查是否为可选项*/
 			if (!isset($request[$key])){
 				if(substr($rule, 0, 4) != '/^$|') {
-						throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
+						throw new Exception("请求参数错误,{$key}:{$rule}", -4);
 				} else {
 					continue;
 				}
@@ -106,7 +106,7 @@ class Helper
         $request[$key] = (bool) $request[$key];
       } else {
         if(!preg_match($rule, $request[$key])) {
-					throw new Exception("请求参数错误,{$key}:{$rule}", 1004);
+					throw new Exception("请求参数错误,{$key}:{$rule}", -4);
         }
       }
 			/*不允许有空值参数, 空数组可以*/

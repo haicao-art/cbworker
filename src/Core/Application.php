@@ -169,7 +169,7 @@ class Application extends Container
     } catch (\Exception $ex) {
       $this->response()->setCode($ex->getCode());
       $this->response()->setMessage($ex->getMessage());
-      $this->logger()->error($ex->getMessage(), 'methodDispatch Exception');
+      $this->logger()->error( '[' $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
     }
 
     if (Config::getConf('App.report')) {
@@ -207,7 +207,7 @@ class Application extends Container
     } catch (\Exception $ex) {
       $this->response()->setCode($ex->getCode());
       $this->response()->setMessage($ex->getMessage());
-      $this->logger()->error($ex->getMessage(), 'methodDispatch Exception');
+      $this->logger()->error( '[' $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
     }
     $_raw = $this->response()->getRaw();
     $_headers = $this->response()->header();
@@ -248,7 +248,7 @@ class Application extends Container
       if ($ret >= $limitCount) {
         $this->redis()->RedisCommands('expire', $apiLimitKey, 10);
         $this->logger()->info("checkRequestLimit: Request Fast", 'checkRequestLimit');
-        throw new \Exception("Request faster", 1005);
+        throw new \Exception("Request faster", -9);
       } else {
         $this->redis()->RedisCommands('incr', $apiLimitKey);
       }
