@@ -17,6 +17,9 @@ use Cbworker\Core\Application;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+// 心跳间隔50秒
+define('HEARTBEAT_TIME', 60);
+
 $worker = new Worker("http://0.0.0.0:7272");
 
 $worker->count = 4;

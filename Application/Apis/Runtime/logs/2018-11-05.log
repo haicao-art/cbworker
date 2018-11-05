@@ -557,3 +557,35 @@ DEBUG|80219|11-05 15:31:28 0.90599100|this is Admin Login Debug
 INFO|80219|11-05 15:31:28 0.90618300|this is Admin Login Info
 INFO|80219|11-05 15:31:28 0.90708300|Response:{"code":200,"message":"Success","items":[]}
 INFO|80219|11-05 15:31:28 0.90747200|-----------------END-----------------
+DEBUG|82330|11-05 16:46:21 0.33387300|initialize Success
+DEBUG|82329|11-05 16:46:21 0.33387300|initialize Success
+DEBUG|82328|11-05 16:46:21 0.33411600|initialize Success
+DEBUG|82331|11-05 16:46:21 0.33452800|initialize Success
+INFO|82331|11-05 16:46:28 0.41019100|-----------------Admin/Login-----------------
+INFO|82331|11-05 16:46:28 0.41059200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|82331|11-05 16:46:28 0.41085900|Params:[]
+INFO|82331|11-05 16:46:28 0.41992700|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|82331|11-05 16:46:28 0.43369200|RedisCommands Result:false
+INFO|82331|11-05 16:46:28 0.43538800|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|82331|11-05 16:46:28 0.43639600|RedisCommands Result:1
+ERROR|82331|11-05 16:46:28 0.44056400|this is Admin Login Error
+DEBUG|82331|11-05 16:46:28 0.44100000|this is Admin Login Debug
+INFO|82331|11-05 16:46:28 0.44124000|this is Admin Login Info
+INFO|82331|11-05 16:46:28 0.44323900|Response:{"code":200,"message":"Success","items":[]}
+INFO|82331|11-05 16:46:28 0.44350800|-----------------END-----------------
+DEBUG|82396|11-05 16:48:02 0.21294100|initialize Success
+DEBUG|82399|11-05 16:48:02 0.21304200|initialize Success
+DEBUG|82398|11-05 16:48:02 0.21344800|initialize Success
+DEBUG|82397|11-05 16:48:02 0.21298400|initialize Success
+INFO|82397|11-05 16:48:04 0.53370200|-----------------Admin/Login-----------------
+INFO|82397|11-05 16:48:04 0.53404500|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+INFO|82397|11-05 16:48:04 0.53435100|Params:[]
+INFO|82397|11-05 16:48:04 0.54524900|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|82397|11-05 16:48:04 0.54791600|RedisCommands Result:false
+INFO|82397|11-05 16:48:04 0.54890100|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|82397|11-05 16:48:04 0.54947900|RedisCommands Result:1
+ERROR|82397|11-05 16:48:04 0.55277600|this is Admin Login Error
+DEBUG|82397|11-05 16:48:04 0.55316200|this is Admin Login Debug
+INFO|82397|11-05 16:48:04 0.55347500|this is Admin Login Info
+INFO|82397|11-05 16:48:04 0.55541600|Response:{"code":200,"message":"Success","items":[]}
+INFO|82397|11-05 16:48:04 0.55574000|-----------------END-----------------
