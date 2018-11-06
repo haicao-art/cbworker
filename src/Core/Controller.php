@@ -23,7 +23,7 @@ class Controller {
   public function __construct(Application $app) {
     $this->application = $app;
   }
-  
+
   public function app() {
     return $this->application;
   }

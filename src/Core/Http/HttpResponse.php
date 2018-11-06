@@ -37,7 +37,7 @@ class HttpResponse
   }
 
   public function header() {
-    //$this->defaultHeader();
+    $this->defaultHeader();
     return $this->_headers;
   }
 
