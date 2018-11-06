@@ -41,24 +41,20 @@ class MonoLogger {
     self::$_logger->pushHandler($stream);
   }
 
-  public static function info($message, $context = array())
-  {
-    self::$_logger->info($message, $context);
-  }
 
-  public static function error($message, $context = array())
+  public static function logger($message, $context, $level = 'INFO')
   {
-    self::$_logger->error($message, $context);
-  }
-
-  public static function debug($message, $context = array())
-  {
-    self::$_logger->debug($message, $context);
-  }
-
-  public static function notice($message, $context = array())
-  {
-    self::$_logger->notice($message, $context);
+    switch ($level) {
+      case 'INFO':
+        self::$_logger->info($message, $context);
+        break;
+      case 'ERROR':
+        self::$_logger->error($message, $context);
+        break;
+      case 'DEBUG':
+        self::$_logger->debug($message, $context);
+        break;
+    }
   }
 
 }

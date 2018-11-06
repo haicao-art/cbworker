@@ -7,7 +7,7 @@
  */
 
 return [
-  'Type'          => 'CLogger',
+  'Type'          => 'MonoLog',
   'LOG_DIR'       => 'Runtime/logs',
   'ClearTime'     => '1296000',
   'level'         => '100',
