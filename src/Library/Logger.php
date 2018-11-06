@@ -8,51 +8,45 @@ namespace Cbworker\Library;
 
 use Cbworker\Core\Config\Config;
 use Cbworker\Core\AbstractInterface\Singleton;
+use Cbworker\Library\Log\CLogger;
+use Cbworker\Library\Log\MonoLogger;
 
 class Logger
 {
   use Singleton;
-  const INFO = 'INFO';
-  const DEBUG = 'DEBUG';
-  const ERROR = 'ERROR';
-  protected static $log_dir;
-  
+
+  private static $_logger;
+
   private function __construct()
   {
-    self::$log_dir = Config::getInstance()->getConf('App.Log.LOG_DIR');
-    if (!file_exists(self::$log_dir)) {
-      mkdir(self::$log_dir, 0777, true);
+    $_type = Config::getInstance()->getConf('Log.Type', 'CLogger');
+    switch ($_type) {
+      case 'CLogger':
+        self::$_logger = CLogger::getInstance();
+        break;
+      case 'MonoLog':
+        self::$_logger = MonoLogger::getInstance();
+        break;
     }
   }
-  
-  public static function log($tag, $message, $level = 'INFO')
+
+  public static function info($message, $context = array())
   {
-    if(!in_array($level, explode(',', Config::getConf('App.Log.LogLevel', 'ERROR')))) {
-      return;
-    }
-    $tag = !empty($tag) ? $tag . ':' : '';
-    $startLine = $level . "|" . getmypid() . "|" . date("m-d H:i:s ") . strtok(microtime(), " ") . "|" . $tag;
-    if (is_array($message)) {
-      $startLine .= json_encode($message, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL;
-    } else {
-      $message = false === $message ? "false" : $message;
-      $startLine .= $message . PHP_EOL;
-    }
-    error_log($startLine, 3, self::$log_dir . DIRECTORY_SEPARATOR . date('Y-m-d') . '.log');
+    self::$_logger->logger($message, $context, 'INFO');
   }
-  
-  public static function info($message, $tag = '')
+
+  public static function error($message, $context = array())
   {
-    static::log($tag, $message, self::INFO);
+    self::$_logger->logger($message, $context, 'ERROR');
   }
-  
-  public static function error($message, $tag = '')
+
+  public static function debug($message, $context = array())
   {
-    static::log($tag, $message, self::ERROR);
+    self::$_logger->logger($message, $context, 'DEBUG');
   }
-  
-  public static function debug($message, $tag = '')
+
+  public static function notice($message, $context = array())
   {
-    static::log($tag, $message, self::DEBUG);
+    self::$_logger->logger($message, $context, 'NOTICE');
   }
 }

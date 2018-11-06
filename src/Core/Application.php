@@ -12,6 +12,7 @@ namespace Cbworker\Core;
 use Cbworker\Core\AbstractInterface\Singleton;
 use Cbworker\Core\Config\Config;
 use Cbworker\Core\Config\Lang;
+use Workerman\Protocols\Http;
 use Cbworker\Core\Http\HttpRequest;
 use Cbworker\Core\Http\HttpResponse;
 use Cbworker\Library\Helper;
@@ -66,13 +67,14 @@ class Application extends Container
     Capsule::listen(function ($query) {
       $sql = vsprintf(str_replace("?", "'%s'", $query->sql), $query->bindings) . " \t[" . $query->time . ' ms] ';
       // 把SQL写入到日志文件中
-      Logger::getInstance()->info($sql, 'Sql');
+      Logger::getInstance()->info("SQL:", [$sql]);
     });
     $this->bind('redis', function () {
       return new RedisDb(Config::getConf('db.redis'));
     });
     $this->bind('logger', function () {
       return Logger::getInstance();
+      //return MonoLogger::getInstance();
     });
     $this->logger()->debug('initialize Success');
     return $this;
@@ -119,7 +121,7 @@ class Application extends Container
    */
   public function clearTask()
   {
-    Timer::add(86400, array($this, 'clearDisk'), array(Config::getConf('App.Log.LOG_DIR'), Config::getConf('App.Log.ClearTime', '1296000')));
+    Timer::add(86400, array($this, 'clearDisk'), array(Config::getConf('Log.LOG_DIR'), Config::getConf('Log.ClearTime', '1296000')));
   }
 
   /**
@@ -202,37 +204,38 @@ class Application extends Container
     $request['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $request['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
 
-    $this->logger()->info("-----------------{$request['class']}/{$request['method']}-----------------");
-    $this->logger()->info($this->request()->userAgent(), 'User_Agent');
-    $this->logger()->info($this->request()->post(), 'Params');
+    $this->logger()->info('', $request);
+    $this->logger()->info("User_Agent:", $this->request()->server());
+    $this->logger()->info("Params", $this->request()->post());
     try {
       $this->checkRequestLimit($request['class'], $request['method']);
       $this->methodDispatch($request);
     } catch (\Exception $ex) {
       $this->response()->setCode($ex->getCode());
       $this->response()->setMessage($ex->getMessage());
-      $this->logger()->error( '[' . $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
+      $this->logger()->error('methodDispatch Exception', ['code' => $ex->getCode(), 'message' => $ex->getMessage()]);
     }
     $_raw = $this->response()->getRaw();
     $_headers = $this->response()->header();
     foreach ($_headers as $header) {
-      $this->connection()->send($header, $_raw);
+      if($_raw) {
+        $this->connection()->send($header, $_raw);
+      } else {
+        //Http::header("Access-Control-Allow-Origin:*");
+        Http::header($header);
+      }
     }
     $_responses = $this->response()->build();
-    if(empty($_responses)) {
-      $this->connection()->send(json_encode(array('code' => $this->response()->getCode(), 'message' => $this->response()->getMessage())), $_raw);
-    } else {
-      $this->connection()->send($_responses, $_raw);
-    }
+    $this->connection()->send(json_encode($_responses, JSON_UNESCAPED_UNICODE), $_raw);
+
     if(!$_raw) {
-      $this->logger()->info($_responses, 'Response');
+      $this->logger()->info("Response", $_responses);
     }
     unset($_headers);
     unset($_responses);
     unset($this->_request);
     unset($this->_response);
     unset($this->_connection);
-    $this->logger()->info("-----------------END-----------------");
   }
 
   /**
@@ -251,7 +254,7 @@ class Application extends Container
     } else {
       if ($ret >= $limitCount) {
         $this->redis()->RedisCommands('expire', $apiLimitKey, 10);
-        $this->logger()->info("checkRequestLimit: Request Fast", 'checkRequestLimit');
+        $this->logger()->info("checkRequestLimit: Request Fast");
         throw new \Exception("Request faster", -9);
       } else {
         $this->redis()->RedisCommands('incr', $apiLimitKey);

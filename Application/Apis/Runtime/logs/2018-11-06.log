@@ -1,0 +1,45 @@
+DEBUG|35070|11-06 14:18:07 0.77000000|initialize Success:[]
+DEBUG|35071|11-06 14:18:07 0.77235800|initialize Success:[]
+DEBUG|35072|11-06 14:18:07 0.77302500|initialize Success:[]
+DEBUG|35073|11-06 14:18:07 0.79170200|initialize Success:[]
+INFO|35070|11-06 14:18:09 0.45126300|{"class":"Admin","method":"Login"}
+INFO|35070|11-06 14:18:09 0.45148300|User_Agent::{"QUERY_STRING":"","REQUEST_METHOD":"POST","REQUEST_URI":"/Admin/Login","SERVER_PROTOCOL":"HTTP/1.1","SERVER_SOFTWARE":"workerman/3.5.15","SERVER_NAME":"127.0.0.1","HTTP_HOST":"127.0.0.1:7272","HTTP_USER_AGENT":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","HTTP_ACCEPT":"*/*","HTTP_ACCEPT_LANGUAGE":"zh-CN,zh;q=0.9,en;q=0.8","HTTP_ACCEPT_ENCODING":"gzip, deflate, br","HTTP_COOKIE":"","HTTP_CONNECTION":"keep-alive","CONTENT_TYPE":"multipart/form-data","REMOTE_ADDR":"127.0.0.1","REMOTE_PORT":51739,"REQUEST_TIME":1541485089,"SERVER_PORT":"7272","HTTP_CONTENT_LENGTH":"247","CONTENT_LENGTH":"247","HTTP_ORIGIN":"chrome-extension://kmdogeggkpemknfildaffdlhmbljfflj","HTTP_CONTENT_TYPE":"multipart/form-data; boundary=----WebKitFormBoundaryVheXYezLH0zcPFez"}
+INFO|35070|11-06 14:18:09 0.45170000|Params:{"username":"admin","password":"password"}
+INFO|35070|11-06 14:18:09 0.45437500|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|35070|11-06 14:18:09 0.45479100|RedisCommands Result:{"result":false}
+INFO|35070|11-06 14:18:09 0.45546200|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|35070|11-06 14:18:09 0.45593900|RedisCommands Result:{"result":true}
+ERROR|35070|11-06 14:18:09 0.45719000|this is Admin Login Error:[]
+DEBUG|35070|11-06 14:18:09 0.45745800|this is Admin Login Debug:[]
+INFO|35070|11-06 14:18:09 0.45767000|this is Admin Login Info:[]
+INFO|35070|11-06 14:18:09 0.45867100|Response:{"code":null,"message":false,"items":[]}
+{"message":"initialize Success","context":[],"level":100,"level_name":"DEBUG","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:13.862626","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"initialize Success","context":[],"level":100,"level_name":"DEBUG","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:13.862659","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"initialize Success","context":[],"level":100,"level_name":"DEBUG","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:13.862974","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"initialize Success","context":[],"level":100,"level_name":"DEBUG","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:13.863074","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"","context":{"class":"Admin","method":"Login"},"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.760428","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"User_Agent:","context":{"QUERY_STRING":"","REQUEST_METHOD":"POST","REQUEST_URI":"/Admin/Login","SERVER_PROTOCOL":"HTTP/1.1","SERVER_SOFTWARE":"workerman/3.5.15","SERVER_NAME":"127.0.0.1","HTTP_HOST":"127.0.0.1:7272","HTTP_USER_AGENT":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","HTTP_ACCEPT":"*/*","HTTP_ACCEPT_LANGUAGE":"zh-CN,zh;q=0.9,en;q=0.8","HTTP_ACCEPT_ENCODING":"gzip, deflate, br","HTTP_COOKIE":"","HTTP_CONNECTION":"keep-alive","CONTENT_TYPE":"multipart/form-data","REMOTE_ADDR":"127.0.0.1","REMOTE_PORT":52008,"REQUEST_TIME":1541485155,"SERVER_PORT":"7272","HTTP_CONTENT_LENGTH":"247","CONTENT_LENGTH":"247","HTTP_ORIGIN":"chrome-extension://kmdogeggkpemknfildaffdlhmbljfflj","HTTP_CONTENT_TYPE":"multipart/form-data; boundary=----WebKitFormBoundary1SzXslcwIKMDOI5f"},"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.760522","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"Params","context":{"username":"admin","password":"password"},"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.760595","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"RedisCommands Args","context":["get","ApiLimit:Admin:Login:127.0.0.1"],"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.763707","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"RedisCommands Result","context":{"result":false},"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.763929","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"RedisCommands Args","context":["setex","ApiLimit:Admin:Login:127.0.0.1",10,1],"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.764236","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"RedisCommands Result","context":{"result":true},"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.764447","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"this is Admin Login Error","context":[],"level":400,"level_name":"ERROR","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.765536","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"this is Admin Login Debug","context":[],"level":100,"level_name":"DEBUG","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.765612","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"this is Admin Login Info","context":[],"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.765650","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+{"message":"Response","context":{"code":null,"message":false,"items":[]},"level":200,"level_name":"INFO","channel":"cbworker","datetime":{"date":"2018-11-06 14:19:15.766241","timezone_type":3,"timezone":"Asia/Shanghai"},"extra":[]}
+DEBUG|35288|11-06 14:22:11 0.14839400|initialize Success:[]
+DEBUG|35286|11-06 14:22:11 0.14792700|initialize Success:[]
+DEBUG|35287|11-06 14:22:11 0.14908000|initialize Success:[]
+DEBUG|35289|11-06 14:22:11 0.15732700|initialize Success:[]
+INFO|35286|11-06 14:22:19 0.07457800|{"class":"Admin","method":"Login"}
+INFO|35286|11-06 14:22:19 0.07487600|User_Agent::{"QUERY_STRING":"","REQUEST_METHOD":"POST","REQUEST_URI":"/Admin/Login","SERVER_PROTOCOL":"HTTP/1.1","SERVER_SOFTWARE":"workerman/3.5.15","SERVER_NAME":"127.0.0.1","HTTP_HOST":"127.0.0.1:7272","HTTP_USER_AGENT":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36","HTTP_ACCEPT":"*/*","HTTP_ACCEPT_LANGUAGE":"zh-CN,zh;q=0.9,en;q=0.8","HTTP_ACCEPT_ENCODING":"gzip, deflate, br","HTTP_COOKIE":"","HTTP_CONNECTION":"keep-alive","CONTENT_TYPE":"multipart/form-data","REMOTE_ADDR":"127.0.0.1","REMOTE_PORT":52865,"REQUEST_TIME":1541485339,"SERVER_PORT":"7272","HTTP_CONTENT_LENGTH":"247","CONTENT_LENGTH":"247","HTTP_ORIGIN":"chrome-extension://kmdogeggkpemknfildaffdlhmbljfflj","HTTP_CONTENT_TYPE":"multipart/form-data; boundary=----WebKitFormBoundaryk5BSOBl4lBleufnL"}
+INFO|35286|11-06 14:22:19 0.07504100|Params:{"username":"admin","password":"password"}
+INFO|35286|11-06 14:22:19 0.07778300|RedisCommands Args:["get","ApiLimit:Admin:Login:127.0.0.1"]
+INFO|35286|11-06 14:22:19 0.07814500|RedisCommands Result:{"result":false}
+INFO|35286|11-06 14:22:19 0.07885600|RedisCommands Args:["setex","ApiLimit:Admin:Login:127.0.0.1",10,1]
+INFO|35286|11-06 14:22:19 0.07931100|RedisCommands Result:{"result":true}
+ERROR|35286|11-06 14:22:19 0.08057000|this is Admin Login Error:[]
+DEBUG|35286|11-06 14:22:19 0.08073800|this is Admin Login Debug:[]
+INFO|35286|11-06 14:22:19 0.08090100|this is Admin Login Info:[]
+INFO|35286|11-06 14:22:19 0.08199300|Response:{"code":null,"message":false,"items":[]}

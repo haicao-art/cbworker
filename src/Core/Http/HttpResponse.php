@@ -8,7 +8,6 @@
 
 namespace Cbworker\Core\Http;
 
-use Workerman\Protocols\Http;
 use Cbworker\Core\Config\Config;
 use Cbworker\Core\Config\Lang;
 
@@ -21,7 +20,10 @@ class HttpResponse
 
   protected $_data = array();
 
-  protected $_headers = array();
+  protected $_headers = array(
+    'Access-Control-Allow-Origin:*',
+    'Content-type: application/json;charset=utf-8'
+  );
 
   protected $_raw = false;
 
@@ -33,11 +35,10 @@ class HttpResponse
     if($this->_raw) {
       return $this->_rawData;
     }
-    return json_encode(array_merge(array('code' => $this->getCode(), 'message' => $this->getMessage()), $this->_data));
+    return array_merge(array('code' => $this->getCode(), 'message' => $this->getMessage()), $this->_data);
   }
 
   public function header() {
-    $this->defaultHeader();
     return $this->_headers;
   }
 
@@ -76,25 +77,12 @@ class HttpResponse
     return $this->_message;
   }
 
-  private function defaultHeader() {
-    Http::header("Access-Control-Allow-Origin:*");
-    Http::header("Access-Control-Max-Age: 86400");
-    Http::header("Access-Control-Allow-Method: POST, GET");
-    Http::header("Access-Control-Allow-Headers: Origin, X-CSRF-Token, X-Requested-With, Content-Type, Accept");
-  }
-
   /**
    * [setHeader 设置头部信息]
    * @param array $params [description]
    */
   public function setHeader($params) {
-    if(is_array($params)) {
-      foreach ($params as $item) {
-        $this->_headers[] = $item;
-      }
-    } else {
-      $this->_headers[] = $params;
-    }
+    $this->_headers[] = $params;
   }
 
   /**

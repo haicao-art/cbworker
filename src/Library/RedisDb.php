@@ -62,7 +62,7 @@ class RedisDb {
      */
     public function RedisCommands() {
       $args = func_get_args();
-      Logger::info($args, 'RedisCommands Args');
+      Logger::info('RedisCommands Args', $args);
     	$ret = false;
       if (!isset($args[0])) {
     		return $ret;
@@ -75,10 +75,10 @@ class RedisDb {
         }
         eval('$ret = $this->redis->$cmd(' . implode(',', $params) . ');');
       } catch(Exception $e) {
-        Logger::info(['message' => $e->getMessage(), 'code' => $e->getCode()], 'RedisError');
+        Logger::info('RedisError', ['message' => $e->getMessage(), 'code' => $e->getCode()]);
         return false;
       }
-      Logger::info($ret, 'RedisCommands Result');
+      Logger::info('RedisCommands Result', ['result' => $ret]);
       return $ret;
     }
 

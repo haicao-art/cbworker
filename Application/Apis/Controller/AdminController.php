@@ -12,7 +12,7 @@ namespace Application\Apis\Controller;
 use Cbworker\Core\Controller;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class Admin extends Controller
+class AdminController extends Controller
 {
 
   public function Login() {
@@ -21,6 +21,8 @@ class Admin extends Controller
     $this->app()->logger()->info("this is Admin Login Info");
     //$items = Capsule::table('supply_stat')->where('id', 15)->get();
 
+    $this->app()->response()->setHeader("X-Ngx-LogId: 1231321321321");
+    //$this->app()->response()->setHeader("Content-type: text/xml;charset=utf-8");
     $this->app()->response()->setCode(200);
     $this->app()->response()->setData(array('items' => array()));
   }

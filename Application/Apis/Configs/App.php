@@ -13,12 +13,6 @@ return [
 
   'Language'      => 'zh',
 
-  'Log'           => [
-    'LOG_DIR'       => 'Runtime/logs',
-    'ClearTime'     => '1296000',
-    'LogLevel'      => 'ERROR,INFO,DEBUG',
-  ],
-
   'report'        => true,
   'statistic'     => [
     'address'     => ''
