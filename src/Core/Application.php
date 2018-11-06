@@ -152,7 +152,7 @@ class Application extends Container
    */
   public function methodDispatch($request)
   {
-    $controller = Config::getConf('App.NAMESPACE') . 'Controller\\' . $request['class'];
+    $controller = Config::getConf('App.NAMESPACE') . 'Controller\\' . $request['class'] . 'Controller';
 
     if (!class_exists($controller) || !method_exists($controller, $request['method'])) {
       throw new \Exception("Controller {$request['class']} or Method {$request['method']} is Not Exists", 1002);
