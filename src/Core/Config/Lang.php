@@ -14,9 +14,9 @@ class Lang
   protected static $cached;
   protected static $paths;
 
-  private function __construct()
+  private function __construct($base_path = '.')
   {
-    static::$paths = '.' . DIRECTORY_SEPARATOR . 'Lang' . DIRECTORY_SEPARATOR;
+    static::$paths = $base_path . DIRECTORY_SEPARATOR . 'Lang' . DIRECTORY_SEPARATOR;
   }
 
   /**

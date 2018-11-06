@@ -1,0 +1,333 @@
+127.0.0.1|Info|25741|08-20 10:05:41 0.28123400|Start:----------------------------------
+127.0.0.1|Info|25741|08-20 10:05:41 0.28203700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25741|08-20 10:05:41 0.28259100|Request:
+127.0.0.1|Info|25741|08-20 10:05:41 0.28886400|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25741|08-20 10:05:41 0.37205300|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25741|08-20 10:05:41 0.37903800|RedisCommands Result:false
+127.0.0.1|Info|25741|08-20 10:05:41 0.37926100|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25741|08-20 10:05:41 0.38978200|RedisCommands Result:1
+127.0.0.1|Info|25742|08-20 10:05:41 0.69034900|Start:----------------------------------
+127.0.0.1|Info|25742|08-20 10:05:41 0.69054000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25742|08-20 10:05:41 0.69103800|Request:
+127.0.0.1|Info|25742|08-20 10:05:41 0.69122100|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25742|08-20 10:05:41 0.69427200|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25742|08-20 10:05:41 0.69590800|RedisCommands Result:1
+127.0.0.1|Info|25742|08-20 10:05:41 0.69612300|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25742|08-20 10:05:41 0.69638200|RedisCommands Result:2
+127.0.0.1|Info|25743|08-20 10:05:41 0.73254600|Start:----------------------------------
+127.0.0.1|Info|25743|08-20 10:05:41 0.73354800|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25743|08-20 10:05:41 0.73532100|Request:
+127.0.0.1|Info|25743|08-20 10:05:41 0.73551700|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25743|08-20 10:05:41 0.73750100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25743|08-20 10:05:41 0.73784900|RedisCommands Result:2
+127.0.0.1|Info|25743|08-20 10:05:41 0.73798400|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25743|08-20 10:05:41 0.73825700|RedisCommands Result:3
+127.0.0.1|Info|25747|08-20 10:05:42 0.02922900|Start:----------------------------------
+127.0.0.1|Info|25747|08-20 10:05:42 0.02946300|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25747|08-20 10:05:42 0.02976500|Request:
+127.0.0.1|Info|25747|08-20 10:05:42 0.02992500|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25747|08-20 10:05:42 0.03131800|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25747|08-20 10:05:42 0.03158700|RedisCommands Result:3
+127.0.0.1|Info|25747|08-20 10:05:42 0.03173400|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25747|08-20 10:05:42 0.03222300|RedisCommands Result:4
+127.0.0.1|Info|25745|08-20 10:05:42 0.03903000|Start:----------------------------------
+127.0.0.1|Info|25745|08-20 10:05:42 0.03936500|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25745|08-20 10:05:42 0.03971200|Request:
+127.0.0.1|Info|25745|08-20 10:05:42 0.03988100|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25745|08-20 10:05:42 0.04491100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25745|08-20 10:05:42 0.04526400|RedisCommands Result:4
+127.0.0.1|Info|25745|08-20 10:05:42 0.04552400|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25745|08-20 10:05:42 0.04576300|RedisCommands Result:5
+127.0.0.1|Info|25746|08-20 10:05:42 0.05636800|Start:----------------------------------
+127.0.0.1|Info|25746|08-20 10:05:42 0.05659100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25746|08-20 10:05:42 0.06046900|Request:
+127.0.0.1|Info|25746|08-20 10:05:42 0.06069800|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25746|08-20 10:05:42 0.06629100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25746|08-20 10:05:42 0.06674000|RedisCommands Result:5
+127.0.0.1|Info|25746|08-20 10:05:42 0.06688200|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25746|08-20 10:05:42 0.06725300|RedisCommands Result:6
+127.0.0.1|Info|25749|08-20 10:05:47 0.09902100|Start:----------------------------------
+127.0.0.1|Info|25749|08-20 10:05:47 0.09935000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25749|08-20 10:05:47 0.10094600|Request:
+127.0.0.1|Info|25749|08-20 10:05:47 0.10121200|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25749|08-20 10:05:47 0.10277100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25749|08-20 10:05:47 0.10319000|RedisCommands Result:6
+127.0.0.1|Info|25749|08-20 10:05:47 0.10339200|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25749|08-20 10:05:47 0.10372600|RedisCommands Result:7
+127.0.0.1|Info|25740|08-20 10:05:47 0.11185700|Start:----------------------------------
+127.0.0.1|Info|25740|08-20 10:05:47 0.11231200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25740|08-20 10:05:47 0.11257100|Request:
+127.0.0.1|Info|25740|08-20 10:05:47 0.11274100|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25740|08-20 10:05:47 0.11453900|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25740|08-20 10:05:47 0.11491500|RedisCommands Result:7
+127.0.0.1|Info|25740|08-20 10:05:47 0.11510800|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25740|08-20 10:05:47 0.11543300|RedisCommands Result:8
+127.0.0.1|Info|25750|08-20 10:05:47 0.12597100|Start:----------------------------------
+127.0.0.1|Info|25750|08-20 10:05:47 0.12627100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25750|08-20 10:05:47 0.12656600|Request:
+127.0.0.1|Info|25750|08-20 10:05:47 0.12670800|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25750|08-20 10:05:47 0.12843600|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25750|08-20 10:05:47 0.12888600|RedisCommands Result:8
+127.0.0.1|Info|25750|08-20 10:05:47 0.12904900|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25750|08-20 10:05:47 0.12938500|RedisCommands Result:9
+127.0.0.1|Info|25758|08-20 10:06:26 0.49510800|Start:----------------------------------
+127.0.0.1|Info|25758|08-20 10:06:26 0.49679300|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25758|08-20 10:06:26 0.49716200|Request:
+127.0.0.1|Info|25758|08-20 10:06:26 0.49729100|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25758|08-20 10:06:26 0.49908700|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25758|08-20 10:06:26 0.49944500|RedisCommands Result:false
+127.0.0.1|Info|25758|08-20 10:06:26 0.49966800|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25758|08-20 10:06:26 0.50002600|RedisCommands Result:1
+127.0.0.1|Info|25756|08-20 10:06:26 0.51358100|Start:----------------------------------
+127.0.0.1|Info|25756|08-20 10:06:26 0.51384700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25756|08-20 10:06:26 0.51421700|Request:
+127.0.0.1|Info|25756|08-20 10:06:26 0.51448000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25756|08-20 10:06:26 0.51621200|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25756|08-20 10:06:26 0.51671300|RedisCommands Result:1
+127.0.0.1|Info|25756|08-20 10:06:26 0.51689900|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25756|08-20 10:06:26 0.51722800|RedisCommands Result:2
+127.0.0.1|Info|25757|08-20 10:06:26 0.52694000|Start:----------------------------------
+127.0.0.1|Info|25757|08-20 10:06:26 0.52721000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25757|08-20 10:06:26 0.52755400|Request:
+127.0.0.1|Info|25757|08-20 10:06:26 0.52782800|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25757|08-20 10:06:26 0.52936000|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25757|08-20 10:06:26 0.52967600|RedisCommands Result:2
+127.0.0.1|Info|25757|08-20 10:06:26 0.52981000|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25757|08-20 10:06:26 0.53014800|RedisCommands Result:3
+127.0.0.1|Info|25766|08-20 10:07:26 0.59759300|Start:----------------------------------
+127.0.0.1|Info|25766|08-20 10:07:26 0.59799600|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25766|08-20 10:07:26 0.59825300|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25766|08-20 10:07:26 0.59998100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25766|08-20 10:07:26 0.60039100|RedisCommands Result:false
+127.0.0.1|Info|25766|08-20 10:07:26 0.60057200|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25766|08-20 10:07:26 0.60084100|RedisCommands Result:1
+127.0.0.1|Info|25763|08-20 10:07:26 0.61207800|Start:----------------------------------
+127.0.0.1|Info|25763|08-20 10:07:26 0.61237400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25763|08-20 10:07:26 0.61257000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25763|08-20 10:07:26 0.61781600|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25763|08-20 10:07:26 0.61848100|RedisCommands Result:1
+127.0.0.1|Info|25763|08-20 10:07:26 0.61949100|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25763|08-20 10:07:26 0.62393300|RedisCommands Result:2
+127.0.0.1|Info|25764|08-20 10:07:26 0.65585100|Start:----------------------------------
+127.0.0.1|Info|25764|08-20 10:07:26 0.65626800|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25764|08-20 10:07:26 0.65656400|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25764|08-20 10:07:26 0.66020400|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25764|08-20 10:07:26 0.66073900|RedisCommands Result:2
+127.0.0.1|Info|25764|08-20 10:07:26 0.66092800|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25764|08-20 10:07:26 0.66125100|RedisCommands Result:3
+127.0.0.1|Info|25775|08-20 10:08:21 0.31472700|Start:----------------------------------
+127.0.0.1|Info|25775|08-20 10:08:21 0.31516800|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25775|08-20 10:08:21 0.31542900|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25775|08-20 10:08:21 0.31660100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25775|08-20 10:08:21 0.31681700|RedisCommands Result:false
+127.0.0.1|Info|25775|08-20 10:08:21 0.31692700|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25775|08-20 10:08:21 0.31711600|RedisCommands Result:1
+127.0.0.1|Info|25775|08-20 10:08:21 0.32176500|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25775|08-20 10:08:21 0.32194000|End:----------------------------------
+127.0.0.1|Info|25780|08-20 10:09:05 0.27579100|Start:----------------------------------
+127.0.0.1|Info|25780|08-20 10:09:05 0.27755100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25780|08-20 10:09:05 0.27769000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25780|08-20 10:09:05 0.27898100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25780|08-20 10:09:05 0.27933700|RedisCommands Result:false
+127.0.0.1|Info|25780|08-20 10:09:05 0.27953900|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25780|08-20 10:09:05 0.27981600|RedisCommands Result:1
+127.0.0.1|Info|25780|08-20 10:09:05 0.28446200|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25780|08-20 10:09:05 0.28465100|End:----------------------------------
+127.0.0.1|Info|25784|08-20 10:10:20 0.23025400|Start:----------------------------------
+127.0.0.1|Info|25784|08-20 10:10:20 0.23069700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25784|08-20 10:10:20 0.23082200|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25784|08-20 10:10:20 0.23275300|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25784|08-20 10:10:20 0.23309000|RedisCommands Result:false
+127.0.0.1|Info|25784|08-20 10:10:20 0.23322700|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25784|08-20 10:10:20 0.23348700|RedisCommands Result:1
+127.0.0.1|Info|25784|08-20 10:10:20 0.24172300|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25784|08-20 10:10:20 0.24196900|End:----------------------------------
+127.0.0.1|Info|25791|08-20 10:10:46 0.89456700|Start:----------------------------------
+127.0.0.1|Info|25791|08-20 10:10:46 0.89635100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25791|08-20 10:10:46 0.89686500|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25791|08-20 10:10:46 0.89899000|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25791|08-20 10:10:46 0.89936000|RedisCommands Result:false
+127.0.0.1|Info|25791|08-20 10:10:46 0.89953000|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25791|08-20 10:10:46 0.89987000|RedisCommands Result:1
+127.0.0.1|Info|25791|08-20 10:10:46 0.90355400|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25791|08-20 10:10:46 0.90378200|End:----------------------------------
+127.0.0.1|Info|25791|08-20 10:12:18 0.62354300|Start:----------------------------------
+127.0.0.1|Info|25791|08-20 10:12:18 0.62436900|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25791|08-20 10:12:18 0.62451700|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25791|08-20 10:12:18 0.62466000|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25791|08-20 10:12:18 0.62536500|RedisCommands Result:false
+127.0.0.1|Info|25791|08-20 10:12:18 0.62578300|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25791|08-20 10:12:18 0.62691200|RedisCommands Result:1
+127.0.0.1|Info|25791|08-20 10:12:18 0.62753900|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25791|08-20 10:12:18 0.62782300|End:----------------------------------
+127.0.0.1|Info|25806|08-20 10:15:11 0.51446700|Start:----------------------------------
+127.0.0.1|Info|25806|08-20 10:15:11 0.51504000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25806|08-20 10:15:11 0.51537200|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25806|08-20 10:15:11 0.51801400|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25806|08-20 10:15:11 0.51831900|RedisCommands Result:false
+127.0.0.1|Info|25806|08-20 10:15:11 0.51851000|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25806|08-20 10:15:11 0.51878500|RedisCommands Result:1
+127.0.0.1|Info|25806|08-20 10:15:11 0.52511800|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25806|08-20 10:15:11 0.52534200|End:----------------------------------
+127.0.0.1|Info|25806|08-20 10:19:09 0.49224400|Start:----------------------------------
+127.0.0.1|Info|25806|08-20 10:19:09 0.49395200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25806|08-20 10:19:09 0.49414000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25806|08-20 10:19:09 0.49425100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25806|08-20 10:19:09 0.49454700|RedisCommands Result:false
+127.0.0.1|Info|25806|08-20 10:19:09 0.49464200|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25806|08-20 10:19:09 0.49493400|RedisCommands Result:1
+127.0.0.1|Info|25806|08-20 10:19:09 0.49526500|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25806|08-20 10:19:09 0.49538300|End:----------------------------------
+127.0.0.1|Info|25824|08-20 10:20:20 0.30172300|Start:----------------------------------
+127.0.0.1|Info|25824|08-20 10:20:20 0.30232700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25824|08-20 10:20:20 0.30251000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25824|08-20 10:20:20 0.30545100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25824|08-20 10:20:20 0.30591600|RedisCommands Result:false
+127.0.0.1|Info|25824|08-20 10:20:20 0.30611400|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25824|08-20 10:20:20 0.30650400|RedisCommands Result:1
+127.0.0.1|Info|25824|08-20 10:20:20 0.31040800|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25824|08-20 10:20:20 0.31059300|End:----------------------------------
+127.0.0.1|Info|25824|08-20 10:21:41 0.77771300|Start:----------------------------------
+127.0.0.1|Info|25824|08-20 10:21:41 0.77946400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25824|08-20 10:21:41 0.77964000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25824|08-20 10:21:41 0.77978300|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25824|08-20 10:21:41 0.78008700|RedisCommands Result:false
+127.0.0.1|Info|25824|08-20 10:21:41 0.78019600|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25824|08-20 10:21:41 0.78049800|RedisCommands Result:1
+127.0.0.1|Info|25824|08-20 10:21:41 0.78084900|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25824|08-20 10:21:41 0.78096600|End:----------------------------------
+127.0.0.1|Info|25874|08-20 10:38:13 0.63907300|Start:----------------------------------
+127.0.0.1|Info|25874|08-20 10:38:13 0.64030000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25874|08-20 10:38:13 0.64074000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25874|08-20 10:38:13 0.64330000|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25874|08-20 10:38:13 0.64359700|RedisCommands Result:false
+127.0.0.1|Info|25874|08-20 10:38:13 0.64372600|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25874|08-20 10:38:13 0.64403200|RedisCommands Result:1
+127.0.0.1|Info|25874|08-20 10:38:13 0.64732900|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25874|08-20 10:38:13 0.64750200|End:----------------------------------
+127.0.0.1|Info|25885|08-20 10:38:45 0.94380300|Start:----------------------------------
+127.0.0.1|Info|25885|08-20 10:38:45 0.94558200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25885|08-20 10:38:45 0.94586100|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25885|08-20 10:38:45 0.94784200|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25885|08-20 10:38:45 0.94820700|RedisCommands Result:false
+127.0.0.1|Info|25885|08-20 10:38:45 0.94834800|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25885|08-20 10:38:45 0.94870700|RedisCommands Result:1
+127.0.0.1|Info|25885|08-20 10:38:45 0.95399200|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25885|08-20 10:38:45 0.95414000|End:----------------------------------
+127.0.0.1|Info|25892|08-20 10:39:08 0.10972700|Start:----------------------------------
+127.0.0.1|Info|25892|08-20 10:39:08 0.11022000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25892|08-20 10:39:08 0.11043000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25892|08-20 10:39:08 0.11243100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25892|08-20 10:39:08 0.11306600|RedisCommands Result:false
+127.0.0.1|Info|25892|08-20 10:39:08 0.11341900|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25892|08-20 10:39:08 0.11369500|RedisCommands Result:1
+127.0.0.1|Info|25892|08-20 10:39:08 0.11765800|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25892|08-20 10:39:08 0.11782700|End:----------------------------------
+127.0.0.1|Info|25911|08-20 10:45:16 0.76551300|Start:----------------------------------
+127.0.0.1|Info|25911|08-20 10:45:16 0.76623900|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25911|08-20 10:45:16 0.76640300|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25911|08-20 10:45:16 0.76994900|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25911|08-20 10:45:16 0.77030600|RedisCommands Result:false
+127.0.0.1|Info|25911|08-20 10:45:16 0.77044300|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25911|08-20 10:45:16 0.77074700|RedisCommands Result:1
+127.0.0.1|Info|25911|08-20 10:45:16 0.77520700|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25911|08-20 10:45:16 0.77538300|End:----------------------------------
+127.0.0.1|Info|25918|08-20 10:45:26 0.59758900|Start:----------------------------------
+127.0.0.1|Info|25918|08-20 10:45:26 0.59789700|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25918|08-20 10:45:26 0.59944400|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25918|08-20 10:45:26 0.60288100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25918|08-20 10:45:26 0.60334100|RedisCommands Result:1
+127.0.0.1|Info|25918|08-20 10:45:26 0.60349200|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25918|08-20 10:45:26 0.60386200|RedisCommands Result:2
+127.0.0.1|Info|25918|08-20 10:45:26 0.60948600|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25918|08-20 10:45:26 0.60969300|End:----------------------------------
+127.0.0.1|Info|25924|08-20 10:45:37 0.46422600|Start:----------------------------------
+127.0.0.1|Info|25924|08-20 10:45:37 0.46559000|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25924|08-20 10:45:37 0.46594500|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25924|08-20 10:45:37 0.46908600|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25924|08-20 10:45:37 0.46949200|RedisCommands Result:false
+127.0.0.1|Info|25924|08-20 10:45:37 0.46976100|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25924|08-20 10:45:37 0.47000800|RedisCommands Result:1
+127.0.0.1|Info|25924|08-20 10:45:37 0.47225500|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25924|08-20 10:45:37 0.47251100|End:----------------------------------
+127.0.0.1|Info|25929|08-20 10:45:47 0.18105300|Start:----------------------------------
+127.0.0.1|Info|25929|08-20 10:45:47 0.18242600|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25929|08-20 10:45:47 0.18277600|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25929|08-20 10:45:47 0.18613200|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25929|08-20 10:45:47 0.18654200|RedisCommands Result:1
+127.0.0.1|Info|25929|08-20 10:45:47 0.18671400|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25929|08-20 10:45:47 0.18702600|RedisCommands Result:2
+127.0.0.1|Info|25929|08-20 10:45:47 0.19093000|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25929|08-20 10:45:47 0.19109400|End:----------------------------------
+127.0.0.1|Info|25938|08-20 10:46:01 0.21040100|Start:----------------------------------
+127.0.0.1|Info|25938|08-20 10:46:01 0.21223200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25938|08-20 10:46:01 0.21334100|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25938|08-20 10:46:01 0.21486600|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25938|08-20 10:46:01 0.21513700|RedisCommands Result:false
+127.0.0.1|Info|25938|08-20 10:46:01 0.21524600|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25938|08-20 10:46:01 0.21543300|RedisCommands Result:1
+127.0.0.1|Info|25938|08-20 10:46:01 0.22245200|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25938|08-20 10:46:01 0.22266900|End:----------------------------------
+127.0.0.1|Info|25942|08-20 10:46:27 0.58426800|Start:----------------------------------
+127.0.0.1|Info|25942|08-20 10:46:27 0.58620100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25942|08-20 10:46:27 0.58689600|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25942|08-20 10:46:27 0.58938800|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25942|08-20 10:46:27 0.58972800|RedisCommands Result:false
+127.0.0.1|Info|25942|08-20 10:46:27 0.58988300|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25942|08-20 10:46:27 0.59017400|RedisCommands Result:1
+127.0.0.1|Info|25942|08-20 10:46:27 0.59278700|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25942|08-20 10:46:27 0.59294400|End:----------------------------------
+127.0.0.1|Info|25949|08-20 10:46:50 0.52330800|Start:----------------------------------
+127.0.0.1|Info|25949|08-20 10:46:50 0.52379500|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25949|08-20 10:46:50 0.52538500|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25949|08-20 10:46:50 0.53176200|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25949|08-20 10:46:50 0.53239100|RedisCommands Result:false
+127.0.0.1|Info|25949|08-20 10:46:50 0.53256900|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25949|08-20 10:46:50 0.53288900|RedisCommands Result:1
+127.0.0.1|Info|25949|08-20 10:46:50 0.53969200|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25949|08-20 10:46:50 0.54000700|End:----------------------------------
+127.0.0.1|Info|25956|08-20 10:47:06 0.81781100|Start:----------------------------------
+127.0.0.1|Info|25956|08-20 10:47:06 0.81898400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25956|08-20 10:47:06 0.81932400|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25956|08-20 10:47:06 0.82195300|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25956|08-20 10:47:06 0.82236400|RedisCommands Result:false
+127.0.0.1|Info|25956|08-20 10:47:06 0.82253500|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25956|08-20 10:47:06 0.82281400|RedisCommands Result:1
+127.0.0.1|Info|25956|08-20 10:47:06 0.82713100|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25956|08-20 10:47:06 0.82727800|End:----------------------------------
+127.0.0.1|Info|25961|08-20 10:47:18 0.61010800|Start:----------------------------------
+127.0.0.1|Info|25961|08-20 10:47:18 0.61211900|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25961|08-20 10:47:18 0.61267100|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25961|08-20 10:47:18 0.61420400|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25961|08-20 10:47:18 0.61450800|RedisCommands Result:false
+127.0.0.1|Info|25961|08-20 10:47:18 0.61469000|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25961|08-20 10:47:18 0.61502400|RedisCommands Result:1
+127.0.0.1|Info|25961|08-20 10:47:18 0.61900300|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25961|08-20 10:47:18 0.61919600|End:----------------------------------
+127.0.0.1|Info|25965|08-20 10:47:26 0.51712900|Start:----------------------------------
+127.0.0.1|Info|25965|08-20 10:47:26 0.51794400|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25965|08-20 10:47:26 0.51819000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25965|08-20 10:47:26 0.52052300|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25965|08-20 10:47:26 0.52093000|RedisCommands Result:1
+127.0.0.1|Info|25965|08-20 10:47:26 0.52126300|RedisCommands Args:["incr","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25965|08-20 10:47:26 0.52293600|RedisCommands Result:2
+127.0.0.1|Info|25965|08-20 10:47:26 0.52678000|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25965|08-20 10:47:26 0.52737400|End:----------------------------------
+127.0.0.1|Info|25971|08-20 10:48:00 0.11257100|Start:----------------------------------
+127.0.0.1|Info|25971|08-20 10:48:00 0.11439100|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25971|08-20 10:48:00 0.11461800|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25971|08-20 10:48:00 0.11640200|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25971|08-20 10:48:00 0.11678400|RedisCommands Result:false
+127.0.0.1|Info|25971|08-20 10:48:00 0.11694800|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25971|08-20 10:48:00 0.11777800|RedisCommands Result:1
+127.0.0.1|Info|25971|08-20 10:48:00 0.12338000|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25971|08-20 10:48:00 0.12369100|End:----------------------------------
+127.0.0.1|Info|25971|08-20 10:48:38 0.06996000|Start:----------------------------------
+127.0.0.1|Info|25971|08-20 10:48:38 0.07163300|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
+127.0.0.1|Info|25971|08-20 10:48:38 0.07184000|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|25971|08-20 10:48:38 0.07198800|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|25971|08-20 10:48:38 0.07236900|RedisCommands Result:false
+127.0.0.1|Info|25971|08-20 10:48:38 0.07249500|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|25971|08-20 10:48:38 0.07293300|RedisCommands Result:1
+127.0.0.1|Info|25971|08-20 10:48:38 0.07335200|Result:{"code":0,"data":"this is ok","desc":"成功"}
+127.0.0.1|Info|25971|08-20 10:48:38 0.07353700|End:----------------------------------

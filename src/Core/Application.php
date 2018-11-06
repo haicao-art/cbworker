@@ -46,11 +46,11 @@ class Application extends Container
   {
   }
 
-  public function initialize(): Application
+  public function initialize($base_path = '.'): Application
   {
-    Config::getInstance();
-    Lang::getInstance();
-    $this->_init();
+    Config::getInstance($base_path);
+    Lang::getInstance($base_path);
+    $this->_initDB();
     $this->bind('redis', function () {
       return new RedisDb(Config::getConf('db.redis'));
     });
@@ -62,7 +62,7 @@ class Application extends Container
     return $this;
   }
 
-  private function _init() {
+  private function _initDB() {
     $capsule = new Capsule;
     $capsule->addConnection(Config::getConf('db.mysql'));
     $capsule->setEventDispatcher(new Dispatcher(new Container));

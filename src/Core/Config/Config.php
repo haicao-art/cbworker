@@ -13,12 +13,12 @@ class Config
   use Singleton;
   protected static $cached;
   protected static $paths;
-  
-  private function __construct()
+
+  private function __construct($base_path = '.')
   {
-    static::$paths = '.' . DIRECTORY_SEPARATOR . 'Configs' . DIRECTORY_SEPARATOR;
+    static::$paths = $base_path . DIRECTORY_SEPARATOR . 'Configs' . DIRECTORY_SEPARATOR;
   }
-  
+
   /**
    * 加载config文件
    * @param  [type] $file [description]
@@ -34,12 +34,12 @@ class Config
     }
     return array();
   }
-  
+
   public static function getAllConfig()
   {
     return static::$cached;
   }
-  
+
   /**
    * [getConf 获取文件配置]
    * @param  [type] $keys    [description]
@@ -56,13 +56,13 @@ class Config
     }
     return false;
   }
-  
+
   public static function setConf($keys, $value)
   {
     list($file, $key) = explode('.', $keys, 2);
     static::_set(static::$cached[$file], $key, $value);
   }
-  
+
   private static function _get($path, $data)
   {
     $paths = explode(".", $path);
@@ -75,7 +75,7 @@ class Config
     }
     return $data;
   }
-  
+
   private static function _set(&$array, $path, $value): void
   {
     $path = explode(".", $path);

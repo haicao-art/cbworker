@@ -26,7 +26,7 @@ $worker = new Worker("http://0.0.0.0:7272");
 $worker->count = 4;
 
 $worker->onWorkerStart = function ($worker) {
-  Application::getInstance()->initialize();
+  Application::getInstance()->initialize(__DIR__);
   if($worker->id === 0) {
     Timer::add(1, function() use ($worker) {
       $now_time = time();

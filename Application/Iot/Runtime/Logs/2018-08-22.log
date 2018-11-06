@@ -1,0 +1,40 @@
+127.0.0.1|Info|30793|08-22 14:36:07 0.55506000|Start:----------------------------------
+127.0.0.1|Info|30793|08-22 14:36:07 0.55589600|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36
+127.0.0.1|Info|30793|08-22 14:36:07 0.55627200|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|30793|08-22 14:36:07 0.56110200|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|30793|08-22 14:36:07 0.56270500|RedisCommands Result:false
+127.0.0.1|Info|30793|08-22 14:36:07 0.56289000|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|30793|08-22 14:36:07 0.56327600|RedisCommands Result:1
+127.0.0.1|Error|30793|08-22 14:36:37 0.56851400|Exception:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30793|08-22 14:36:37 0.56885900|Result:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30793|08-22 14:36:37 0.56900100|End:----------------------------------
+127.0.0.1|Info|30793|08-22 14:36:50 0.77294200|Start:----------------------------------
+127.0.0.1|Info|30793|08-22 14:36:50 0.77425500|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36
+127.0.0.1|Info|30793|08-22 14:36:50 0.77455200|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|30793|08-22 14:36:50 0.77468000|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|30793|08-22 14:36:50 0.77493800|RedisCommands Result:false
+127.0.0.1|Info|30793|08-22 14:36:50 0.77502900|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|30793|08-22 14:36:50 0.77530200|RedisCommands Result:1
+127.0.0.1|Error|30793|08-22 14:37:20 0.77590900|Exception:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30793|08-22 14:37:20 0.77762700|Result:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30793|08-22 14:37:20 0.77773500|End:----------------------------------
+127.0.0.1|Info|30793|08-22 14:37:23 0.27068800|Start:----------------------------------
+127.0.0.1|Info|30793|08-22 14:37:23 0.27087200|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36
+127.0.0.1|Info|30793|08-22 14:37:23 0.27227300|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|30793|08-22 14:37:23 0.27238100|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|30793|08-22 14:37:23 0.27260800|RedisCommands Result:false
+127.0.0.1|Info|30793|08-22 14:37:23 0.27280900|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|30793|08-22 14:37:23 0.27297100|RedisCommands Result:1
+127.0.0.1|Info|30791|08-22 14:37:51 0.23313400|Start:----------------------------------
+127.0.0.1|Info|30791|08-22 14:37:51 0.23488800|User_Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36
+127.0.0.1|Info|30791|08-22 14:37:51 0.23516400|Params:{"class":"Index","method":"index"}
+127.0.0.1|Info|30791|08-22 14:37:51 0.23794000|RedisCommands Args:["get","ApiLimit:Index:index:127.0.0.1"]
+127.0.0.1|Info|30791|08-22 14:37:51 0.23830000|RedisCommands Result:false
+127.0.0.1|Info|30791|08-22 14:37:51 0.23845200|RedisCommands Args:["setex","ApiLimit:Index:index:127.0.0.1",10,1]
+127.0.0.1|Info|30791|08-22 14:37:51 0.23875200|RedisCommands Result:1
+127.0.0.1|Error|30793|08-22 14:37:53 0.27465100|Exception:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30793|08-22 14:37:53 0.27497600|Result:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30793|08-22 14:37:53 0.27628900|End:----------------------------------
+127.0.0.1|Error|30791|08-22 14:38:21 0.24018000|Exception:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30791|08-22 14:38:21 0.24198700|Result:{"code":2002,"desc":"SQLSTATE[HY000] [2002] Operation timed out"}
+127.0.0.1|Info|30791|08-22 14:38:21 0.24216100|End:----------------------------------

@@ -1,0 +1,201 @@
+127.0.0.1|Info|52852|08-01 10:07:11 0.83668800||RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52852|08-01 10:07:11 0.83724500||RedisCommands Result:false
+127.0.0.1|Info|52852|08-01 10:07:11 0.83740900||RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52852|08-01 10:07:11 0.83781200||RedisCommands Result:1
+127.0.0.1|Info|52858|08-01 10:08:55 0.34768200||RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52858|08-01 10:08:55 0.34846200||RedisCommands Result:false
+127.0.0.1|Info|52858|08-01 10:08:55 0.34862000||RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52858|08-01 10:08:55 0.34898800||RedisCommands Result:1
+127.0.0.1|Info|52867|08-01 10:10:56 0.45066300||Request:-----------------/index/index-----------------
+127.0.0.1|Info|52867|08-01 10:10:56 0.45081400||Params:
+127.0.0.1|Info|52867|08-01 10:10:56 0.45238600||RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52867|08-01 10:10:56 0.45272800||RedisCommands Result:false
+127.0.0.1|Info|52867|08-01 10:10:56 0.45294400||RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52867|08-01 10:10:56 0.45328500||RedisCommands Result:1
+127.0.0.1|Info|52867|08-01 10:10:56 0.45488900||Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52871|08-01 10:12:04 0.09049700|Start:----------------------------------
+127.0.0.1|Info|52871|08-01 10:12:04 0.09116200|Request:/index/index
+127.0.0.1|Info|52871|08-01 10:12:04 0.09123200|Params:
+127.0.0.1|Info|52871|08-01 10:12:04 0.09234300|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52871|08-01 10:12:04 0.09252700|RedisCommands Result:false
+127.0.0.1|Info|52871|08-01 10:12:04 0.09259000|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52871|08-01 10:12:04 0.09272600|RedisCommands Result:1
+127.0.0.1|Info|52871|08-01 10:12:04 0.09437500|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52871|08-01 10:12:04 0.09450100|End:----------------------------------
+127.0.0.1|Info|52877|08-01 10:13:02 0.06040300|Start:----------------------------------
+127.0.0.1|Info|52877|08-01 10:13:02 0.06083000|Request:/index/index
+127.0.0.1|Info|52877|08-01 10:13:02 0.06089100|Params:
+127.0.0.1|Info|52877|08-01 10:13:02 0.06199600|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52877|08-01 10:13:02 0.06224700|RedisCommands Result:false
+127.0.0.1|Info|52877|08-01 10:13:02 0.06231800|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52877|08-01 10:13:02 0.06248400|RedisCommands Result:1
+127.0.0.1|Info|52877|08-01 10:13:02 0.06399500|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52877|08-01 10:13:02 0.06407800|End:----------------------------------
+127.0.0.1|Info|52881|08-01 10:13:24 0.75335300|Start:----------------------------------
+127.0.0.1|Info|52881|08-01 10:13:24 0.75414700|Request:/index/index
+127.0.0.1|Info|52881|08-01 10:13:24 0.75429700|Params:
+127.0.0.1|Info|52881|08-01 10:13:24 0.75548800|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52881|08-01 10:13:24 0.75569400|RedisCommands Result:false
+127.0.0.1|Info|52881|08-01 10:13:24 0.75575700|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52881|08-01 10:13:24 0.75591500|RedisCommands Result:1
+127.0.0.1|Info|52881|08-01 10:13:24 0.75752500|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52881|08-01 10:13:24 0.75763500|End:----------------------------------
+127.0.0.1|Error|52881|08-01 10:13:36 0.47623500|Redis:Controller index or Method index?a=1&b=2 is Not Exists
+127.0.0.1|Error|52888|08-01 10:14:16 0.05446600|Redis:Controller index or Method index?a=1&b=2 is Not Exists
+127.0.0.1|Error|52892|08-01 10:14:52 0.00552700|Redis:Controller index or Method index?a=1&b=2 is Not Exists
+127.0.0.1|Error|52898|08-01 10:15:14 0.29982300|Redis:Controller index or Method index?a=1&b=2 is Not Exists
+127.0.0.1|Info|52901|08-01 10:16:41 0.34845800|Start:----------------------------------
+127.0.0.1|Info|52901|08-01 10:16:41 0.34864600|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52901|08-01 10:16:41 0.34869800|Params:
+127.0.0.1|Info|52901|08-01 10:16:41 0.34989300|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52901|08-01 10:16:41 0.35009300|RedisCommands Result:false
+127.0.0.1|Info|52901|08-01 10:16:41 0.35017000|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52901|08-01 10:16:41 0.35038500|RedisCommands Result:1
+127.0.0.1|Info|52901|08-01 10:16:41 0.35219200|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52901|08-01 10:16:41 0.35227900|End:----------------------------------
+127.0.0.1|Info|52909|08-01 10:17:14 0.80527200|Start:----------------------------------
+127.0.0.1|Info|52909|08-01 10:17:14 0.80589500|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52909|08-01 10:17:14 0.80597300|Params:
+127.0.0.1|Info|52909|08-01 10:17:14 0.80743200|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52909|08-01 10:17:14 0.80770000|RedisCommands Result:false
+127.0.0.1|Info|52909|08-01 10:17:14 0.80776500|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52909|08-01 10:17:14 0.80792100|RedisCommands Result:1
+127.0.0.1|Info|52909|08-01 10:17:14 0.81002500|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52909|08-01 10:17:14 0.81013600|End:----------------------------------
+127.0.0.1|Info|52912|08-01 10:17:37 0.14543400|Start:----------------------------------
+127.0.0.1|Info|52912|08-01 10:17:37 0.14563500|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52912|08-01 10:17:37 0.14569700|Params:
+127.0.0.1|Info|52912|08-01 10:17:37 0.14682900|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52912|08-01 10:17:37 0.14704100|RedisCommands Result:false
+127.0.0.1|Info|52912|08-01 10:17:37 0.14716300|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52912|08-01 10:17:37 0.14740100|RedisCommands Result:1
+127.0.0.1|Info|52912|08-01 10:17:37 0.14972400|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52912|08-01 10:17:37 0.14982200|End:----------------------------------
+127.0.0.1|Info|52917|08-01 10:17:51 0.95743300|Start:----------------------------------
+127.0.0.1|Info|52917|08-01 10:17:51 0.95761300|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52917|08-01 10:17:51 0.95767100|Params:
+127.0.0.1|Info|52917|08-01 10:17:51 0.95882700|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52917|08-01 10:17:51 0.95922900|RedisCommands Result:false
+127.0.0.1|Info|52917|08-01 10:17:51 0.95938100|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52917|08-01 10:17:51 0.95973400|RedisCommands Result:1
+127.0.0.1|Info|52917|08-01 10:17:51 0.96136400|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52917|08-01 10:17:51 0.96144700|End:----------------------------------
+127.0.0.1|Info|52917|08-01 10:18:10 0.06442400|Start:----------------------------------
+127.0.0.1|Info|52917|08-01 10:18:10 0.06461500|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52917|08-01 10:18:10 0.06469100|Params:
+127.0.0.1|Info|52917|08-01 10:18:10 0.06476700|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52917|08-01 10:18:10 0.06501100|RedisCommands Result:false
+127.0.0.1|Info|52917|08-01 10:18:10 0.06508900|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52917|08-01 10:18:10 0.06569300|RedisCommands Result:1
+127.0.0.1|Info|52917|08-01 10:18:10 0.06586400|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52917|08-01 10:18:10 0.06606900|End:----------------------------------
+127.0.0.1|Info|52926|08-01 10:18:32 0.06952200|Start:----------------------------------
+127.0.0.1|Info|52926|08-01 10:18:32 0.06971400|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52926|08-01 10:18:32 0.06977800|Params:
+127.0.0.1|Info|52926|08-01 10:18:32 0.07114100|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52926|08-01 10:18:32 0.07147300|RedisCommands Result:false
+127.0.0.1|Info|52926|08-01 10:18:32 0.07158500|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52926|08-01 10:18:32 0.07179800|RedisCommands Result:1
+127.0.0.1|Info|52926|08-01 10:18:32 0.07443700|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52926|08-01 10:18:32 0.07457300|End:----------------------------------
+127.0.0.1|Info|52931|08-01 10:18:56 0.58653400|Start:----------------------------------
+127.0.0.1|Info|52931|08-01 10:18:56 0.58675500|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52931|08-01 10:18:56 0.58682200|Params:
+127.0.0.1|Info|52931|08-01 10:18:56 0.58930800|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52931|08-01 10:18:56 0.58967000|RedisCommands Result:false
+127.0.0.1|Info|52931|08-01 10:18:56 0.58977600|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52931|08-01 10:18:56 0.59003100|RedisCommands Result:1
+127.0.0.1|Info|52931|08-01 10:18:56 0.59255500|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52931|08-01 10:18:56 0.59287600|End:----------------------------------
+127.0.0.1|Info|52934|08-01 10:19:49 0.78318600|Start:----------------------------------
+127.0.0.1|Info|52934|08-01 10:19:49 0.78346800|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52934|08-01 10:19:49 0.78353800|Params:
+127.0.0.1|Info|52934|08-01 10:19:49 0.78585000|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52934|08-01 10:19:49 0.78635700|RedisCommands Result:false
+127.0.0.1|Info|52934|08-01 10:19:49 0.78647900|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52934|08-01 10:19:49 0.78671100|RedisCommands Result:1
+127.0.0.1|Info|52934|08-01 10:19:49 0.79235000|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52934|08-01 10:19:49 0.79351900|End:----------------------------------
+127.0.0.1|Info|52944|08-01 10:20:04 0.52808600|Start:----------------------------------
+127.0.0.1|Info|52944|08-01 10:20:04 0.52827900|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52944|08-01 10:20:04 0.52834400|Params:
+127.0.0.1|Info|52944|08-01 10:20:04 0.53086200|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52944|08-01 10:20:04 0.53137900|RedisCommands Result:false
+127.0.0.1|Info|52944|08-01 10:20:04 0.53147500|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52944|08-01 10:20:04 0.53234300|RedisCommands Result:1
+127.0.0.1|Info|52944|08-01 10:20:04 0.53740800|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52944|08-01 10:20:04 0.53754800|End:----------------------------------
+127.0.0.1|Info|52944|08-01 10:22:51 0.84325600|Start:----------------------------------
+127.0.0.1|Info|52944|08-01 10:22:51 0.84382700|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52944|08-01 10:22:51 0.84394400|Params:{"a":1,"b":2,"page":1,"limit":20,"token":"b|622f91a62c61c007483ea069e459e4","key":"user:1","order_id":1}
+127.0.0.1|Info|52944|08-01 10:22:51 0.84414900|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52944|08-01 10:22:51 0.84476500|RedisCommands Result:false
+127.0.0.1|Info|52944|08-01 10:22:51 0.84488900|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52944|08-01 10:22:51 0.84512600|RedisCommands Result:1
+127.0.0.1|Info|52944|08-01 10:22:51 0.84520100|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52944|08-01 10:22:51 0.84528800|End:----------------------------------
+127.0.0.1|Info|52944|08-01 10:23:05 0.08655500|Start:----------------------------------
+127.0.0.1|Info|52944|08-01 10:23:05 0.08669500|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52944|08-01 10:23:05 0.08675500|Params:
+127.0.0.1|Info|52944|08-01 10:23:05 0.08682000|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52944|08-01 10:23:05 0.08702300|RedisCommands Result:false
+127.0.0.1|Info|52944|08-01 10:23:05 0.08711700|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52944|08-01 10:23:05 0.08728000|RedisCommands Result:1
+127.0.0.1|Info|52944|08-01 10:23:05 0.08736000|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52944|08-01 10:23:05 0.08743400|End:----------------------------------
+127.0.0.1|Info|52944|08-01 10:23:23 0.40894700|Start:----------------------------------
+127.0.0.1|Info|52944|08-01 10:23:23 0.40909000|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52944|08-01 10:23:23 0.40916100|Params:{"a":1,"b":2,"d":1,"c":2}
+127.0.0.1|Info|52944|08-01 10:23:23 0.40923100|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52944|08-01 10:23:23 0.40947700|RedisCommands Result:false
+127.0.0.1|Info|52944|08-01 10:23:23 0.40954800|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52944|08-01 10:23:23 0.40980100|RedisCommands Result:1
+127.0.0.1|Info|52944|08-01 10:23:23 0.40989700|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52944|08-01 10:23:23 0.40995600|End:----------------------------------
+127.0.0.1|Info|52944|08-01 10:24:10 0.36155200|Start:----------------------------------
+127.0.0.1|Info|52944|08-01 10:24:10 0.36259600|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52944|08-01 10:24:10 0.36280900|Params:{"a":1,"b":2,"page":1,"limit":20,"token":"b|622f91a62c61c007483ea069e459e4","key":"user:1","order_id":1}
+127.0.0.1|Info|52944|08-01 10:24:10 0.36304000|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52944|08-01 10:24:10 0.36359400|RedisCommands Result:false
+127.0.0.1|Info|52944|08-01 10:24:10 0.36368700|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52944|08-01 10:24:10 0.36392500|RedisCommands Result:1
+127.0.0.1|Info|52944|08-01 10:24:10 0.36400700|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52944|08-01 10:24:10 0.36407600|End:----------------------------------
+127.0.0.1|Info|52970|08-01 10:30:07 0.43199300|Start:----------------------------------
+127.0.0.1|Info|52970|08-01 10:30:07 0.43269000|Request:/index/index/?a=1&b=2
+127.0.0.1|Info|52970|08-01 10:30:07 0.43287000|Params:
+127.0.0.1|Info|52970|08-01 10:30:07 0.44157100|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52970|08-01 10:30:07 0.44191900|RedisCommands Result:false
+127.0.0.1|Info|52970|08-01 10:30:07 0.44205600|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52970|08-01 10:30:07 0.44250400|RedisCommands Result:1
+127.0.0.1|Info|52970|08-01 10:30:07 0.44527300|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52970|08-01 10:30:07 0.44562200|End:----------------------------------
+127.0.0.1|Error|52970|08-01 10:30:24 0.10451300|Redis:Controller  or Method  is Not Exists
+127.0.0.1|Error|52974|08-01 10:31:58 0.71760100|Redis:Controller  or Method  is Not Exists
+127.0.0.1|Info|52980|08-01 10:32:42 0.43072700|Start:----------------------------------
+127.0.0.1|Info|52980|08-01 10:32:42 0.43109800|Request:
+127.0.0.1|Info|52980|08-01 10:32:42 0.43121500|Params:
+127.0.0.1|Info|52980|08-01 10:32:42 0.43307700|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52980|08-01 10:32:42 0.43386700|RedisCommands Result:false
+127.0.0.1|Info|52980|08-01 10:32:42 0.43434000|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52980|08-01 10:32:42 0.43464900|RedisCommands Result:1
+127.0.0.1|Info|52980|08-01 10:32:42 0.43699200|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52980|08-01 10:32:42 0.43719400|End:----------------------------------
+127.0.0.1|Info|52980|08-01 10:32:59 0.96695500|Start:----------------------------------
+127.0.0.1|Info|52980|08-01 10:32:59 0.96714300|Request:
+127.0.0.1|Info|52980|08-01 10:32:59 0.96721000|Params:
+127.0.0.1|Info|52980|08-01 10:32:59 0.96727900|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52980|08-01 10:32:59 0.96795000|RedisCommands Result:false
+127.0.0.1|Info|52980|08-01 10:32:59 0.96810300|RedisCommands Args:["setex","ApiLimit:index:index:127.0.0.1",10,1]
+127.0.0.1|Info|52980|08-01 10:32:59 0.96832300|RedisCommands Result:1
+127.0.0.1|Info|52980|08-01 10:32:59 0.96840500|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52980|08-01 10:32:59 0.96846600|End:----------------------------------
+127.0.0.1|Info|52984|08-01 10:33:04 0.68049500|Start:----------------------------------
+127.0.0.1|Info|52984|08-01 10:33:04 0.68086300|Request:/
+127.0.0.1|Info|52984|08-01 10:33:04 0.68095500|Params:
+127.0.0.1|Info|52984|08-01 10:33:04 0.68357200|RedisCommands Args:["get","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52984|08-01 10:33:04 0.68507800|RedisCommands Result:1
+127.0.0.1|Info|52984|08-01 10:33:04 0.68529700|RedisCommands Args:["incr","ApiLimit:index:index:127.0.0.1"]
+127.0.0.1|Info|52984|08-01 10:33:04 0.68872100|RedisCommands Result:2
+127.0.0.1|Info|52984|08-01 10:33:04 0.69163600|Result:{"code":0,"desc":"this is Index Controller"}
+127.0.0.1|Info|52984|08-01 10:33:04 0.69174300|End:----------------------------------
