@@ -2,8 +2,8 @@
     "name": "crababy/cbworker",
     "description": "cbworker framework",
     "require": {
-        "illuminate/events": "^5.7",
-        "illuminate/database": "^5.7",
+        "illuminate/events": "^5.5",
+        "illuminate/database": "^5.5",
         "workerman/workerman": "^3.5",
         "monolog/monolog": "^1.24"
     },
