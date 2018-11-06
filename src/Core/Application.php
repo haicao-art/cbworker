@@ -211,7 +211,7 @@ class Application extends Container
     } catch (\Exception $ex) {
       $this->response()->setCode($ex->getCode());
       $this->response()->setMessage($ex->getMessage());
-      $this->logger()->error( '[' $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
+      $this->logger()->error( '[' . $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
     }
     $_raw = $this->response()->getRaw();
     $_headers = $this->response()->header();
