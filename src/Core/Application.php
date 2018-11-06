@@ -49,26 +49,8 @@ class Application extends Container
   public function initialize(): Application
   {
     Config::getInstance();
-
     Lang::getInstance();
-
-    $capsule = new Capsule;
-
-    $capsule->addConnection(Config::getConf('db.mysql'));
-
-    $capsule->setEventDispatcher(new Dispatcher(new Container));
-
-    // 设置全局静态可访问DB
-    $capsule->setAsGlobal();
-
-    // 启动Eloquent （如果只使用查询构造器，这个可以注释）
-    $capsule->bootEloquent();
-
-    Capsule::listen(function ($query) {
-      $sql = vsprintf(str_replace("?", "'%s'", $query->sql), $query->bindings) . " \t[" . $query->time . ' ms] ';
-      // 把SQL写入到日志文件中
-      Logger::getInstance()->info("SQL:", [$sql]);
-    });
+    $this->_init();
     $this->bind('redis', function () {
       return new RedisDb(Config::getConf('db.redis'));
     });
@@ -78,6 +60,21 @@ class Application extends Container
     });
     $this->logger()->debug('initialize Success');
     return $this;
+  }
+
+  private function _init() {
+    $capsule = new Capsule;
+    $capsule->addConnection(Config::getConf('db.mysql'));
+    $capsule->setEventDispatcher(new Dispatcher(new Container));
+    // 设置全局静态可访问DB
+    $capsule->setAsGlobal();
+    // 启动Eloquent （如果只使用查询构造器，这个可以注释）
+    $capsule->bootEloquent();
+    Capsule::listen(function ($query) {
+      $sql = vsprintf(str_replace("?", "'%s'", $query->sql), $query->bindings) . " \t[" . $query->time . ' ms] ';
+      // 把SQL写入到日志文件中
+      Logger::getInstance()->info("SQL:", [$sql]);
+    });
   }
 
   public function redis()
