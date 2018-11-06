@@ -167,8 +167,12 @@ class Application extends Container
       $_code = $handler_instance->{$request['method']}();
       $this->response()->setCode($_code);
     } catch (\Exception $ex) {
-      $this->response()->setCode($ex->getCode());
-      $this->response()->setMessage($ex->getMessage());
+      if(Config::getConf('App.Debug')) {
+        $this->response()->setCode($ex->getCode());
+        $this->response()->setMessage($ex->getMessage());
+      } else {
+        $this->response()->setCode(-99);
+      }
       $this->logger()->error( '[' $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
     }
 

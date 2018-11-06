@@ -11,7 +11,7 @@ return [
   'SERVER_TYPE'   => 'HTTP',
   'NAMESPACE'     => 'Application\\Apis\\',
 
-  'Language'      => 'en',
+  'Language'      => 'zh',
 
   'Log'           => [
     'LOG_DIR'       => 'Runtime/logs',
