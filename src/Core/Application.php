@@ -187,7 +187,6 @@ class Application extends Container
 
   public function Run()
   {
-    $_server = $this->request()->server();
     if ($this->request()->uri() === '/favicon.ico') {
       $this->connection()->close('');
       return;
