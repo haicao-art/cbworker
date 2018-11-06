@@ -29,8 +29,6 @@ class Application extends Container
 
   use Singleton;
 
-  private $language = 'zh';
-
   protected $_request = null;
 
   protected $_response = null;
@@ -45,7 +43,12 @@ class Application extends Container
   private function __clone()
   {
   }
-
+  
+  /**
+   * 初始化配置信息
+   * @param string $base_path
+   * @return Application
+   */
   public function initialize($base_path = '.'): Application
   {
     Config::getInstance($base_path);
@@ -56,12 +59,14 @@ class Application extends Container
     });
     $this->bind('logger', function () {
       return Logger::getInstance();
-      //return MonoLogger::getInstance();
     });
     $this->logger()->debug('initialize Success');
     return $this;
   }
-
+  
+  /**
+   * 初始化DB
+   */
   private function _initDB() {
     $capsule = new Capsule;
     $capsule->addConnection(Config::getConf('db.mysql'));
