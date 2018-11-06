@@ -4,7 +4,8 @@
     "require": {
         "illuminate/events": "^5.7",
         "illuminate/database": "^5.7",
-        "workerman/workerman": "^3.5"
+        "workerman/workerman": "^3.5",
+        "monolog/monolog": "^1.24"
     },
     "autoload": {
         "psr-4": {
