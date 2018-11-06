@@ -173,7 +173,7 @@ class Application extends Container
       } else {
         $this->response()->setCode(-99);
       }
-      $this->logger()->error( '[' $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
+      $this->logger()->error( '[' . $ex->getCode() . ']' . $ex->getMessage(), 'methodDispatch Exception');
     }
 
     if (Config::getConf('App.report')) {
