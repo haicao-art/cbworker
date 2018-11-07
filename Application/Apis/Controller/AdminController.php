@@ -39,8 +39,7 @@ class AdminController extends Controller
     //$len = strlen('debug,') + strlen('demo');
     //$header .= "Content-Length: ". $len ."\r\n\r\n";
     $header .= "\r\n";
-    $this->app()->response()->setRaw(true);
-    $this->app()->response()->setHeader($header);
+    $this->app()->getConnection()->send($header, true);
 
     ob_start();
     $fp = fopen('php://output', 'a');
@@ -51,7 +50,7 @@ class AdminController extends Controller
     fputcsv($fp, $header1);
     $content = ob_get_contents();
     $length = dechex(strlen($content));
-    $this->app()->response()->setRawData("{$length}\r\n{$content}\r\n");
+    $this->app()->getConnection()->send("{$length}\r\n{$content}\r\n", true);
     ob_clean();   //清空（擦掉）输出缓冲区
     $data = ['123', '456'];
 
@@ -64,8 +63,8 @@ class AdminController extends Controller
     fputcsv($fp, $order);
     $content1 = ob_get_contents();    //返回输出缓冲区的内容
     $length1 = dechex(strlen($content1));
-    $this->app()->response()->setRawData("{$length1}\r\n{$content1}\r\n");
-    $this->app()->response()->setRawData("0\r\n\r\n");
+    $this->app()->getConnection()->send("{$length1}\r\n{$content1}\r\n", true);
+    $this->app()->getConnection()->send("0\r\n\r\n", true);
     ob_end_clean();   //清空（擦除）缓冲区并关闭输出缓冲
     fclose($fp);
   }

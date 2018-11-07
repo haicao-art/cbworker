@@ -43,7 +43,7 @@ class Application extends Container
   private function __clone()
   {
   }
-  
+
   /**
    * 初始化配置信息
    * @param string $base_path
@@ -63,7 +63,7 @@ class Application extends Container
     $this->logger()->debug('initialize Success');
     return $this;
   }
-  
+
   /**
    * 初始化DB
    */
@@ -216,22 +216,14 @@ class Application extends Container
       $this->response()->setMessage($ex->getMessage());
       $this->logger()->error('methodDispatch Exception', ['code' => $ex->getCode(), 'message' => $ex->getMessage()]);
     }
-    $_raw = $this->response()->getRaw();
     $_headers = $this->response()->header();
     foreach ($_headers as $header) {
-      if($_raw) {
-        $this->connection()->send($header, $_raw);
-      } else {
-        //Http::header("Access-Control-Allow-Origin:*");
-        Http::header($header);
-      }
+      Http::header($header);
     }
     $_responses = $this->response()->build();
-    $this->connection()->send(json_encode($_responses, JSON_UNESCAPED_UNICODE), $_raw);
+    $this->connection()->send(json_encode($_responses, JSON_UNESCAPED_UNICODE));
 
-    if(!$_raw) {
-      $this->logger()->info("Response", $_responses);
-    }
+    $this->logger()->info("Response", $_responses);
     unset($_headers);
     unset($_responses);
     unset($this->_request);
