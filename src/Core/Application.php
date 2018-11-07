@@ -168,8 +168,7 @@ class Application extends Container
 
     try {
       $handler_instance = new $controller($this);
-      $_code = $handler_instance->{$request['method']}();
-      $this->response()->setCode($_code);
+      $handler_instance->{$request['method']}();
     } catch (\Exception $ex) {
       if(Config::getConf('App.Debug')) {
         $this->response()->setCode($ex->getCode());
