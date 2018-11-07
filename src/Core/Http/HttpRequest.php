@@ -35,23 +35,38 @@ class HttpRequest implements Request
     $this->_rawData = $GLOBALS['HTTP_RAW_POST_DATA'];
   }
 
-  public function get() {
+  public function get($key = '', $default = '') {
+    if(!empty($key)) {
+      return isset($this->_get[$key]) ? $this->_get[$key] : $default;
+    }
     return $this->_get;
   }
 
-  public function post() {
+  public function post($key = '', $default = '') {
+    if(!empty($key)) {
+      return isset($this->_post[$key]) ? $this->_post[$key] : $default;
+    }
     return $this->_post;
   }
 
-  public function request() {
+  public function request($key = '', $default = '') {
+    if(!empty($key)) {
+      return isset($this->_post[$key]) ? $this->_post[$key] : $default;
+    }
     return $this->_post;
   }
 
-  public function cookie() {
+  public function cookie($key = '', $default = '') {
+    if(!empty($key)) {
+      return isset($this->_cookie[$key]) ? $this->_cookie[$key] : $default;
+    }
     return $this->_cookie;
   }
 
-  public function server() {
+  public function server($key = '', $default = '') {
+    if(!empty($key)) {
+      return isset($this->_server[$key]) ? $this->_server[$key] : $default;
+    }
     return $this->_server;
   }
 
