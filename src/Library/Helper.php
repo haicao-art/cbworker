@@ -64,7 +64,7 @@ class Helper
    * @param [type] $rules    [description]
    * @param [type] $request  [description]
    */
-  public static function ValidateParams($rules, &$request) {
+  public static function ValidateParams($rules, $request) {
     /*清洗掉rules中未定义的参数*/
   	//$request = array_intersect_key($request, $rules);
     foreach ($rules as $key => $rule) {
@@ -109,10 +109,6 @@ class Helper
 					throw new Exception("请求参数错误,{$key}:{$rule}", -4);
         }
       }
-			/*不允许有空值参数, 空数组可以*/
-			if ('' == $request[$key]) {
-				unset($request[$key]);
-			}
     }
     return true;
   }
