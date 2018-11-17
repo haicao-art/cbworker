@@ -7,10 +7,9 @@
 
 namespace Cbworker\Library;
 
-use Redis;
-use Exception;
-use Cbworker\Library\MLogger;
 use Cbworker\Core\AbstractInterface\Singleton;
+use Exception;
+use Redis;
 
 class RedisDb
 {
