@@ -16,7 +16,7 @@ use Workerman\Protocols\Http;
 use Cbworker\Core\Http\HttpRequest;
 use Cbworker\Core\Http\HttpResponse;
 use Cbworker\Library\Helper;
-use Cbworker\Library\Logger;
+use Cbworker\Library\MLogger;
 use Workerman\Lib\Timer;
 use Cbworker\Library\RedisDb;
 use Cbworker\Library\StatisticClient;
@@ -54,11 +54,11 @@ class Application extends Container
     Config::getInstance($base_path);
     Lang::getInstance($base_path);
     $this->_initDB();
+    $this->bind('logger', function () {
+      return MLogger::getInstance();
+    });
     $this->bind('redis', function () {
       return new RedisDb(Config::getConf('db.redis'));
-    });
-    $this->bind('logger', function () {
-      return Logger::getInstance();
     });
     $this->logger()->debug('initialize Success');
     return $this;
@@ -78,7 +78,7 @@ class Application extends Container
     Capsule::listen(function ($query) {
       $sql = vsprintf(str_replace("?", "'%s'", $query->sql), $query->bindings) . " \t[" . $query->time . ' ms] ';
       // 把SQL写入到日志文件中
-      Logger::getInstance()->info("SQL:", [$sql]);
+      MLogger::info("SQL:", [$sql]);
     });
   }
 
@@ -116,6 +116,7 @@ class Application extends Container
     $this->_connection = $connection;
     $this->_request = new HttpRequest($data);
     $this->_response = new HttpResponse();
+    $this->logger()->setLoggerId($this->_request->server('HTTP_LOGGERID'));
   }
 
   /**

@@ -7,10 +7,11 @@
  */
 
 return [
-  'Type'          => 'MonoLog',
-  'LOG_DIR'       => 'Runtime/logs',
-  'ClearTime'     => '1296000',
-  'level'         => '100',
-  'LogLevel'      => 'ERROR,DEBUG,INFO',
-  'format'        => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n"
+  'Name' => 'Apis',
+  'LOG_DIR' => 'Runtime/logs',
+  'maxFiles' => 15,
+  'level' => '100',
+  'formatter' => 'Monolog\Formatter\JsonFormatter',
+  'suffix' => 'log',
+  'format' => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n"
 ];

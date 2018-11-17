@@ -39,7 +39,7 @@ $worker->onWorkerStart = function ($worker) {
         }
       }
     });
-    Application::getInstance()->clearTask();
+    //Application::getInstance()->clearTask();
   }
 };
 
