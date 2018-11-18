@@ -7,7 +7,7 @@
  */
 
 return [
-  'NAME'          => 'Apis',
+  'Name' => 'CbWorkerApis',
   'SERVER_TYPE'   => 'HTTP',
   'NAMESPACE'     => 'Application\\Apis\\',
 

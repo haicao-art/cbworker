@@ -236,7 +236,7 @@ class Application extends Container
     }
     
     if (Config::getConf('App.report')) {
-      StatisticClient::tick(Config::getConf('App.NAME'), $request['class'], $request['method']);
+      StatisticClient::tick(Config::getConf('App.Name'), $request['class'], $request['method']);
     }
     
     try {
@@ -254,7 +254,7 @@ class Application extends Container
     }
     
     if (Config::getConf('App.report')) {
-      StatisticClient::report(Config::getConf('App.NAME'), $request['class'], $request['method'], 0, $this->response()->getCode(), $this->response()->getMessage(), Config::getConf('App.statistic.address'));
+      StatisticClient::report(Config::getConf('App.Name'), $request['class'], $request['method'], $this->response()->getCode() == 200 ? 1 : 0, $this->response()->getCode(), $this->response()->getMessage(), Config::getConf('App.statistic.address', ''));
     }
   }
   
