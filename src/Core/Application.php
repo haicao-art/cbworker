@@ -12,38 +12,42 @@ namespace Cbworker\Core;
 use Cbworker\Core\AbstractInterface\Singleton;
 use Cbworker\Core\Config\Config;
 use Cbworker\Core\Config\Lang;
-use Workerman\Protocols\Http;
 use Cbworker\Core\Http\HttpRequest;
 use Cbworker\Core\Http\HttpResponse;
 use Cbworker\Library\Helper;
 use Cbworker\Library\MLogger;
-use Workerman\Lib\Timer;
 use Cbworker\Library\RedisDb;
 use Cbworker\Library\StatisticClient;
+use Illuminate\Container\Container;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container;
+use Workerman\Lib\Timer;
+use Workerman\Protocols\Http;
 
 class Application extends Container
 {
-
+  
   use Singleton;
-
+  
   protected $_request = null;
-
+  
   protected $_response = null;
-
+  
   protected $_connection = null;
-
+  
   private function __construct()
   {
     $this->errorHandle();
   }
-
-  private function __clone()
+  
+  private function errorHandle()
   {
+    $func = function () {
+      echo 'register shutdown function ' . PHP_EOL;
+    };
+    register_shutdown_function($func);
   }
-
+  
   /**
    * 初始化配置信息
    * @param string $base_path
@@ -63,11 +67,12 @@ class Application extends Container
     $this->logger()->debug('initialize Success');
     return $this;
   }
-
+  
   /**
    * 初始化DB
    */
-  private function _initDB() {
+  private function _initDB()
+  {
     $capsule = new Capsule;
     $capsule->addConnection(Config::getConf('db.mysql'));
     $capsule->setEventDispatcher(new Dispatcher(new Container));
@@ -81,36 +86,17 @@ class Application extends Container
       MLogger::info("SQL:", [$sql]);
     });
   }
-
-  public function redis()
-  {
-    return $this['redis'];
-  }
-
+  
   public function logger()
   {
     return $this['logger'];
   }
-
+  
   public function getConnection()
   {
     return $this->_connection;
   }
-
-  public function connection()
-  {
-    return $this->_connection;
-  }
-
-  public function request()
-  {
-    return $this->_request;
-  }
-
-  public function response() {
-    return $this->_response;
-  }
-
+  
   public function init($connection, $data)
   {
     $this->_connection = $connection;
@@ -118,7 +104,7 @@ class Application extends Container
     $this->_response = new HttpResponse();
     $this->logger()->setLoggerId($this->_request->server('HTTP_LOGGERID'));
   }
-
+  
   /**
    * 定时任务
    */
@@ -126,7 +112,7 @@ class Application extends Container
   {
     Timer::add(86400, array($this, 'clearDisk'), array(Config::getConf('Log.LOG_DIR'), Config::getConf('Log.ClearTime', '1296000')));
   }
-
+  
   /**
    * 清除磁盘数据
    * @param  [type]  $file     [description]
@@ -150,42 +136,7 @@ class Application extends Container
       $this->clearDisk($file_name, $exp_time);
     }
   }
-
-  /**
-   * 请求分发
-   * @return [type] [description]
-   */
-  public function methodDispatch($request)
-  {
-    $controller = Config::getConf('App.NAMESPACE') . 'Controller\\' . $request['class'] . 'Controller';
-
-    if (!class_exists($controller) || !method_exists($controller, $request['method'])) {
-      throw new \Exception("Controller {$request['class']} or Method {$request['method']} is Not Exists", 1002);
-    }
-
-    if (Config::getConf('App.report')) {
-      StatisticClient::tick(Config::getConf('App.NAME'), $request['class'], $request['method']);
-    }
-
-    try {
-      $handler_instance = new $controller($this);
-      $handler_instance->{$request['method']}();
-    } catch (\Exception $ex) {
-      if(Config::getConf('App.Debug')) {
-        $this->response()->setCode($ex->getCode());
-        $this->response()->setMessage($ex->getMessage());
-      } else {
-        $this->response()->setCode($ex->getCode());
-        //$this->response()->setCode(-99);
-      }
-      $this->logger()->error( 'methodDispatch Exception',  ['code' => $ex->getCode() , 'message' => $ex->getMessage()]);
-    }
-
-    if (Config::getConf('App.report')) {
-      StatisticClient::report(Config::getConf('App.NAME'), $request['class'], $request['method'], 0, $this->response()->getCode(), $this->response()->getMessage(), Config::getConf('App.statistic.address'));
-    }
-  }
-
+  
   public function Run()
   {
     if ($this->request()->uri() === '/favicon.ico') {
@@ -205,7 +156,7 @@ class Application extends Container
     $_info = explode('/', $this->request()->uri());
     $request['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $request['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
-
+  
     $this->logger()->info('', $request);
     $this->logger()->info("User_Agent:", $this->request()->server());
     $this->logger()->info("Params", $this->request()->post());
@@ -223,7 +174,7 @@ class Application extends Container
     }
     $_responses = $this->response()->build();
     $this->connection()->send(json_encode($_responses, JSON_UNESCAPED_UNICODE));
-
+  
     $this->logger()->info("Response", $_responses);
     unset($_headers);
     unset($_responses);
@@ -231,7 +182,17 @@ class Application extends Container
     unset($this->_response);
     unset($this->_connection);
   }
-
+  
+  public function request()
+  {
+    return $this->_request;
+  }
+  
+  public function connection()
+  {
+    return $this->_connection;
+  }
+  
   /**
    * 访问频率限制
    * @return [type] [description]
@@ -256,14 +217,55 @@ class Application extends Container
     }
     return true;
   }
-
-  private function errorHandle()
+  
+  public function redis()
   {
-    $func = function () {
-      echo 'register shutdown function ' . PHP_EOL;
-    };
-    register_shutdown_function($func);
+    return $this['redis'];
   }
-
-
+  
+  /**
+   * 请求分发
+   * @return [type] [description]
+   */
+  public function methodDispatch($request)
+  {
+    $controller = Config::getConf('App.NAMESPACE') . 'Controller\\' . $request['class'] . 'Controller';
+    
+    if (!class_exists($controller) || !method_exists($controller, $request['method'])) {
+      throw new \Exception("Controller {$request['class']} or Method {$request['method']} is Not Exists", 1002);
+    }
+    
+    if (Config::getConf('App.report')) {
+      StatisticClient::tick(Config::getConf('App.NAME'), $request['class'], $request['method']);
+    }
+    
+    try {
+      $handler_instance = new $controller($this);
+      $handler_instance->{$request['method']}();
+    } catch (\Exception $ex) {
+      if (Config::getConf('App.Debug')) {
+        $this->response()->setCode($ex->getCode());
+        $this->response()->setMessage($ex->getMessage());
+      } else {
+        $this->response()->setCode($ex->getCode());
+        //$this->response()->setCode(-99);
+      }
+      $this->logger()->error('methodDispatch Exception', ['code' => $ex->getCode(), 'message' => $ex->getMessage()]);
+    }
+    
+    if (Config::getConf('App.report')) {
+      StatisticClient::report(Config::getConf('App.NAME'), $request['class'], $request['method'], 0, $this->response()->getCode(), $this->response()->getMessage(), Config::getConf('App.statistic.address'));
+    }
+  }
+  
+  public function response()
+  {
+    return $this->_response;
+  }
+  
+  private function __clone()
+  {
+  }
+  
+  
 }

@@ -6,20 +6,20 @@
 # @License: http://www.opensource.org/licenses/mit-license.php MIT License
 namespace Cbworker\Library;
 
-use Cbworker\Core\Config\Config;
 use Cbworker\Core\AbstractInterface\Singleton;
-use Monolog\Logger;
+use Cbworker\Core\Config\Config;
 use Monolog\Handler\RotatingFileHandler;
+use Monolog\Logger;
+use Monolog\Processor\MemoryPeakUsageProcessor;
+use Monolog\Processor\MemoryUsageProcessor;
 
 class MLogger
 {
   use Singleton;
   
-  private $_file;
-  
   public static $_loggerId;
-
   private static $_logger;
+  private $_file;
 
   private function __construct()
   {
@@ -30,11 +30,11 @@ class MLogger
     $format = new $formatter();
     $stream->setFormatter($format);
     self::$_logger->pushHandler($stream);
-    self::pushLoggerId();
-  }
   
-  public function setLoggerId($_loggerId) {
-    self::$_loggerId = $_loggerId;
+    self::$_logger->pushProcessor(new MemoryPeakUsageProcessor());
+    self::$_logger->pushProcessor(new MemoryUsageProcessor());
+    
+    self::pushLoggerId();
   }
   
   public static function pushLoggerId() {
@@ -84,6 +84,11 @@ class MLogger
   public static function warn($message, array $context = array())
   {
     return self::$_logger->addRecord(Logger::WARNING, $message, $context);
+  }
+  
+  public function setLoggerId($_loggerId)
+  {
+    self::$_loggerId = $_loggerId;
   }
   
 }

@@ -13,5 +13,5 @@ return [
   'level' => '100',
   'formatter' => 'Monolog\Formatter\JsonFormatter',
   'suffix' => 'log',
-  'format' => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n"
+  'format' => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n",
 ];
