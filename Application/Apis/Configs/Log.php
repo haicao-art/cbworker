@@ -7,7 +7,7 @@
  */
 
 return [
-  'Name' => 'Apis',
+  'Channel' => 'Apis',
   'LOG_DIR' => 'Runtime/logs',
   'maxFiles' => 15,
   'level' => '100',
