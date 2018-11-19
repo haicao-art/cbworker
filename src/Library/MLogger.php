@@ -17,8 +17,10 @@ class MLogger
 {
   use Singleton;
 
-  public static $_loggerId;
+  public static $_loggerId = false;
+
   private static $_logger;
+
   private $_file;
 
   private function __construct()
@@ -36,6 +38,14 @@ class MLogger
     self::$_logger->pushProcessor(new MemoryUsageProcessor());
 
     self::pushLoggerId();
+  }
+
+  /**
+   * [setLoggerId 设置ID]
+   * @param [type] $_loggerId [description]
+   */
+  public static function setLoggerId($_loggerId) {
+    self::$_loggerId = $_loggerId;
   }
 
   public static function pushLoggerId() {

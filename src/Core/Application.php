@@ -26,20 +26,20 @@ use Workerman\Protocols\Http;
 
 class Application extends Container
 {
-  
+
   use Singleton;
-  
+
   protected $_request = null;
-  
+
   protected $_response = null;
-  
+
   protected $_connection = null;
-  
+
   private function __construct()
   {
     $this->errorHandle();
   }
-  
+
   private function errorHandle()
   {
     $func = function () {
@@ -47,7 +47,7 @@ class Application extends Container
     };
     register_shutdown_function($func);
   }
-  
+
   /**
    * 初始化配置信息
    * @param string $base_path
@@ -67,7 +67,7 @@ class Application extends Container
     $this->logger()->debug('initialize Success');
     return $this;
   }
-  
+
   /**
    * 初始化DB
    */
@@ -86,25 +86,25 @@ class Application extends Container
       MLogger::info("SQL:", [$sql]);
     });
   }
-  
+
   public function logger()
   {
     return $this['logger'];
   }
-  
+
   public function getConnection()
   {
     return $this->_connection;
   }
-  
+
   public function init($connection, $data)
   {
     $this->_connection = $connection;
     $this->_request = new HttpRequest($data);
     $this->_response = new HttpResponse();
-    $this->logger()->setLoggerId($this->_request->server('HTTP_LOGGERID'));
+    $this->logger()->setLoggerId($this->_request->server('HTTP_LOGGERID', false));
   }
-  
+
   /**
    * 定时任务
    */
@@ -112,7 +112,7 @@ class Application extends Container
   {
     Timer::add(86400, array($this, 'clearDisk'), array(Config::getConf('Log.LOG_DIR'), Config::getConf('Log.ClearTime', '1296000')));
   }
-  
+
   /**
    * 清除磁盘数据
    * @param  [type]  $file     [description]
@@ -136,7 +136,7 @@ class Application extends Container
       $this->clearDisk($file_name, $exp_time);
     }
   }
-  
+
   public function Run()
   {
     if ($this->request()->uri() === '/favicon.ico') {
@@ -156,7 +156,7 @@ class Application extends Container
     $_info = explode('/', $this->request()->uri());
     $request['class'] = isset($_info[1]) && !empty($_info[1]) ? ucfirst($_info[1]) : 'Index';
     $request['method'] = isset($_info[2]) && !empty($_info[2]) ? $_info[2] : 'index';
-  
+
     $this->logger()->info('', $request);
     $this->logger()->info("User_Agent:", $this->request()->server());
     $this->logger()->info("Params", $this->request()->post());
@@ -174,7 +174,7 @@ class Application extends Container
     }
     $_responses = $this->response()->build();
     $this->connection()->send(json_encode($_responses, JSON_UNESCAPED_UNICODE));
-  
+
     $this->logger()->info("Response", $_responses);
     unset($_headers);
     unset($_responses);
@@ -182,17 +182,17 @@ class Application extends Container
     unset($this->_response);
     unset($this->_connection);
   }
-  
+
   public function request()
   {
     return $this->_request;
   }
-  
+
   public function connection()
   {
     return $this->_connection;
   }
-  
+
   /**
    * 访问频率限制
    * @return [type] [description]
@@ -217,12 +217,12 @@ class Application extends Container
     }
     return true;
   }
-  
+
   public function redis()
   {
     return $this['redis'];
   }
-  
+
   /**
    * 请求分发
    * @return [type] [description]
@@ -230,15 +230,15 @@ class Application extends Container
   public function methodDispatch($request)
   {
     $controller = Config::getConf('App.NAMESPACE') . 'Controller\\' . $request['class'] . 'Controller';
-    
+
     if (!class_exists($controller) || !method_exists($controller, $request['method'])) {
       throw new \Exception("Controller {$request['class']} or Method {$request['method']} is Not Exists", 1002);
     }
-    
+
     if (Config::getConf('App.report')) {
       StatisticClient::tick(Config::getConf('App.Name'), $request['class'], $request['method']);
     }
-    
+
     try {
       $handler_instance = new $controller($this);
       $handler_instance->{$request['method']}();
@@ -252,20 +252,20 @@ class Application extends Container
       }
       $this->logger()->error('methodDispatch Exception', ['code' => $ex->getCode(), 'message' => $ex->getMessage()]);
     }
-    
+
     if (Config::getConf('App.report')) {
       StatisticClient::report(Config::getConf('App.Name'), $request['class'], $request['method'], $this->response()->getCode() == 200 ? 1 : 0, $this->response()->getCode(), $this->response()->getMessage(), Config::getConf('App.statistic.address', ''));
     }
   }
-  
+
   public function response()
   {
     return $this->_response;
   }
-  
+
   private function __clone()
   {
   }
-  
-  
+
+
 }
