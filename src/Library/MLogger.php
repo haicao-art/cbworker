@@ -23,12 +23,13 @@ class MLogger
 
   private function __construct()
   {
-    self::$_logger = new Logger(Config::getConf('Log.Name', 'cbworker'));
     $this->_file = Config::getConf('Log.LOG_DIR') . DIRECTORY_SEPARATOR . Config::getConf('Log.Name', 'cbworker') . '.' . Config::getConf('Log.suffix', 'log');
     $stream = new RotatingFileHandler($this->_file, Config::getConf('Log.maxFiles', 15), Config::getConf('Log.level', 100));
     $formatter = Config::getConf('Log.formatter', 'Monolog\Formatter\JsonFormatter');
     $format = new $formatter();
     $stream->setFormatter($format);
+
+    self::$_logger = new Logger(Config::getConf('Log.Channel', 'cbworker'));
     self::$_logger->pushHandler($stream);
 
     self::$_logger->pushProcessor(new MemoryPeakUsageProcessor());
