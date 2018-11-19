@@ -16,7 +16,7 @@ use Monolog\Processor\MemoryUsageProcessor;
 class MLogger
 {
   use Singleton;
-  
+
   public static $_loggerId;
   private static $_logger;
   private $_file;
@@ -30,13 +30,13 @@ class MLogger
     $format = new $formatter();
     $stream->setFormatter($format);
     self::$_logger->pushHandler($stream);
-  
+
     self::$_logger->pushProcessor(new MemoryPeakUsageProcessor());
     self::$_logger->pushProcessor(new MemoryUsageProcessor());
-    
+
     self::pushLoggerId();
   }
-  
+
   public static function pushLoggerId() {
     $callback = function ($record) {
       $record['loggerId'] = $record['context']['loggerId'] ?? self::$_loggerId ?? 'SY' . date('YmdHis');
@@ -44,7 +44,7 @@ class MLogger
     };
     self::$_logger->pushProcessor($callback);
   }
-  
+
   /**
    * @param $message
    * @param array $context
@@ -54,7 +54,7 @@ class MLogger
   {
     return self::$_logger->addRecord(Logger::INFO, $message, $context);
   }
-  
+
   /**
    * @param $message
    * @param array $context
@@ -64,7 +64,7 @@ class MLogger
   {
     return self::$_logger->addRecord(Logger::DEBUG, $message, $context);
   }
-  
+
   /**
    * 记录错误消息
    * @param $message
@@ -75,7 +75,7 @@ class MLogger
   {
     return self::$_logger->addRecord(Logger::ERROR, $message, $context);
   }
-  
+
   /**
    * @param $message
    * @param array $context
@@ -85,10 +85,10 @@ class MLogger
   {
     return self::$_logger->addRecord(Logger::WARNING, $message, $context);
   }
-  
+
   public function setLoggerId($_loggerId)
   {
     self::$_loggerId = $_loggerId;
   }
-  
+
 }
