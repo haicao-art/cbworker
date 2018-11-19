@@ -97,9 +97,4 @@ class MLogger
     return self::$_logger->addRecord(Logger::WARNING, $message, $context);
   }
 
-  public function setLoggerId($_loggerId)
-  {
-    self::$_loggerId = $_loggerId;
-  }
-
 }
