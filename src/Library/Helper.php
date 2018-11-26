@@ -41,7 +41,7 @@ class Helper
  	* 生成订单号
  	*/
 	public static function generateRand($base = 'M') {
-  	return $base . date("ymd") . "-" . date("His") . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
+  	return strtoupper($base) . date("ymd") . date("His") . '-' . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
 	}
 
 	/**
@@ -67,6 +67,7 @@ class Helper
   public static function ValidateParams($rules, $request) {
     /*清洗掉rules中未定义的参数*/
   	//$request = array_intersect_key($request, $rules);
+		$rules = array_merge(array('sign'=> '/^[a-z0-9]+$/'), $rules);
     foreach ($rules as $key => $rule) {
 			/*深层递归匹配*/
 			if (is_array($rule)) {
@@ -77,13 +78,8 @@ class Helper
 				if (1 == count($rule) && 0 === @array_keys($rule)[0]) {
 					$values = array_values($request[$key]);
 					foreach ($values as $value) {
-						if('^true|false$/' == substr($rule[0], -13)){
-							/*强制转换bool类型 http_build_query可能转换true|false为1|0*/
-							$request[$key] = (bool)$request[$key];
-						}else{
-							if (!preg_match($rule[0], $value)) {
-								throw new Exception("请求参数错误,{$key}:{$rule}", -4);
-							}
+						if (!preg_match($rule[0], $value)) {
+							throw new Exception("请求参数错误,{$key}:{$rule}", -4);
 						}
 					}
 					continue;
@@ -102,14 +98,11 @@ class Helper
 					continue;
 				}
 			}
-      if('^true|false$/' == substr($rule, -13)) {
-        $request[$key] = (bool) $request[$key];
-      } else {
-        if(!preg_match($rule, $request[$key])) {
-					throw new Exception("请求参数错误,{$key}:{$rule}", -4);
-        }
+      if(!preg_match($rule, $request[$key])) {
+				throw new Exception("请求参数错误,{$key}:{$rule}", -4);
       }
     }
+		//排序 -> md5 -> 转小写
     return true;
   }
 
